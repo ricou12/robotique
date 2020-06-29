@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.5.207/pdf.min.js">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -18,93 +19,488 @@
                 <h1>Projet robotique ( Raspberry et arduino )</h1>
             </aside>
             <aside class="col-12 text-center">
-                <p>Conception d'un robot motorisé avec camera infra-rouge monté sur servomoteurs</p>
+                <p>Conception d'un robot motorisé et avec camera infra-rouge articulé sur servomoteurs</p>
             </aside>
         </section>
         <section class="row">
             <aside class="contain-video col-12 offset-lg-2 col-lg-8 offset-lg-2">
                 <figure>
-                   <video controls>
-                    <source src="./video/MODELISME.mp4" type="video/mp4">
-                    <source src="./video/MODELISME.webm" type="video/webm">
-                    <p>Votre navigateur ne prend pas en charge les vidéos HTML5.
-                        Voici <a href="./video/MODELISME.mp4">un lien pour télécharger la vidéo</a>.</p>
-                </video>
-                <div class="blur"></div>
-            <figcaption>Démonstration</figcaption>
+                    <video controls>
+                        <source src="./video/MODELISME.mp4" type="video/mp4">
+                        <source src="./video/MODELISME.webm" type="video/webm">
+                        <p>Votre navigateur ne prend pas en charge les vidéos HTML5.
+                            Voici <a href="./video/MODELISME.mp4">un lien pour télécharger la vidéo</a>.</p>
+                    </video>
+                    <div class="blur"></div>
+                    <figcaption>Démonstration</figcaption>
                 </figure>
-                
+
             </aside>
         </section>
         <section class="row mt-4">
             <div class="col-12">
                 <div class="row">
-                    <div class="col-6 border border-primary">
-                        <h2 class="p-4">Conception de la télécommande</h2>
+                    <div class="col-6 text-center">
+                        <h2 class="">Conception de la télécommande</h2>
                     </div>
-                    <div class="col-6 border border-primary">
+                    <div class="col-6 text-center">
                         <h2>Conception du vehicule</h2>
                     </div>
                 </div>
             </div>
 
-            <aside class="col-6 border border-primary">
-                <div class="row  border border-primary">
-                    <div class="col-12 d-flex justify-content-center">
-                        
-                    </div>
-                    <div class="col-12 d-flex justify-content-center">
-                        <img class="img shadow" src="./img/telecom1.png" alt="telecommande">
+            <aside class="col-6 ">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center align-items-center">
+                        <img src="./img/telecom1.png" alt="telecommande" height="500" width="auto">
                     </div>
                 </div>
             </aside>
-            <aside class="col-6 border border-primary">
+            <aside class="col-6">
                 <div class="row">
-                    <div class="col-12 d-flex justify-content-center">
-                        
-                    </div>
-                    <div class="col-12 d-flex justify-content-center">
-                        <img class="img shadow" src="./img/vehicule.png" alt="telecommande">
+                    <div class="col-12 d-flex justify-content-center align-items-center">
+                        <img src="./img/vehicule.png" alt="telecommande" height="500" width="auto">
                     </div>
                 </div>
             </aside>
             <aside>
-                <h3 class="p-4">Liste des composants</h3>
-                <ul class="row d-flex flew-row flex-wrap">
+                <h3 class="mt-5  text-uppercase text-center font-weight-bold">La télécommande</h3>
+                <h3 class="text-center text-info p-4 ">Liste des composants</h3>
+                <ul class="row d-flex flew-row flex-wrap font-weight-bold">
                     <li class="col-3">Plaque de plexiglass.
-                        <img src="./img/pexi.png" alt="">
+                        <img src="/img/pexi.png" alt="">
                     </li>
                     <li class="col-3">Arduino uno.
-                        <img src="./img/arduino.png" alt="">
+                        <img src="/img/arduino.png" alt="">
                     </li>
                     <li class="col-3">Jostick de jeu.
-                        <img src="./img/joystick.png" alt="">
+                        <img src="/img/joystick.png" alt="">
                     </li>
                     <li class="col-3">Cables pour plaque de prototypage.
-                        <img src="./img/cable.png" alt="">
+                        <img src="/img/cable.png" alt="">
                     </li>
                     <li class="col-3">Bouton poussoir.
-
                     </li>
                     <li class="col-3">Led.
-                        <img src="./img/led.png" alt="">
+                        <img src="/img/led.png" alt="">
                     </li>
                     <li class="col-3">Emetteur Récepteur sans Fil 2.4G 1100m NRF24L01+PA+LNA avec antenne KY67
-                        <img src="./img/emetteur.png" alt="">
+                        <img src="/img/emetteur.png" alt="">
                     </li>
                     <li class="col-3">Circuit imprimé 4x6cm.
-                        <img src="./img/plaquesasouder.png" alt="">
+                        <img src="/img/plaquesasouder.png" alt="">
                     </li>
                     <li class="col-3">Pin strip Reglette a broches .
-                        <img src="./img/broches.png" alt="">
+                        <img src="/img/broches.png" alt="">
                     </li>
 
                 </ul>
             </aside>
         </section>
     </article>
-    <article class="code container-fluid">
-        <iframe srcdoc="./code/SYTEME ROBOTISE_Page_01.png" frameborder="1" ></iframe>
+
+    <h3 class="text-center text-info p-4">Le code arduino en langage C</h3>
+    <article class="code container">
+        <div class="d-flex justify-content-center" >
+            <pre>
+            <span class="colorGreen">
+            TELECOMMANDE.ino
+            Brochage pour l'emetteur et le recpteur MODULE NRF24L04
+            Broches utilisees pour le MEGA 2560
+            MISO -> 50          * MOSI -> 51            * SCK -> 52
+            CE -> 48            * CSN -> 49
+            GND -> GND          * VCC -> 3
+            (Volts du regulateur)
+
+            Broches utilisees pour le UNO
+            MISO -> 12          * MOSI -> 11            * SCK -> 13
+            CE -> 8             * CSN -> 7
+            GND -> GND          * VCC -> 3.3v
+            (Volts du regulateur)
+            */
+            // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+            // ::::::::::                                                                                                           ::::::::::
+            // ::::::::::                                                   LIBRAIRIE                                               ::::::::::
+            // ::::::::::                                                                                                           ::::::::::
+            // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+            // -------- LIBRAIRIE EMETTEUR RECEPTEUR RADIO --------
+            // MIRF PERMETTANT LE CONTROLE DU MODULE NRF24L04
+            </span>
+            #include &lt;SPI.h&gt; <span class="colorGreen">// Pour la gestion du port SPI</span>
+            #include &lt;Mirf.h&gt; <span class="colorGreen">// Pour la gestion de la communication</span>
+            #include &lt;nRF24L01.h&gt; <span class="colorGreen">// Pour les definitions des registres du nRF24L01</span>
+            #include &lt;MirfHardwareSpiDriver.h&gt; <span class="colorGreen">// Pour la communication SPI hardware</span>
+            <span class="colorGreen">
+            // ::                                                                                                                           ::
+            // ::::::                                                                                                                   ::::::
+            // ::::::::::                                                                                                           ::::::::::
+            // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+            // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+            // ::::::::::                                                                                                           ::::::::::
+            // ::::::::::                       DENOMINATION DES BROCHES DIGITAL/ANALOGIQUE                                         ::::::::::      
+            // ::::::::::                                                                                                           :::::::::: 
+            // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+            // -------- RACCORDEMENT DES COMPOSANTS ET CIRCUITS ELECTRONIQUES AUX BROCHES DE L'ARDUINO -------­
+            // -------- RACCORDEMENT DU JOYSTICK DE DROITE AUX BROCHE ANALOGIQUES. -------­
+            </span>
+            int SENSOR_PIN_X_D = 0; 
+            int SENSOR_PIN_Y_D = 2; 
+            int SENSOR_PIN_D_Switch = 1; 
+
+            <span class="colorGreen">// -------- RACCORDEMENT DU JOYSTICK DE GAUCHE AUX BROCHE ANALOGIQUES. -------­</span>
+            int SENSOR_PIN_X_G = 3; 
+            int SENSOR_PIN_Y_G = 5; 
+            int SENSOR_PIN_G_Switch = 4; 
+
+            <span class="colorGreen">// -------- RACCORDEMENT DES LEDS AUX BROCHES NUMERIQUES. -------­</span>
+            const int LED_ROUGE = 2; 
+            const int LED_VERTE = 3; 
+            const int LED_BLEU = 4; 
+
+            <span class="colorGreen">// -------- DECLARATION DES BROCHES POUR LE BOUTONS -------­</span>
+            const int Broche_bouton1 = 5; // bleu haut 
+            const int Broche_bouton2 = 6; // orange bas 
+            const int Broche_bouton3 = 9; // vert gauche 
+            const int Broche_bouton4 = 10; // jaune droite 
+            <span class="colorGreen">
+            // ::                                                                                                                           :: 
+            // ::::::                                                                                                                   :::::: 
+            // ::::::::::                                                                                                           :::::::::: 
+            // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+
+
+            // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+            // ::::::::::                                                                                                           :::::::::: 
+            // ::::::::::                                   DEFINITION DES STRUCTURES                                               :::::::::: 
+            // ::::::::::                                                                                                           :::::::::: 
+            // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+            // ------- STRUCTURE POUR STOCKER LES VALEURS DU JOYSTICK ------­
+            </span>
+            typedef struct
+            { 
+                int X_G; 
+                int Y_G;  
+                int SW_G;  
+                int X_D;  
+                int Y_D;  
+                int SW_D;  
+                byte bouton_Haut;  
+                byte bouton_Bas;  
+                byte bouton_Gauche;  
+                byte bouton_Droite;  
+            }  MaStructure;  
+            MaStructure Joystick_original;  <span class="colorGreen">// VALEUR ANALOGIQUES DE 0 A 1023  </span>
+            MaStructure Joystick;  <span class="colorGreen">// VALEURS CONVERTI POUR LE CONTROLE PWM DES MOTEURS 0 A 255</span>  
+            byte taille_message =  sizeof(MaStructure); <span class="colorGreen">// 12 octet (valeurS de type int) + 4 octet (valeurS de type byte)</span>   
+            <span class="colorGreen">
+            // ::                                                                                                                           ::  
+            // ::::::                                                                                                                   ::::::  
+            // ::::::::::                                                                                                           ::::::::::        
+            // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+
+
+            // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+            // ::::::::::                                                                                                           :::::::::: 
+            // ::::::::::                           CREATION D'UN CHRONOMETRE                                                       :::::::::: 
+            // ::::::::::                                                                                                           :::::::::: 
+            // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+            // ETAT D'ACTIVATION DE LA TEMPORISATION 
+            //int tempoActive = 0; 
+            // TEMPS A L'ACTIVATION DE LA TEMPORISATION 
+            </span>
+            unsigned long tempoDepart = 0; 
+            <span class="colorGreen">// INTERVAL DE TEMPS (milliseconds)</span> 
+            const long interval = 2000; 
+            <span class="colorGreen">
+            // ::                                                                                                                           :: 
+            // ::::::                                                                                                                   :::::: 
+            // ::::::::::                                                                                                           :::::::::: 
+            // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+
+
+            // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+            // ::::::::::                                                                                                           :::::::::: 
+            // ::::::::::                                       PARAMETRAGE                                                         :::::::::: 
+            // ::::::::::                                                                                                           :::::::::: 
+            // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+            </span>
+            <span class="colorGreen">// ------- VARIATION VALEUR ENCADRANT LE POINT MORT ------</span>
+            <span class="colorGreen">­// JOYSTICK GAUCHE </span>
+            int Seuil_Mini_X_G; 
+            int Seuil_Maxi_X_G; 
+            int Seuil_Mini_Y_G; 
+            int Seuil_Maxi_Y_G; 
+            <span class="colorGreen">// JOYSTICK DROIT </span>
+            int Seuil_Mini_X_D; 
+            int Seuil_Maxi_X_D; 
+            int Seuil_Mini_Y_D; 
+            int Seuil_Maxi_Y_D; 
+
+            int Compteur = 0; 
+            <span class="colorGreen">
+            // ::                                                                                                                           :: 
+            // ::::::                                                                                                                   :::::: 
+            // ::::::::::                                                                                                           :::::::::: 
+            // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+
+
+            // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+            // ::::::::::                                                                                                           :::::::::: 
+            // ::::::::::                                      FONCTIONNEMENT DES JOYSTICKS                                         :::::::::: 
+            // ::::::::::                                                                                                           :::::::::: 
+            // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+
+            // POSITION JOYSTICK ENVOYE VIA LE JOYPAD ( j'ai inversé l'axes X et Y ) 
+            //                                                          (+) 
+            //                                                      (Axe des X) 
+            //                                                           0 
+            //                                                           | 
+            //                                                           | 
+            //                                                  500 (Seuil_Mini_X) 
+            //                                                           | 
+            //                                 (Seuil_Maxi_Y)       (Point_Mort)       (Seuil_Mini_Y) 
+            //(Axe des Y)(-) 1023 ------------------550-----------------511----------------500--------------------- 0 (+) 
+            //                                                           | 
+            //                                                  550 (Seuil_Maxi_X) 
+            //                                                           | 
+            //                                                           | 
+            //                                                          1023 
+            //                                                          (-) 
+            // ::                                                                                                                           :: 
+            // ::::::                                                                                                                   :::::: 
+            // ::::::::::                                                                                                           :::::::::: 
+            // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+
+
+            // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+            // ::::::::::                                                                                                           :::::::::: 
+            // ::::::::::                                       CONFIGURATION                                                       :::::::::: 
+            // ::::::::::                                                                                                           :::::::::: 
+            // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+            </span>
+            void setup() { 
+                Serial.begin(9600); 
+                <span class="colorGreen">
+                // ------- RECUPERE LES VALEURS D'ENTREE DU JOYSTICK GAUCHE CONNECTE AUX BROCHES ANALOGIQUES ------­
+                </span>
+                Serial.println("CALIBRAGE DES JOYSTICKS"); 
+                Serial.print("Joystick.X_G: "); 
+                Serial.print(analogRead(SENSOR_PIN_X_G)); 
+                Serial.print(" , Joystick.Y_G: "); 
+                Serial.print(analogRead(SENSOR_PIN_Y_G)); 
+                Serial.print(" , Joystick.SW_G: "); 
+                Serial.print(analogRead(SENSOR_PIN_G_Switch)); 
+                Serial.print(" , Joystick.X_D: "); 
+                Serial.print( analogRead(SENSOR_PIN_X_D)); 
+                Serial.print(" , Joystick.Y_D: "); 
+                Serial.print(analogRead(SENSOR_PIN_Y_D)); 
+                Serial.print(" , Joystick.SW_D: "); 
+                Serial.println(analogRead(SENSOR_PIN_D_Switch)); 
+                Serial.println(); 
+                <span class="colorGreen">
+                // ------- MARGE D'ERREUR DES DEUX JOYSTICK AUTOUR DU RETOUR DE FORCE ------­</span>
+                int const value_seuil = 10; 
+                <span class="colorGreen">// ------- AUTOCALIBRAGE DES JOYSTICK AVEC MARGE D'ERREUR REPRESENTE PAR LA VARIABLE "value_seuil" ------
+                ­// RECUPERE LES VALEURS DE POSITION DU JOYSTICK GAUCHE CONNECTE AUX BROCHES ANALOGIQUES </span>
+                Seuil_Mini_X_G = analogRead(SENSOR_PIN_X_G)-value_seuil; 
+                Seuil_Maxi_X_G = analogRead(SENSOR_PIN_X_G)+ value_seuil; 
+                Seuil_Mini_Y_G = analogRead(SENSOR_PIN_Y_G)-value_seuil; 
+                Seuil_Maxi_Y_G = analogRead(SENSOR_PIN_Y_G)+ value_seuil; 
+                <span class="colorGreen">// RECUPERE LES VALEURS DE POSITION DU JOYSTICK DROIT CONNECTE AUX BROCHES ANALOGIQUES </span>
+                Seuil_Mini_X_D = analogRead(SENSOR_PIN_X_D)-value_seuil; 
+                Seuil_Maxi_X_D = analogRead(SENSOR_PIN_X_D)+ value_seuil; 
+                Seuil_Mini_Y_D = analogRead(SENSOR_PIN_Y_D)-value_seuil; 
+                Seuil_Maxi_Y_D = analogRead(SENSOR_PIN_Y_D)+ value_seuil; 
+                <span class="colorGreen">// ------- ACTIVE LES BROCHES DES BOUTONS ------­</span>
+                pinMode(Broche_bouton4, INPUT); 
+                pinMode(Broche_bouton3, INPUT); 
+                pinMode(Broche_bouton2, INPUT); 
+                pinMode(Broche_bouton1, INPUT); 
+                <span class="colorGreen">// ------- ACTIVE LES BROCHES DES LED ------­</span>
+                pinMode(LED_ROUGE, OUTPUT); 
+                pinMode(LED_VERTE, OUTPUT); 
+                pinMode(LED_BLEU, OUTPUT); 
+                <span class="colorGreen">// CLIGNOTEMENT DES LEDS MODE TEST </span>
+                Serial.println("Controle des leds"); 
+                for (int i = 0; i &lt; 5; i++) { 
+                    digitalWrite(LED_ROUGE, HIGH); 
+                    delay(50); 
+                    digitalWrite(LED_ROUGE, LOW); 
+                    delay(50); 
+                    digitalWrite(LED_VERTE, HIGH); delay(50); 
+                    digitalWrite(LED_VERTE, LOW); delay(50); 
+                    digitalWrite(LED_BLEU, HIGH); 
+                    delay(50); 
+                    digitalWrite(LED_BLEU, LOW); 
+                } 
+                <span class="colorGreen">
+                // -------- CONFIGURATION DE L'EMETTEUR RECEPTEUR RADIO -------­
+                /* Broches utilisees pour le UNO
+                    MISO -> 12 * MOSI -> 11 * SCK -> 13
+                    CE -> 8 * CSN -> 7
+                    GND -> GND * VCC -> 3.3v
+                */  </span>
+                <span class="colorGreen">// Configuration des broches CSN et CE : </span>
+                Mirf.cePin = 8; <span class="colorGreen">// CE</span> 
+                Mirf.csnPin = 7; <span class="colorGreen">// CSN</span> 
+                
+                <span class="colorGreen">// configuration du SPI : utiliser le port SPI hardware </span>
+                Mirf.spi =&#38;MirfHardwareSpi; <span class="colorGreen">// utilisation du port SPI hardware </span>
+                Mirf.init(); <span class="colorGreen">// initialise le module SPI </span>
+                <span class="colorGreen">// canal et longueur utile doivent etre identiques </span>
+                <span class="colorGreen">// pour le client et le serveur </span>
+                
+                Mirf.channel = 12; 
+                Mirf.payload = 16; <span class="colorGreen">// taille utile de la donnee transmise: 12 octet (valeurs de type int) + 4 octet (valeurs de type byte)</span>
+                
+                <span class="colorGreen">// Configuration des adresses de reception et d'emission </span>
+                Mirf.setRADDR((byte *)"clie1"); <span class="colorGreen">// adresse de reception du module (de 5 octets) </span>
+                Mirf.setTADDR((byte *)"serv1"); <span class="colorGreen">// adresse vers laquelle on transmet (de 5 octets) </span>
+                Mirf.config(); <span class="colorGreen">// ecriture de la configuration </span>
+                
+                <span class="colorGreen">// -------- AFFICHE LE MESSAGE DANS LE MONITEUR SERIE -------­</span>
+                Serial.print("JOYPAD: "); 
+                Serial.print("initialisation OK, "); 
+                Serial.println("Envoi des donnees"); 
+            } 
+            <span class="colorGreen">
+            // ::                                                                                                                          ::
+            // ::::::                                                                                                                  ::::::
+            // ::::::::::                                                                                                          ::::::::::
+            // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+            // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+            // ::::::::::                                                                                                          ::::::::::
+            // ::::::::::                                       DEMARRGE DU PROGRAMME                                              ::::::::::
+            // ::::::::::                                                                                                          ::::::::::
+            // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+            </span>
+            void loop() { 
+                <span class="colorGreen">// -------- ENVOI LES VALEUR RELATIVE A LA POSITION DES JOYSTICK ET BOUTONS -------­</span>
+                envoi_Position_Joystick(); 
+                <span class="colorGreen">// SI ON RECOIT UN MESSAGE RETOUR</span>
+                byte paquet2[32]; 
+                if (Mirf.dataReady()) { 
+                    Mirf.getData((byte *)&paquet2); <span class="colorGreen">// Réception du paquet </span>
+                    Serial.print("On a recu : "); 
+                    for (int i = 0 ; i &lt; Mirf.payload ; i++){ 
+                        Serial.write(paquet2[i]); <span class="colorGreen">// write affiche le caractere </span>
+                    } 
+                    Serial.println(" "); 
+                } 
+                delay(100);
+            }
+            <span class="colorGreen">
+            // ::                                                                                                                           :: 
+            // ::::::                                                                                                                   :::::: 
+            // ::::::::::                                                                                                           :::::::::: 
+            // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+            // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+            // ::::::::::                                                                                                           :::::::::: 
+            // ::::::::::                               EMISSION DES DONNEES VIA L'EMETTEUR RADIO                                   :::::::::: 
+            // ::::::::::                                                                                                           :::::::::: 
+            // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+            </span>  
+            void envoi_Position_Joystick(void){ 
+                <span class="colorGreen">// -------- RECUPERE LES VALEURS D'ENTREE DES JOYSTICK CONNECTE AUX BROCHES ANALOGIQUES -------­</span>
+                Joystick_original.X_G = analogRead(SENSOR_PIN_X_G); 
+                Joystick_original.Y_G = analogRead(SENSOR_PIN_Y_G); 
+                Joystick_original.X_D = analogRead(SENSOR_PIN_X_D); Joystick_original.Y_D = analogRead(SENSOR_PIN_Y_D); 
+                Joystick_original.SW_D = analogRead(SENSOR_PIN_D_Switch); 
+                <span class="colorGreen">
+                // -------- CONVERTI LES VALEURS X ET Y (0 A 1023) DES JOYSTICKS EN VALEUR COMPRISE ENTRE 0 ET 255 -------­
+                // DONNEES DIRECTEMENT EXPLOITABLE PAR LE SYSTEME ROBOTISE POUR LA VARIATION DE VITESSE DES MOTEURS DC </span>
+                Joystick.X_G = convert_value_joypad(Joystick_original.X_G, Seuil_Mini_X_G, Seuil_Maxi_X_G);
+                Joystick.Y_G = convert_value_joypad(Joystick_original.Y_G, Seuil_Mini_Y_G, Seuil_Maxi_Y_G); 
+                Joystick.X_D = convert_value_joypad(Joystick_original.X_D, Seuil_Mini_X_D, Seuil_Maxi_X_D); 
+                Joystick.Y_D = convert_value_joypad(Joystick_original.Y_D, Seuil_Mini_Y_D, Seuil_Maxi_Y_D); 
+                <span class="colorGreen">// -------- LIT L'ETAT DES BOUTONS -------­</span>
+                Joystick.bouton_Haut = digitalRead(Broche_bouton1); 
+                <span class="colorGreen">// bleu haut </span>
+                Joystick.bouton_Bas = digitalRead(Broche_bouton2); 
+                <span class="colorGreen">// orange bas </span>
+                Joystick.bouton_Gauche = digitalRead(Broche_bouton3); 
+                <span class="colorGreen">// vert gauche </span>
+                Joystick.bouton_Droite = digitalRead(Broche_bouton4); 
+                <span class="colorGreen">// jaune droite </span>
+                <span class="colorGreen">// -------- ENVOIE DES DONNEES AVEC LA LIBRAIRIE MIRF VIA EMETTEUR NRF24L01 -------­</span>
+                Mirf.send((byte *) &Joystick); 
+                <span class="colorGreen">// On boucle tant que le message n'a pas ete envoye </span>
+                while (Mirf.isSending()) { 
+                    <span class="colorGreen">// on attend que le message soit envoyé </span>
+                } 
+                <span class="colorGreen">// -------- AFFICHE LES DONNEES DANS LE MONITEUR SERIE -------­</span>
+                Serial.print("Message envoye: "); 
+                Serial.print("Joystick.X_G: "); 
+                Serial.print(Joystick.X_G); 
+                Serial.print(" , Joystick.Y_G: "); 
+                Serial.print(Joystick.Y_G); 
+                Serial.print(" , Joystick.SW_G: "); 
+                Serial.print(Joystick.SW_G); 
+                Serial.print(" , Joystick.X_D: "); 
+                Serial.print( Joystick.X_D); 
+                Serial.print(" , Joystick.Y_D: "); 
+                Serial.print(Joystick.Y_D); 
+                Serial.print(" , Joystick.SW_D: "); 
+                Serial.print(Joystick.SW_D); 
+                Serial.print(" , Bouton haut: "); 
+                Serial.print(Joystick.bouton_Haut); 
+                Serial.print(" , Bouton bas: "); 
+                Serial.print(Joystick.bouton_Bas); 
+                Serial.print(" , Bouton gauche: "); 
+                Serial.print(Joystick.bouton_Gauche); 
+                Serial.print(" , Bouton droite: "); 
+                Serial.println(Joystick.bouton_Droite); 
+            } 
+            <span class="colorGreen">
+            // ::                                                                                                                           :: 
+            // ::::::                                                                                                                   :::::: 
+            // ::::::::::                                                                                                           :::::::::: 
+            // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+
+            // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+            // ::::::::::                                                                                                           :::::::::: 
+            // ::::::::::                                   CONVERTI LES VALEURS DE JOYSTICKS                                       :::::::::: 
+            // ::::::::::           valeurs broches analogiques(0 à 1023) convertis en valeur digital PWM (0 et 255)                :::::::::: 
+            // ::::::::::                                                                                                           :::::::::: 
+            // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</span>
+            int convert_value_joypad(int position_Joystick, int seuil_mini, int seuil_maxi){
+                int position_joy ; 
+                // -------- CALCUL DE LA POSITION DU JOYSTICK SI INFERIEUR AU POINT MORT OU SEUIL MINIMUM -------­
+                if (position_Joystick &lt; seuil_mini){ 
+                    position_joy = -(position_Joystick -seuil_mini)/ 2; 
+                    if (position_joy > 255){ 
+
+                        position_joy = 255; 
+                    } 
+                        return position_joy; 
+                } 
+                // -------- CALCUL DE LA POSITION DU JOYSTICK SI SUPERIEUR AU POINT MORT OU SEUIL MAXIMUM -------­
+                else if (position_Joystick > seuil_maxi){ 
+                    int position_joy =(position_Joystick -seuil_maxi)/ 2; 
+
+                    if  (position_joy >  255)  {  
+                        position_joy  =  255;  
+                    }  
+                    return  -position_joy;  
+                    }  
+                    else  {  
+                        position_joy =  0;  
+                        return  position_joy;  
+                }  
+            } 
+            <span class="colorGreen"></span> 
+            // ::                                                                                                                           ::  
+            // ::::::                                                                                                                   ::::::  
+            // ::::::::::                                                                                                           ::::::::::  
+            // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+            <span class="colorGreen">
+            </pre>
+        </div>
+        
     </article>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
