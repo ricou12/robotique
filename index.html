@@ -1486,7 +1486,7 @@ int convert_value_joypad(int position_Joystick, int seuil_mini, int seuil_maxi){
         // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
         // SCAN DE LA CAMERA SUR L'AXE DES Y</span>
         void scanY(void) {
-            <span class="colorGreen"></// DEPLACEMENT DE LA CAMERA VERS LE HAUTspan>
+            <span class="colorGreen">// DEPLACEMENT DE LA CAMERA VERS LE HAUT</span>
             indiceDeplac = 1;
             while (valueY - indiceDeplac &gt;= 0) {
             deplacHaut();
@@ -1563,8 +1563,7 @@ int convert_value_joypad(int position_Joystick, int seuil_mini, int seuil_maxi){
             while (Mirf.isSending()) {
             delay(10);
             }
-            */
-            /*
+            
             // TEST LA DISTANCE VIS A VIS DE L'OBSTACLE ET DEFINI L'ACTION.
             if (Distance_Ultrason() &lt; 20) {
             // SI OBSTACLE ALORS STOP LES MOTEUR
@@ -1704,7 +1703,7 @@ int convert_value_joypad(int position_Joystick, int seuil_mini, int seuil_maxi){
 
             if (capteur.dist_mini &lt; 300  ) {
                 switch (capteur.nom_capt_mini) {
-                case 1: <span class="colorGreen"></s// |--> capteur 1 droitepan>
+                case 1: <span class="colorGreen">// |--> capteur 1 droite</span>
                     Serial.println("TOURNER A DROITE");
                     Actionneur_Moteur(0, 200, 0, 200);
                     delay(250);
