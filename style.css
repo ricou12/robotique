@@ -11,7 +11,7 @@
 }
 
 .bgImage {
-    background-image: url("/img/robotique.jpg");
+    background-image: url("./img/robotique.jpg");
 }
 
 /* VIDEO */
