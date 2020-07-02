@@ -1,0 +1,415 @@
+---
+layout: default
+title: Code source de la télécommande
+---
+
+<section class="container bgColor--blackLight p-4 mt-2 rounded">
+    <section class="row">
+        <div class="col-12 rounded">
+            <aside class="text-center bgColor-title--blue box-border">
+                <h1 class="txtShadow--white  p-4">Conception de la télécommande</h1>
+                <h3 class="text-info txtShadow--black  p-4">Le code source pour l'arduino en C</h3>
+            </aside>
+        </div>
+    </section> 
+    
+    <section class="container text-white mt-4 bgColor--blueLight rounded">
+        <pre class="text-white container-code p-4" id="telecommande">
+<span class="colorGreen">
+TELECOMMANDE.ino
+Brochage pour l'emetteur et le recpteur MODULE NRF24L04
+Broches utilisées pour le MEGA 2560
+MISO -> 50          * MOSI -> 51            * SCK -> 52
+CE -> 48            * CSN -> 49
+GND -> GND          * VCC -> 3
+(Volts du regulateur)
+
+Broches utilisées pour le UNO
+MISO -> 12          * MOSI -> 11            * SCK -> 13
+CE -> 8             * CSN -> 7
+GND -> GND          * VCC -> 3.3v
+(Volts du regulateur)
+*/
+// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+// ::::::::::                                                                                                           ::::::::::
+// ::::::::::                                                   LIBRAIRIE                                               ::::::::::
+// ::::::::::                                                                                                           ::::::::::
+// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+// -------- LIBRAIRIE EMETTEUR RECEPTEUR RADIO --------
+// MIRF PERMETTANT LE CONTROLE DU MODULE NRF24L04
+</span>
+#include &lt;SPI.h&gt; <span class="colorGreen">// Pour la gestion du port SPI</span>
+#include &lt;Mirf.h&gt; <span class="colorGreen">// Pour la gestion de la communication</span>
+#include &lt;nRF24L01.h&gt; <span class="colorGreen">// Pour les definitions des registres du nRF24L01</span>
+#include &lt;MirfHardwareSpiDriver.h&gt; <span class="colorGreen">// Pour la communication SPI hardware</span>
+<span class="colorGreen">
+// ::                                                                                                                           ::
+// ::::::                                                                                                                   ::::::
+// ::::::::::                                                                                                           ::::::::::
+// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+// ::::::::::                                                                                                           ::::::::::
+// ::::::::::                       DENOMINATION DES BROCHES DIGITAL/ANALOGIQUE                                         ::::::::::      
+// ::::::::::                                                                                                           :::::::::: 
+// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+// -------- RACCORDEMENT DES COMPOSANTS ET CIRCUITS ELECTRONIQUES AUX BROCHES DE L'ARDUINO -------­
+// -------- RACCORDEMENT DU JOYSTICK DE DROITE AUX BROCHES ANALOGIQUES. -------­
+</span>
+int SENSOR_PIN_X_D = 0; 
+int SENSOR_PIN_Y_D = 2; 
+int SENSOR_PIN_D_Switch = 1; 
+
+<span class="colorGreen">// -------- RACCORDEMENT DU JOYSTICK DE GAUCHE AUX BROCHES ANALOGIQUES. -------­</span>
+int SENSOR_PIN_X_G = 3; 
+int SENSOR_PIN_Y_G = 5; 
+int SENSOR_PIN_G_Switch = 4; 
+
+<span class="colorGreen">// -------- RACCORDEMENT DES LEDS AUX BROCHES NUMERIQUES. -------­</span>
+const int LED_ROUGE = 2; 
+const int LED_VERTE = 3; 
+const int LED_BLEU = 4; 
+
+<span class="colorGreen">// -------- DECLARATION DES BROCHES POUR LES BOUTONS -------­</span>
+const int Broche_bouton1 = 5;   // Fil bleu haut 
+const int Broche_bouton2 = 6;   // Fil orange bas 
+const int Broche_bouton3 = 9;   // Fil vert gauche 
+const int Broche_bouton4 = 10;  // Fil jaune droite 
+<span class="colorGreen">
+// ::                                                                                                                           :: 
+// ::::::                                                                                                                   :::::: 
+// ::::::::::                                                                                                           :::::::::: 
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+
+
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+// ::::::::::                                                                                                           :::::::::: 
+// ::::::::::                                   DEFINITION DES STRUCTURES                                               :::::::::: 
+// ::::::::::                                                                                                           :::::::::: 
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+// ------- STRUCTURE POUR STOCKER LES VALEURS DU JOYSTICK ------­
+</span>
+typedef struct
+{ 
+int X_G; 
+int Y_G;  
+int SW_G;  
+int X_D;  
+int Y_D;  
+int SW_D;  
+byte bouton_Haut;  
+byte bouton_Bas;  
+byte bouton_Gauche;  
+byte bouton_Droite;  
+}  MaStructure;  
+MaStructure Joystick_original;  <span class="colorGreen">// VALEURS ANALOGIQUES DE 0 A 1023  </span>
+MaStructure Joystick;  <span class="colorGreen">// VALEURS CONVERTIES POUR LE CONTROLE PWM DES MOTEURS 0 A 255</span>  
+byte taille_message =  sizeof(MaStructure); <span class="colorGreen">// 12 octet (valeurs de type int) + 4 octet (valeurs de type byte)</span>   
+<span class="colorGreen">
+// ::                                                                                                                           ::  
+// ::::::                                                                                                                   ::::::  
+// ::::::::::                                                                                                           ::::::::::        
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+
+
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+// ::::::::::                                                                                                           :::::::::: 
+// ::::::::::                           CREATION D'UN CHRONOMETRE                                                       :::::::::: 
+// ::::::::::                                                                                                           :::::::::: 
+// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+// ETAT D'ACTIVATION DE LA TEMPORISATION 
+//int tempoActive = 0; 
+// TEMPS A L'ACTIVATION DE LA TEMPORISATION 
+</span>
+unsigned long tempoDepart = 0; 
+<span class="colorGreen">// INTERVAL DE TEMPS (milliseconds)</span> 
+const long interval = 2000; 
+<span class="colorGreen">
+// ::                                                                                                                           :: 
+// ::::::                                                                                                                   :::::: 
+// ::::::::::                                                                                                           :::::::::: 
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+
+
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+// ::::::::::                                                                                                           :::::::::: 
+// ::::::::::                                       PARAMETRAGE                                                         :::::::::: 
+// ::::::::::                                                                                                           :::::::::: 
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+</span>
+<span class="colorGreen">// ------- VARIATION VALEUR ENCADRANT LE POINT MORT ------</span>
+<span class="colorGreen">­// JOYSTICK GAUCHE </span>
+int Seuil_Mini_X_G; 
+int Seuil_Maxi_X_G; 
+int Seuil_Mini_Y_G; 
+int Seuil_Maxi_Y_G; 
+<span class="colorGreen">// JOYSTICK DROIT </span>
+int Seuil_Mini_X_D; 
+int Seuil_Maxi_X_D; 
+int Seuil_Mini_Y_D; 
+int Seuil_Maxi_Y_D; 
+
+int Compteur = 0; 
+<span class="colorGreen">
+// ::                                                                                                                           :: 
+// ::::::                                                                                                                   :::::: 
+// ::::::::::                                                                                                           :::::::::: 
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+
+
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+// ::::::::::                                                                                                           :::::::::: 
+// ::::::::::                                      FONCTIONNEMENT DES JOYSTICKS                                         :::::::::: 
+// ::::::::::                                                                                                           :::::::::: 
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+
+// POSITION JOYSTICK ENVOYE VIA LE JOYPAD ( j'ai inversé l'axes X et Y ) 
+//                                                          (+) 
+//                                                      (Axe des X) 
+//                                                           0 
+//                                                           | 
+//                                                           | 
+//                                                  500 (Seuil_Mini_X) 
+//                                                           | 
+//                                 (Seuil_Maxi_Y)       (Point_Mort)       (Seuil_Mini_Y) 
+//(Axe des Y)(-) 1023 ------------------550-----------------511----------------500--------------------- 0 (+) 
+//                                                           | 
+//                                                  550 (Seuil_Maxi_X) 
+//                                                           | 
+//                                                           | 
+//                                                          1023 
+//                                                          (-) 
+// ::                                                                                                                           :: 
+// ::::::                                                                                                                   :::::: 
+// ::::::::::                                                                                                           :::::::::: 
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+
+
+// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+// ::::::::::                                                                                                           :::::::::: 
+// ::::::::::                                       CONFIGURATION                                                       :::::::::: 
+// ::::::::::                                                                                                           :::::::::: 
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+</span>
+void setup() { 
+Serial.begin(9600); 
+<span class="colorGreen">
+// ------- RECUPERE LES VALEURS D'ENTREE DU JOYSTICK GAUCHE CONNECTE AUX BROCHES ANALOGIQUES ------­
+</span>
+Serial.println("CALIBRAGE DES JOYSTICKS"); 
+Serial.print("Joystick.X_G: "); 
+Serial.print(analogRead(SENSOR_PIN_X_G)); 
+Serial.print(" , Joystick.Y_G: "); 
+Serial.print(analogRead(SENSOR_PIN_Y_G)); 
+Serial.print(" , Joystick.SW_G: "); 
+Serial.print(analogRead(SENSOR_PIN_G_Switch)); 
+Serial.print(" , Joystick.X_D: "); 
+Serial.print( analogRead(SENSOR_PIN_X_D)); 
+Serial.print(" , Joystick.Y_D: "); 
+Serial.print(analogRead(SENSOR_PIN_Y_D)); 
+Serial.print(" , Joystick.SW_D: "); 
+Serial.println(analogRead(SENSOR_PIN_D_Switch)); 
+Serial.println(); 
+<span class="colorGreen">
+// ------- MARGE D'ERREUR DES DEUX JOYSTICKS AUTOUR DU RETOUR DE FORCE ------­</span>
+int const value_seuil = 10; 
+<span class="colorGreen">// ------- AUTOCALIBRAGE DES JOYSTICK AVEC MARGE D'ERREUR REPRESENTE PAR LA VARIABLE "value_seuil" ------
+­// RECUPERE LES VALEURS DE POSITION DU JOYSTICK GAUCHE CONNECTE AUX BROCHES ANALOGIQUES </span>
+Seuil_Mini_X_G = analogRead(SENSOR_PIN_X_G)-value_seuil; 
+Seuil_Maxi_X_G = analogRead(SENSOR_PIN_X_G)+ value_seuil; 
+Seuil_Mini_Y_G = analogRead(SENSOR_PIN_Y_G)-value_seuil; 
+Seuil_Maxi_Y_G = analogRead(SENSOR_PIN_Y_G)+ value_seuil; 
+<span class="colorGreen">// RECUPERE LES VALEURS DE POSITION DU JOYSTICK DROIT CONNECTE AUX BROCHES ANALOGIQUES </span>
+Seuil_Mini_X_D = analogRead(SENSOR_PIN_X_D)-value_seuil; 
+Seuil_Maxi_X_D = analogRead(SENSOR_PIN_X_D)+ value_seuil; 
+Seuil_Mini_Y_D = analogRead(SENSOR_PIN_Y_D)-value_seuil; 
+Seuil_Maxi_Y_D = analogRead(SENSOR_PIN_Y_D)+ value_seuil; 
+<span class="colorGreen">// ------- ACTIVE LES BROCHES DES BOUTONS ------­</span>
+pinMode(Broche_bouton4, INPUT); 
+pinMode(Broche_bouton3, INPUT); 
+pinMode(Broche_bouton2, INPUT); 
+pinMode(Broche_bouton1, INPUT); 
+<span class="colorGreen">// ------- ACTIVE LES BROCHES DES LED ------­</span>
+pinMode(LED_ROUGE, OUTPUT); 
+pinMode(LED_VERTE, OUTPUT); 
+pinMode(LED_BLEU, OUTPUT); 
+<span class="colorGreen">// CLIGNOTEMENT DES LEDS MODE TEST </span>
+Serial.println("Controle des leds"); 
+for (int i = 0; i &lt; 5; i++) { 
+    digitalWrite(LED_ROUGE, HIGH); 
+    delay(50); 
+    digitalWrite(LED_ROUGE, LOW); 
+    delay(50); 
+    digitalWrite(LED_VERTE, HIGH); delay(50); 
+    digitalWrite(LED_VERTE, LOW); delay(50); 
+    digitalWrite(LED_BLEU, HIGH); 
+    delay(50); 
+    digitalWrite(LED_BLEU, LOW); 
+} 
+<span class="colorGreen">
+// -------- CONFIGURATION DE L'EMETTEUR RECEPTEUR RADIO -------­
+/* Broches utilisees pour le UNO
+    MISO -> 12 * MOSI -> 11 * SCK -> 13
+    CE -> 8 * CSN -> 7
+    GND -> GND * VCC -> 3.3v
+*/  </span>
+<span class="colorGreen">// Configuration des broches CSN et CE : </span>
+Mirf.cePin = 8; <span class="colorGreen">// CE</span> 
+Mirf.csnPin = 7; <span class="colorGreen">// CSN</span> 
+
+<span class="colorGreen">// configuration du SPI : >Utiliser le port SPI hardware </span>
+Mirf.spi =&#38;MirfHardwareSpi; <span class="colorGreen">// Utilisation du port SPI hardware </span>
+Mirf.init(); <span class="colorGreen">// Initialise le module SPI </span>
+<span class="colorGreen">// Canal et longueur utile doivent être identiques </span>
+<span class="colorGreen">// Pour le client et le serveur </span>
+
+Mirf.channel = 12; 
+Mirf.payload = 16; <span class="colorGreen">// Taille utile de la donnee transmise: 12 octet (valeurs de type int) + 4 octet (valeurs de type byte)</span>
+
+<span class="colorGreen">// Configuration des adresses de reception et d'emission </span>
+Mirf.setRADDR((byte *)"clie1"); <span class="colorGreen">// Adresse de reception du module (de 5 octets) </span>
+Mirf.setTADDR((byte *)"serv1"); <span class="colorGreen">// Adresse vers laquelle on transmet (de 5 octets) </span>
+Mirf.config(); <span class="colorGreen">// Ecriture de la configuration </span>
+
+<span class="colorGreen">// -------- AFFICHE LE MESSAGE DANS LE MONITEUR SERIE -------­</span>
+Serial.print("JOYPAD: "); 
+Serial.print("initialisation OK, "); 
+Serial.println("Envoi des donnees"); 
+} 
+<span class="colorGreen">
+// ::                                                                                                                          ::
+// ::::::                                                                                                                  ::::::
+// ::::::::::                                                                                                          ::::::::::
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+// ::::::::::                                                                                                          ::::::::::
+// ::::::::::                                       DEMARRGE DU PROGRAMME                                              ::::::::::
+// ::::::::::                                                                                                          ::::::::::
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+</span>
+void loop() { 
+<span class="colorGreen">// -------- ENVOI LES VALEUR RELATIVES A LA POSITION DES JOYSTICKS ET BOUTONS -------­</span>
+envoi_Position_Joystick(); 
+<span class="colorGreen">// SI ON RECOIT UN MESSAGE RETOUR</span>
+byte paquet2[32]; 
+if (Mirf.dataReady()) { 
+    Mirf.getData((byte *)&paquet2); <span class="colorGreen">// Réception du paquet </span>
+    Serial.print("On a recu : "); 
+    for (int i = 0 ; i &lt; Mirf.payload ; i++){ 
+        Serial.write(paquet2[i]); <span class="colorGreen">// Write affiche le caractere </span>
+    } 
+    Serial.println(" "); 
+} 
+delay(100);
+}
+<span class="colorGreen">
+// ::                                                                                                                           :: 
+// ::::::                                                                                                                   :::::: 
+// ::::::::::                                                                                                           :::::::::: 
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+// ::::::::::                                                                                                           :::::::::: 
+// ::::::::::                               EMISSION DES DONNEES VIA L'EMETTEUR RADIO                                   :::::::::: 
+// ::::::::::                                                                                                           :::::::::: 
+// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+</span>  
+void envoi_Position_Joystick(void){ 
+<span class="colorGreen">// -------- RECUPERE LES VALEURS D'ENTREE DES JOYSTICKS CONNECTES AUX BROCHES ANALOGIQUES -------­</span>
+Joystick_original.X_G = analogRead(SENSOR_PIN_X_G); 
+Joystick_original.Y_G = analogRead(SENSOR_PIN_Y_G); 
+Joystick_original.X_D = analogRead(SENSOR_PIN_X_D); Joystick_original.Y_D = analogRead(SENSOR_PIN_Y_D); 
+Joystick_original.SW_D = analogRead(SENSOR_PIN_D_Switch); 
+<span class="colorGreen">
+// -------- CONVERTI LES VALEURS X ET Y (0 A 1023) DES JOYSTICKS EN VALEUR COMPRISE ENTRE 0 ET 255 -------­
+// DONNEES DIRECTEMENT EXPLOITABLE PAR LE SYSTEME ROBOTISE POUR LA VARIATION DE VITESSE DES MOTEURS DC </span>
+Joystick.X_G = convert_value_joypad(Joystick_original.X_G, Seuil_Mini_X_G, Seuil_Maxi_X_G);
+Joystick.Y_G = convert_value_joypad(Joystick_original.Y_G, Seuil_Mini_Y_G, Seuil_Maxi_Y_G); 
+Joystick.X_D = convert_value_joypad(Joystick_original.X_D, Seuil_Mini_X_D, Seuil_Maxi_X_D); 
+Joystick.Y_D = convert_value_joypad(Joystick_original.Y_D, Seuil_Mini_Y_D, Seuil_Maxi_Y_D); 
+<span class="colorGreen">// -------- LIT L'ETAT DES BOUTONS -------­</span>
+Joystick.bouton_Haut = digitalRead(Broche_bouton1); 
+<span class="colorGreen">// bleu haut </span>
+Joystick.bouton_Bas = digitalRead(Broche_bouton2); 
+<span class="colorGreen">// orange bas </span>
+Joystick.bouton_Gauche = digitalRead(Broche_bouton3); 
+<span class="colorGreen">// vert gauche </span>
+Joystick.bouton_Droite = digitalRead(Broche_bouton4); 
+<span class="colorGreen">// jaune droite </span>
+<span class="colorGreen">// -------- ENVOIE DES DONNEES AVEC LA LIBRAIRIE MIRF VIA EMETTEUR NRF24L01 -------­</span>
+Mirf.send((byte *) &Joystick); 
+<span class="colorGreen">// On boucle tant que le message n'a pas ete envoye </span>
+while (Mirf.isSending()) { 
+    <span class="colorGreen">// on attend que le message soit envoyé </span>
+} 
+<span class="colorGreen">// -------- AFFICHE LES DONNEES DANS LE MONITEUR SERIE -------­</span>
+Serial.print("Message envoye: "); 
+Serial.print("Joystick.X_G: "); 
+Serial.print(Joystick.X_G); 
+Serial.print(" , Joystick.Y_G: "); 
+Serial.print(Joystick.Y_G); 
+Serial.print(" , Joystick.SW_G: "); 
+Serial.print(Joystick.SW_G); 
+Serial.print(" , Joystick.X_D: "); 
+Serial.print( Joystick.X_D); 
+Serial.print(" , Joystick.Y_D: "); 
+Serial.print(Joystick.Y_D); 
+Serial.print(" , Joystick.SW_D: "); 
+Serial.print(Joystick.SW_D); 
+Serial.print(" , Bouton haut: "); 
+Serial.print(Joystick.bouton_Haut); 
+Serial.print(" , Bouton bas: "); 
+Serial.print(Joystick.bouton_Bas); 
+Serial.print(" , Bouton gauche: "); 
+Serial.print(Joystick.bouton_Gauche); 
+Serial.print(" , Bouton droite: "); 
+Serial.println(Joystick.bouton_Droite); 
+} 
+<span class="colorGreen">
+// ::                                                                                                                           :: 
+// ::::::                                                                                                                   :::::: 
+// ::::::::::                                                                                                           :::::::::: 
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+
+// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+// ::::::::::                                                                                                           :::::::::: 
+// ::::::::::                                   CONVERTI LES VALEURS DE JOYSTICKS                                       :::::::::: 
+// ::::::::::           valeurs broches analogiques(0 à 1023) convertis en valeurs digital PWM (0 et 255)                :::::::::: 
+// ::::::::::                                                                                                           :::::::::: 
+// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</span>
+int convert_value_joypad(int position_Joystick, int seuil_mini, int seuil_maxi){
+int position_joy ; 
+// -------- CALCUL DE LA POSITION DU JOYSTICK SI INFERIEUR AU POINT MORT OU SEUIL MINIMUM -------­
+if (position_Joystick &lt; seuil_mini){ 
+    position_joy = -(position_Joystick -seuil_mini)/ 2; 
+    if (position_joy > 255){ 
+
+        position_joy = 255; 
+    } 
+        return position_joy; 
+} 
+// -------- CALCUL DE LA POSITION DU JOYSTICK SI SUPERIEUR AU POINT MORT OU SEUIL MAXIMUM -------­
+else if (position_Joystick > seuil_maxi){ 
+    int position_joy =(position_Joystick -seuil_maxi)/ 2; 
+
+    if  (position_joy >  255)  {  
+        position_joy  =  255;  
+    }  
+    return  -position_joy;  
+    }  
+    else  {  
+        position_joy =  0;  
+        return  position_joy;  
+}  
+} 
+<span class="colorGreen"></span> 
+// ::                                                                                                                           ::  
+// ::::::                                                                                                                   ::::::  
+// ::::::::::                                                                                                           ::::::::::  
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+<span class="colorGreen">
+        </pre>
+    </section>
+</section>

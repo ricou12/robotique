@@ -1,0 +1,69 @@
+/* VIDEO */
+video {
+    width: 90%;
+}
+
+/* VIGNETTES */
+.vignettes {
+    max-width: 200px;
+    height: auto;
+}
+
+.composant{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* BACKGROUND COLOR */
+.bgColor--blackHight {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.bgColor--blackMedium {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.bgColor--blackLight {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.bgColor-title--blue {
+    background-color:rgba(14, 40, 45, 0.5);
+}
+
+.bgColor--blueLight {
+    background-color:rgba(21, 35, 35, 0.63);
+}
+
+.bgColor--greenLight{
+    background-color: rgba(151, 228, 149, 0.5);
+}
+
+.bgColor--orangeLight{
+    background-color: rgba(191, 140, 140, 0.2);
+}
+
+/* TEXT COLOR */
+.colorGreen {
+    color: rgb(0, 255, 0);
+}
+
+/* OMBRAGES */
+.box-shadow-down {
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+.txtShadow--black{
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.txtShadow--white {
+    text-shadow: 1px 2px 2px #ffffff;
+}
+
+.box-border{
+    border:2px dotted rgba(56, 56, 62, 0.70);
+}

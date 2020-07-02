@@ -1,0 +1,53 @@
+---
+layout: default
+title: Installer une caméra
+---
+
+<section class="container bgColor--blackLight p-4 mt-2 rounded">
+    <section class="row">
+        <div class="col-12 rounded">
+            <aside class="text-center bgColor-title--blue box-border">
+                <h1 class="txtShadow--white  p-4">Installation et configuration d'une caméra</h1>
+                <h3 class="text-info txtShadow--black  p-4">L'interface Web du module RPi Cam</h3>
+            </aside>
+        </div>
+    </section> 
+
+    <section class="container text-white bgColor--blueLight mt-4">
+        <div class="row p-4">
+            <div class="col-12">
+                <div class="d-inline-block mb-2">
+                    <img src="assets/img/terminal.png" alt="Terminal" width="50" class="border">
+                    Ouvrir le terminal
+                </div>
+                <h4>Mise à jour du firmeware</h4>
+                <p>Mettre à jour puis a niveau la distribution et tous les packages installés du Raspberry Pi :</p>
+                <pre class="code">sudo apt-get update && sudo apt-get dist-upgrade -y && sudo rpi-update</pre>
+                <h4>Git</h4>
+                <p>Vérifier si Git (gestionnaire de version) est installé :</p>
+                <pre class="code">git --version</pre>
+                <p>Sinon installer git :</p>
+                <pre class="code">sudo apt-get install git-core</pre>
+                <h4>Télécharger RPi Cam</h4>
+                <p>Récupérez la dernière version de Rpi Cam en clonant le référentiel GitHub du projet avec :</p>
+                <pre class="code">git clone https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git</pre>
+                <h4>Changer les droits d'accés du fichier</h4>
+                <p>Avant de lancer l'installation de RpiCam. <br>
+                    Vous devez rendre exécutables le script pour qu'il fonctionne :
+                </p>
+                <pre class="code">cd RPi_Cam_Web_Interface<br>chmod u+x *.sh</pre>
+                <h4>Installation de RPi Cam</h4>
+                <p>Afin lancer l'installation du Rpi Cam</p>
+                <p>Dans l'interface qui s'ouvre : RPi Cam web Interface Installer</p>
+                <p>Sélectionner install, pour apache</p>
+                <p>Par défaut le répertoire d'installation est <span class="extrait">/var/www/html</span>, créér un sous dossier dans ce répertoire en
+                    ajoutant par exemple : RpiCam.<p>
+                <pre class="code">/var/www/html/RpiCam</pre>
+                <p>Le système propose de rebooter la machine</p>
+                <p>Accèder à la configuration du Rpi </p>
+                <pre class="code">./RPi_Cam_Web_Interface_Installer.sh</pre>
+                <p>Cliquer sur <span class="extrait">1 install</span> mettre à jour puis à niveau, d'autre options peuvent être modifiées. </p>
+            </div>
+        </div>
+    </section>
+</section>

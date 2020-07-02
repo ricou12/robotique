@@ -1,0 +1,44 @@
+---
+layout: default
+title: Créer un HotPost
+---
+<!-- 
+<section class="container rounded mt-4">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="text-white txtShadow--white p-3">Créer un hotspot Wi-Fi</h1>
+            <h2 class="text-info txtShadow--black font-weight-bold p-3">Se connecter en wifi sur le raspberry</h2>
+        </div>
+    </div>
+</section> -->
+
+<section class="container bgColor--blackLight p-4 mt-2 rounded">
+    <section class="row">
+        <div class="col-12 rounded">
+            <aside class="text-center bgColor-title--blue box-border">
+                <h1 class="txtShadow--white  p-4">Créer un hotspot Wi-Fi</h1>
+                <h3 class="text-info txtShadow--black  p-4">Se connecter en wifi sur le raspberry avec RaspAP</h3>
+            </aside>
+        </div>
+    </section> 
+    <section class="container text-white bgColor--blueLight mt-4 ">
+        <div class="row p-4">
+            <div class="col-12">
+                <h4>Sauvegarder le fichier de configuration du wifi</h4>
+                <p>Faire un copie du fichier de configuration qui contrôle l'interface wifi :</p>
+                <pre class="code">sudo cp /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf.sav<br>sudo cp /dev/null /etc/wpa_supplicant/wpa_supplicant.conf</pre>
+                <h4>Editer le fichier de configuration du wifi</h4>
+                <p>Le fichier étant vide <span class="extrait">/etc/wpa_supplicant/wpa_supplicant.conf</span> ajoutez les lignes suivantes :</p>
+                <pre class="code">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev<br>update_config=1</pre>
+                <h4>Construire un point d’accès</h4>
+                <p>Pour construire un point d’accès avec la raspberry pi, nous utilisons : le logiciel hostapd. <br>
+                    Et pour faciliter l’installation et l’administration de ce point d’accès on utilise RaspAP (une interface web qui nous permettra de contrôler notre hotspot)
+                </p>
+                <pre class="code">wget -q https://git.io/voEUQ -O /tmp/raspap && bash /tmp/raspap</pre>  
+                <p>Installer RaspAP dans le sous repertoire <span class="extrait">/var/www/html</span> nommer le par exemple : RaspAP</p> 
+                <h4>Se connecter à votre hotspot Wi-Fi</h4>
+                <p>Lorsque l’installation est terminée, la raspberry pi redémarre, et vous devriez voir apparaître un réseau « raspi-webgui » dans la liste des réseaux accessibles.</p>
+            </div>
+        </div>
+    </section>
+</section>
