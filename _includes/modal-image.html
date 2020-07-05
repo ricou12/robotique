@@ -1,0 +1,42 @@
+<!-- 
+    VARIABLES
+        modal-image__title
+        modal-image__image
+        modal-image__id 
+-->
+<style>
+    .modal__vignettes{
+        max-width: 80%;
+        height: auto;  
+    }
+    .modal__cursor-zoomIn{
+        cursor: zoom-in;
+    }
+</style>
+
+<!-- Image trigger modal -->
+<img src="{{ modal-image__imgSRC }}" alt="{{ modal-image__title }}" class="modal__vignettes modal__cursor-zoomIn" data-toggle="modal" data-target="#{{ modal-image__id }}">
+<!-- Modal -->
+<div class="modal fade" id="{{ modal-image__id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-dialog modal-{{ modal-image__breakpoint }}">
+       <div class="modal-content">
+           <div class="modal-header">
+               <h5 class="modal-title text-dark" id="exampleModalLabel">{{ modal-image__title }}</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+               </button>
+           </div>
+           <div class="modal-body">
+               <img src="{{ modal-image__imgSRC }}" alt="Télécommande" width="100%">
+           </div>
+           <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+           </div>
+       </div>
+   </div>
+</div>
+
+{%- assign modal-image__title = "" -%}
+{%- assign modal-image__imgSRC = "" -%}
+{%- assign modal-image__id = "" -%}
+

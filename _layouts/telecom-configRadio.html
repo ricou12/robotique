@@ -30,9 +30,15 @@ title: Emetteur recepteur radio 2.4Ghz
             </ul>
             <h4>Connectique</h4>
             <div class="row">
+               
                 <div class="col-12 col-md-6">
-                    <!-- Image trigger modal -->
-                    <img src="assets/img/montage/nrf24l01.jpg" class="cursor-zoomIn" alt="connectique du module nrf24l01" data-toggle="modal" data-target="#connectique" width="100%">
+                    <!-- Modal -->
+                    {%- assign modal-image__title = "Module nrf24l01" -%}
+                    {%- assign modal-image__imgSRC = "assets/img/montage/nrf24l01.jpg" -%}
+                    {%- assign modal-image__id = "connectique" -%}
+                    {%- assign modal-image__breakpoint = "xl" -%}
+                    {%- include modal-image.html -%}
+                    <!-- <img src="assets/img/montage/nrf24l01.jpg" class="cursor-zoomIn" alt="Module nrf24l01" data-toggle="modal" data-target="#connectique" width="100%"> -->
                 </div>
                 <div class="col-12 col-md-6">
                     <p class="colorGreen">Broches utilisées pour le UNO</p>
@@ -45,25 +51,6 @@ title: Emetteur recepteur radio 2.4Ghz
                         <li>GND -> GND</li>
                         <li>VCC -> 3.3v (Volts du regulateur)</li>
                     </ul>
-                </div>
-                <!-- Modal -->
-                <div class="modal fade" id="connectique" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Module NRF24L01</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <img src="assets/img/montage/nrf24l01.jpg" alt="connectique du module nrf24l01" width="100%">
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div> 
 
@@ -78,9 +65,9 @@ title: Emetteur recepteur radio 2.4Ghz
                         La broche IRQ est la broche d'interruption et vous n'avez pas besoin de la connecter.   
                     </p>
                     <p>Télécharger la libraire <span class="font-weight-bold"> nrf24l01</span><a href="assets/librairie/arduino-nrf24l01.zip"> ici.</a></p>
-                    <p>Puis l'installer avec le software Arduino téléchargeable à <a href="https://www.arduino.cc/en/main/software" target="_blank"> cette adresse</a></p>
+                    <p>Puis l'installer avec le software Arduino téléchargeable à <a href="https://www.arduino.cc/en/main/software" target="_blank"> sur le site officiel.</a></p>
                     <img src="assets/img/arduino-biblio.jpg" alt="arduino bibliothèque">
-                    <p class="mt-2">Enfin inclure la bibliothèque dans le projet, en sélectionnant l'onglet <span class="extrait">croquis</span> puis <span class="extrait">inclure la bibliothèque</span>.</p>
+                    <p class="mt-2">Enfin ajouter la librairie dans l'onglet croquis <span class="extrait">inclure une bibliothèque</span>.</p>
                     <p>Retrouvez les détails dans <a href="{{'./telecom-code.html' | relative_url }}"> le code source.</a> </p>
                 </div>
             </div>

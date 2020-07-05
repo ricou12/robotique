@@ -1,14 +1,14 @@
 /* COMPOSANTS */
 
 
-.rc-card{
+.rc-carte{
     display: flex;
     flex-direction: column;
     width: 17rem;
     margin: 5px;
 }
 
-.rc-card__text{
+.rc-carte__titre{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,12 +20,12 @@
     border-radius: 5px 5px 0 0;
 }
 
-.rc-card__image{
+.rc-carte__image{
     height: 100%;
     background-color: white;
 }
 
-.rc-card img{
+.rc-carte img{
     width: 100%;
     max-height:270px;
 }

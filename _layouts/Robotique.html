@@ -16,7 +16,12 @@ title: Robotique
     <section class="row text-white mt-4 no-gutters">
         <div class="col-12 col-xl-3 text-center pb-4 bgColor--orangeLight rounded box-border">
             <h4 class="txtShadow--black pt-3">Conception de la télécommande</h4>
-            <img src="assets/img/telecom1.png" alt="telecommande" class="vignettes">
+            <!-- MODAL IMAGE BALISE <img> -->
+            {%- assign modal-image__title = "Télécommande" -%}
+            {%- assign modal-image__imgSRC = "assets/img/telecom1.png" -%}
+            {%- assign modal-image__id = "telecommande" -%}
+            {%- assign modal-image__breakpoint = "md" -%}
+            {%- include modal-image.html -%}
         </div>
         <div class="col-12 col-xl-6 text-center  my-2">
             <h4 class="txtShadow--black pt-3">Démonstration</h4>
@@ -28,7 +33,12 @@ title: Robotique
         </div>
         <div class="col-12 col-xl-3 text-center pb-4 bgColor--orangeLight rounded box-border">
             <h4 class="txtShadow--black pt-3">Conception du vehicule</h4>
-            <img src="assets/img/vehicule.png" alt="telecommande" class="vignettes">
+            <!-- MODAL IMAGE BALISE <img> -->
+            {%- assign modal-image__title = "Véhicule" -%}
+            {%- assign modal-image__imgSRC = "assets/img/vehicule.png" -%}
+            {%- assign modal-image__id = "vehicule" -%}
+            {%- assign modal-image__breakpoint = "md" -%}
+            {%- include modal-image.html -%}
         </div>
     </section>
 </section>
