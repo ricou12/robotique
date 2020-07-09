@@ -1,4 +1,7 @@
-# Projet robotique : microcontroleurs ARDUINO et RASPBERRY
+# Projet robotique langages : C, Phyton et techno web
+
+## Microcontroleurs ARDUINO et RASPBERRY
+
+## [Application robotique](https://ricou12.github.io/Robotique/)
 
 
-[Application robotique](https://ricou12.github.io/Robotique/)
