@@ -1,9 +1,8 @@
 ---
 layout: default
-title: Code source du véhicule
 ---
 
-<section class="container bgColor--blackLight p-4 mt-2 rounded">
+    <section class="container p-4 mt-2 rounded">
     <section class="row">
         <div class="col-12 rounded">
             <aside class="text-center bgColor-title--blue box-border">
@@ -22,12 +21,12 @@ title: Code source du véhicule
 // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // -------- LIBRAIRIE EMETTEUR RECEPTEUR RADIO --------
 // MIRF PERMETTANT LE CONTROLE DU MODULE NRF24L04</span>
+#include &lt;SPI.h&gt;
 #include &lt;Mirf.h&gt;
+#include &lt;nRF24L01.h&gt;
 #include &lt;MirfHardwareSpiDriver.h&gt;
 #include &lt;MirfSpiDriver.h&gt;
-#include &lt;nRF24L01.h&gt;
 
-#include &lt;SPI.h&gt;
 
 <span class="colorGreen">// -------- LIRAIRIE AFFICHEUR LCD --------</span>
 #include &lt;Wire.h&gt;
@@ -119,10 +118,11 @@ typedef struct {
     byte bouton_Droite;
 } MaStructure;
 MaStructure joystick;
+<span class="colorGreen">// 16 Octets = ( valeurs int 2 octets X 4 = 12 octets  + valeurs type byte X 4 = 4 octets)</span>
 byte taille_message = sizeof(MaStructure); 
-<span class="colorGreen">// VALEURS DE TYPE int 2 X 6 = 12 BYTES ET VALEURS DE TYPE BYTE 1 X 4 = 4 BYTES
 
-// ------- STOCKER LES PROPRIETES DES CAPTEURS DE DISTANCES -------</span>
+
+<span class="colorGreen">// ------- STOCKER LES PROPRIETES DES CAPTEURS DE DISTANCES -------</span>
 typedef struct {
     int nom[3];
     int nom_capt_mini; 
@@ -241,13 +241,7 @@ const long interval = 1000;
 // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</span>
 void setup() {
     Serial.begin(9600);
-    //Serial.println("PRET pour reception des donnees !");
-    Serial.println("Configuration ...");
-
-    <span class="colorGreen">// -------- PARAMETRE ECRAN LCD --------</span>
-    lcd.setMCPType(LTI_TYPE_MCP23017); <span class="colorGreen">// EXPLOITATION DU BUS I2C AVEC LE CIRCUIT D EXTENTION MPC23017</span>
-    lcd.begin(16, 2); <span class="colorGreen">// DEFINI LE TYPE D'ECRAN 16 CARACTERE SUR 2 LIGNE</span>
-
+    Serial.println("Démarrage ...");
 
     <span class="colorGreen">// -------- CONFIGURATON DES BROCHES POUR LES SERVOMOTEURS. --------
     // - ROUGE A RACCORDER  A LA BORNE + DE L'ALIMENTATION 5 VOLTS DE L'ARDUINO.
@@ -262,7 +256,7 @@ void setup() {
     Servomoteur_cam1.write(valueY); <span class="colorGreen">// DEPLACEMENT DU PREMIER SERVO MOTEUR A 70 DEGRES.</span>
     Servomoteur_cam2.write(valueX); <span class="colorGreen">// DEPLACEMENT DU SECOND SERVO MOTEUR A 70 DEGRES.</span>
     delay(200);
-    Serial.println("servomoteur OK !");
+    Serial.println("Configuration servomoteur : OK !");
     
     <span class="colorGreen">// -------- CONFIGURATION DES BROCHES POUR LES CAPTEURS A ULTRASON  --------
     // CAPTEUR 1</span>
@@ -283,21 +277,36 @@ void setup() {
     digitalWrite(trigPin_3, LOW);  <span class="colorGreen">// LA BROCHE TRIGGER DOIT ETRE A LOW AU REPOS.</span>
     pinMode(echoPin_3, INPUT);  <span class="colorGreen">// DEFINT LA BROCHE ECHO DU MODULE A ULTRA SON EN MODE INPUT
         (POUR LA RECEPTION D'UNE IMPLUSION ELECTRIQUE).</span>
-    Serial.println("Configuration capteurs ultra-son OK !");
+    Serial.println("Configuration capteurs ultra-son : OK !");
     
     <span class="colorGreen">// -------- CONFIGURATION DES LED --------</span>
     pinMode(LED_ROUGE, OUTPUT);
     pinMode(LED_VERTE, OUTPUT);
     pinMode(LED_BLEU, OUTPUT);
-    Serial.println("LED OK !");
+    Serial.println("Configuration LED : OK !");
 
     <span class="colorGreen">// -------- CONFIGURATION DES MOTEURS D'ENTRAINEMENTS DES ROUES --------</span>
     pinMode(RPWM_Gauche, OUTPUT);
     pinMode(LPWM_Gauche, OUTPUT);
     pinMode(RPWM_Droite, OUTPUT);
     pinMode(LPWM_Droite, OUTPUT);
-    Serial.println("Moteurs OK !");
+    Serial.println("Configuration moteurs : OK !");
 
+    <span class="colorGreen">// -------- CONFIGURATION DE L'EMETTEUR RECEPTTEUR RADIO NRF24L01 --------
+    /*
+    Brochage pour l'emetteur et le recpteur MODULE NRF24L04
+    Broches utilisees pour le MEGA 2560
+            MISO -> 50 (violet)       * MOSI -> 51 (jaune)       * SCK -> 52 (orange)
+            CE -> 39 (vert)           * CSN -> 38 (bleu)
+            GND -> GND                * VCC -> 3
+                (Volts du regulateur)
+
+    Broches utilisees pour le UNO
+            MISO -> 12           * MOSI -> 11           * SCK -> 13
+            CE -> 8              * CSN -> 7
+            GND -> GND           * VCC -> 3.3v
+                (Volts du regulateur)
+    */</span>
     <span class="colorGreen">// Configuration des broches CSN et CE :</span>
     Mirf.cePin = 39;
     Mirf.csnPin = 38;
@@ -312,16 +321,10 @@ void setup() {
     Mirf.setRADDR((byte *)"clie1"); <span class="colorGreen">// adresse de reception du module (de 5 octets)</span>
     Mirf.setTADDR((byte *)"serv1"); <span class="colorGreen">// adresse vers laquelle on transmet (de 5 octets)</span>
     Mirf.config(); <span class="colorGreen">// ecriture de la configuration</span>
+    Serial.println("Configuration de l'émétteur récepteur radio : OK !");
 
     <span class="colorGreen">// -------- AFFICHE LE MESSAGE DANS LE MONITEUR SERIE --------</span>
-    Serial.println("PRET pour reception des donnees !");
-
-    <span class="colorGreen">// -------- AFFICHE LE MESSAGE SUR L'ECRAN LCD --------</span>
-    /*lcd.clear();
-    lcd.setCursor(0, 0);
-    lcd.print("*** BONJOUR ***");
-    lcd.setCursor(0, 1);
-    lcd.print("   TOUT LE MONDE");*/
+    Serial.println("PRET POUR RECEPTION DES DONNEES !");
 }
 
 <span class="colorGreen">// ::                                                                                                                          ::
@@ -338,58 +341,20 @@ void setup() {
 // ::::::::::                                                                                                          ::::::::::
 // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</span>
 void loop() {
-    <span class="colorGreen">// ACTIVE LE MODE CONTROLE A DISTANCE VIA INTERNET</span>
-    controle_interface_web();
+    <span class="colorGreen">// ACTIVE LE MODE CONTROLE A DISTANCE VIA INTERNET
+    //controle_interface_web();</span>
 
-    <span class="colorGreen">// ACTIVE LE MODE AUTOMATIQUE</span>
-    //Mode_Automatique();
+    <span class="colorGreen">// ACTIVE LE MODE AUTOMATIQUE
+    //Mode_Automatique();</span>
 
     <span class="colorGreen">// ACTIVE LE MODE RADIO EMETTEUR</span>
-    //Commande_Radio();
+    Commande_Radio();
 }
 
 <span class="colorGreen">// ::                                                                                                                          ::
 // ::::::                                                                                                                  ::::::
 // ::::::::::                                                                                                          ::::::::::
 // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-
-// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-// ::::::::::                                                                                                          ::::::::::
-// ::::::::::                                               AFFICHEURS LCD                                             ::::::::::
-// ::::::::::                                                                                                          ::::::::::
-// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</span>
-void Edit_LCD_TS(void) {
-    unsigned long currentMillis = millis();
-    if (currentMillis - previousMillis >= interval) {
-        <span class="colorGreen">// save the last time you blinked the LED</span>
-        previousMillis = currentMillis;
-        lcd.clear();
-        lcd.setCursor(0, 0);
-        lcd.print("Temps de fonctionnement");
-        lcd.setCursor(0, 1);
-        lcd.print( millis() / 1000);
-    }
-}
-
-void EditLCD(String ligne1, String ligne2) {
-    unsigned long currentMillis = millis();
-    if (currentMillis - previousMillis >= interval) {
-        // save the last time you blinked the LED
-        previousMillis = currentMillis;
-        lcd.clear();
-        lcd.setCursor(0, 0);
-        lcd.print(ligne1);
-        lcd.setCursor(0, 1);
-        lcd.print(ligne2);
-    }
-}
-<span class="colorGreen">// ::                                                                                                                          ::
-// ::::::                                                                                                                  ::::::
-// ::::::::::                                                                                                          ::::::::::
-// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
 
 
 
@@ -459,8 +424,6 @@ void Deplacement_Moteur(void) {
             // -----------AVANCER-----------------
             // -----------------------------------</span>
             Serial.println("AVANCER: ");
-            <span class="colorGreen">//EditLCD("AVANCER: ", " ");</span>
-
             Actionneur_Moteur(0, joystick.X_G, joystick.X_G, 0);
         }
         if (Direction.X == -1) { 
@@ -469,7 +432,6 @@ void Deplacement_Moteur(void) {
             // ------------RECULER----------------
             // -----------------------------------</span>
             Serial.print("RECULER: ");
-            <span class="colorGreen">//EditLCD("RECULER: " , " ");</span>
             Actionneur_Moteur(-joystick.X_G, 0, 0, -joystick.X_G);
         }
     }
@@ -481,14 +443,12 @@ void Deplacement_Moteur(void) {
             // -------------GAUCHE----------------
             // -----------------------------------</span>
             Serial.println("GAUCHE");
-            <span class="colorGreen">//EditLCD("GAUCHE: "," ");</span>
             Actionneur_Moteur(-joystick.Y_G, 0, -joystick.Y_G, 0);
         }
         if (Direction.X == 1) { 
             <span class="colorGreen">// couple: (1;1)
         // AVANT GAUCHE</span>
             Serial.print("AVANT GAUCHE: ");
-            <span class="colorGreen">//EditLCD("AVANT GAUCHE: ", " ");
             //  DEFINI LA VITESSE LA PLUS GRANDE</span>
             int  vitesse_max;
             if (joystick.X_G &gt; joystick.Y_G) {
@@ -512,7 +472,6 @@ void Deplacement_Moteur(void) {
             // -----------ARRIERE GAUCHE ---------
             // -----------------------------------</span>
             Serial.print("ARRIERE GAUCHE: ");
-            <span class="colorGreen">//EditLCD("ARRIERE GAUCHE: "," ");
             //  DEFINI LA VITESSE LA PLUS GRANDE</span>
             int  vitesse_max;
             if (-joystick.X_G &gt; -joystick.Y_G) {
@@ -539,14 +498,12 @@ void Deplacement_Moteur(void) {
             // -----------DROITE ------------
             // ------------------------------</span>
             Serial.println("DROITE:");
-            <span class="colorGreen">//EditLCD("DROITE: "," ");</span>
             Actionneur_Moteur(0, joystick.Y_G, 0, joystick.Y_G);
         }
         if (Direction.X == 1) { 
             <span class="colorGreen">// couple: (-1;1)
             // AVANT DROITE</span>
             Serial.print("AVANT DROITE: ");
-            <span class="colorGreen">// EditLCD("AVANT DROITE: "," ");</span>
             <span class="colorGreen">// DEFINI LA VITESSE LA PLUS GRANDE</span>
             int  vitesse_max;
             if (joystick.X_G &gt; -joystick.Y_G) {
@@ -570,7 +527,6 @@ void Deplacement_Moteur(void) {
             // -----------ARRIERE DROITE -----------
             // -------------------------------------</span>
             Serial.print("ARRIERE DROITE: ");
-            <span class="colorGreen">// EditLCD("ARRIERE DROITE: ", " ");</span>
             <span class="colorGreen">// DEFINI LA VITESSE LA PLUS GRANDE</span>
             int  vitesse_max;
             if (-joystick.X_G &gt; joystick.Y_G) {
@@ -660,13 +616,11 @@ void deplacement_Servo_Cam(void) {
             // POINT MORT</span>
             Servomoteur_cam1.write(90);
             Servomoteur_cam2.write(90);
-            <span class="colorGreen">//EditLCD("** JE REGARDE **","*** AU CENTRE **");</span>
         }
         if (Direction_Servo.X == 1) { 
             <span class="colorGreen">// couple: (0;1)</span>
             <span class="colorGreen">// REGARDER EN HAUT</span>
             Serial.println("REGARDER EN HAUT: ");
-            <span class="colorGreen">//EditLCD("** JE REGARDE **","*** EN HAUT ***");</span>
             int value = map( joystick.X_D, 0, 255, 90, 0);
             Servomoteur_cam1.write(value);
         }
@@ -674,7 +628,6 @@ void deplacement_Servo_Cam(void) {
             <span class="colorGreen">// couple: (0;-1)</span>
             <span class="colorGreen">// REGARDER EN BAS</span>
             Serial.print("REGARDER EN BAS: ");
-            <span class="colorGreen">//EditLCD("** JE REGARDE **","*** EN BAS ***");</span>
             int value = map( -joystick.X_D, 0, 255, 90, 180);
             Servomoteur_cam1.write(value);
         }
@@ -684,7 +637,6 @@ void deplacement_Servo_Cam(void) {
             <span class="colorGreen">// couple: (1;0)</span>
             <span class="colorGreen">// REGARDER A GAUCHE</span>
             Serial.println("REGARDER A GAUCHE");
-            <span class="colorGreen">//EditLCD("** JE REGARDE **","A GAUCHE");</span>
             int value = map( -joystick.Y_D, 0, 255, 90, 180);
             Servomoteur_cam2.write(value);
         }
@@ -692,7 +644,6 @@ void deplacement_Servo_Cam(void) {
             <span class="colorGreen">// couple: (1;1)</span>
             <span class="colorGreen">//REGARDER EN HAUT A GAUCHE</span>
             Serial.println("REGARDER EN HAUT A GAUCHE");
-            <span class="colorGreen">//EditLCD("** JE REGARDE **"," HAUT A GAUCHE");</span>
             int value = map( joystick.X_D, 0, 255, 90, 0);
             Servomoteur_cam1.write(value);
             int value1 = map( -joystick.Y_D, 0, 255, 90, 180);
@@ -702,7 +653,6 @@ void deplacement_Servo_Cam(void) {
             <span class="colorGreen">// couple: (1;-1)</span>
             <span class="colorGreen">// REGARDER EN BAS A GAUCHE</span>
             Serial.println("REGARDER EN BAS A GAUCHE: ");
-            <span class="colorGreen">//EditLCD("** JE REGARDE **"," BAS A GAUCHE");</span>
             int value = map( -joystick.X_D, 0, 255, 90, 180);
             Servomoteur_cam1.write(value);
             int value1 = map( -joystick.Y_D, 0, 255, 90, 180);
@@ -714,7 +664,6 @@ void deplacement_Servo_Cam(void) {
             <span class="colorGreen">// couple: (-1;0)</span>
             <span class="colorGreen">// REGARDER A DROITE</span>
             Serial.println("REGARDER A DROITE");
-            <span class="colorGreen">//EditLCD("** JE REGARDER **"," A DROITE");</span>
             int value = map( joystick.Y_D, 0, 255, 90, 0);
             Servomoteur_cam2.write(value);
         }
@@ -722,7 +671,6 @@ void deplacement_Servo_Cam(void) {
             <span class="colorGreen">// couple: (-1;1)</span>
             <span class="colorGreen">// REGARDER EN HAUT A DROITE</span>
             Serial.println("REGARDER EN HAUT A DROITE");
-            <span class="colorGreen">//EditLCD("** JE REGARDER **"," EN HAUT A DROITE");</span>
             int value = map( joystick.X_D, 0, 255, 90, 0);
             Servomoteur_cam1.write(value);
             int value1 = map( joystick.Y_D, 0, 255, 90, 0);
@@ -731,7 +679,6 @@ void deplacement_Servo_Cam(void) {
         if (Direction_Servo.X == -1) { // couple: (-1;-1)
             <span class="colorGreen">// REGARDER EN BAS A DROITE</span>
             Serial.println(" REGARDER EN BAS A DROITE");
-            <span class="colorGreen">//EditLCD("** JE REGARDER **","EN BAS A DROITE");</span>
             int value = map( -joystick.X_D, 0, 255, 90, 180);
             Servomoteur_cam1.write(value);
             int value1 = map( joystick.Y_D, 0, 255, 90, 0);
@@ -771,106 +718,88 @@ void controle_interface_web(void) {
     if (incomingValue == 1) { 
         <span class="colorGreen">// deplacement vers le haut</span>
         Serial.println("EN HAUT");
-        EditLCD("**** CAMERA ****", "EN HAUT");
         deplacHaut();
     }
     if (incomingValue == 2) { 
         <span class="colorGreen">// deplacement vers le bas</span>
         Serial.println("EN BAS");
-        EditLCD("**** CAMERA ****", "EN BAS");
         deplacBas();
     }
     if (incomingValue == 3) { 
         <span class="colorGreen">// deplacement vers la gauche</span>
         Serial.println("A GAUCHE");
-        EditLCD("**** CAMERA ****", "A GAUCHE");
         deplacGauche();
     }
     if (incomingValue == 4) { 
         <span class="colorGreen">// recentrage</span>
         Serial.println("RECENTRAGE");
-        EditLCD("**** CAMERA ****", "RECENTRAGE");
         deplacCentre();
     }
     if (incomingValue == 5) { 
         <span class="colorGreen">// deplacement vers la droite</span>
         Serial.println("A DROITE");
-        EditLCD("**** CAMERA ****", "A DROITE");
         deplacDroite();
     }
     if (incomingValue == 6) {  
         <span class="colorGreen">// scan X</span>
         Serial.println("SCAN HORIZONTALE");
-        EditLCD("**** CAMERA ****", "SCAN HORIZONTALE");
         scanX();
     }
     if (incomingValue == 7) {  
         <span class="colorGreen">// scan Y</span>
         Serial.println("SCAN VERTICALE");
-        EditLCD("**** CAMERA ****", "SCAN VERTICALE");
         scanY();
     }
     if (incomingValue == 10) {
         Serial.println("POINT MORT");
-        EditLCD("**** CAMERA ****", "POINT MORT");
         <span class="colorGreen">// ----------POINT MORT---------------</span>
         Actionneur_Moteur(0, 0, 0, 0);
     }
     if (incomingValue == 11) {
-        EditLCD("**** MOTEUR ****", "AVANCER");
         <span class="colorGreen">// -----------AVANCER-----------------</span>
         Serial.println("AVANCER: ");
         Actionneur_Moteur(0, 255, 255, 0);
 
     }
     if (incomingValue == 12) {
-        EditLCD("**** MOTEUR ****", "RECULER");
         <span class="colorGreen">// ------------RECULER----------------</span>
         Serial.println("RECULER: ");
         Actionneur_Moteur(255, 0, 0, 255);
     }
     if (incomingValue == 13) {
-        EditLCD("**** MOTEUR ****", "RECULER");
         <span class="colorGreen">// -------------GAUCHE----------------</span>
         Serial.println("GAUCHE");
         Actionneur_Moteur(255, 0, 255, 0);
 
     }
     if (incomingValue == 14) {
-        EditLCD("**** MOTEUR ****", "GAUCHE");
         <span class="colorGreen">// -----------AVANT GAUCHE ---------</span>
         Serial.println("AVANT GAUCHE: ");
         Actionneur_Moteur(0, 200, 255, 0);
     }
     if (incomingValue == 15) {
-        EditLCD("**** MOTEUR ****", "ARRIERE GAUCHE");
         <span class="colorGreen">// -----------ARRIERE GAUCHE ---------</span>
         Serial.println(" ARRIERE GAUCHE: ");
         Actionneur_Moteur(200, 0, 0, 255);
     }
     if (incomingValue == 16) {
-        EditLCD("**** MOTEUR ****", "DROITE");
         <span class="colorGreen">// -----------DROITE ------------</span>
         Serial.println("DROITE");
         Actionneur_Moteur(0, 255, 0, 255);
     }
     if (incomingValue == 17) {
-        EditLCD("**** MOTEUR ****", "AVANT DROITE");
         <span class="colorGreen">// -----------AVANT DROITE -----------</span>
         Serial.println("AVANT DROITE: ");
         Actionneur_Moteur(0, 255, 200, 0);
     }
     if (incomingValue == 18) {
-        EditLCD("**** MOTEUR ****", "ARRIERE DROITE");
         <span class="colorGreen">// -----------ARRIERE DROITE -----------</span>
         Serial.println("ARRIERE DROITE: ");
         Actionneur_Moteur(255, 0, 0, 200);
     }
     }
 }
-<span class="colorGreen">// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-// ------------------------------------------------------------------------------------------------------------------------------
-// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+<span class="colorGreen">//::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // DEPLACEMENT CAMERA SUR L'AXE DES X</span>
 void deplacGauche(void) {
     if (valueX + indiceDeplac &lt;= 180) {
@@ -881,9 +810,7 @@ void deplacGauche(void) {
     Servomoteur_cam2.write(valueX);
     }
 }
-<span class="colorGreen">// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-// ------------------------------------------------------------------------------------------------------------------------------
-// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+<span class="colorGreen">//::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // DEPLACEMENT CAMERA SUR L'AXE DES X</span>
 void deplacDroite(void) {
     if (valueX - indiceDeplac &gt;= 0) {
@@ -894,9 +821,7 @@ void deplacDroite(void) {
     Servomoteur_cam2.write(valueX);
     }
 }
-<span class="colorGreen">// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-// ------------------------------------------------------------------------------------------------------------------------------
-// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+<span class="colorGreen">//::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // POSITIONNER LA CAMERA AU CENTRE</span>
 void deplacCentre(void) {
     valueX = 70;
@@ -909,9 +834,7 @@ void deplacCentre(void) {
     Servomoteur_cam1.write(valueY);
     Servomoteur_cam2.write(valueX);
 }
-<span class="colorGreen">// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-// ------------------------------------------------------------------------------------------------------------------------------
-// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+<span class="colorGreen">//::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // DEPLACEMENT DE LA CAMERA SUR L'AXE DES Y</span>
 void deplacHaut(void) {
     if (valueY - indiceDeplac &gt;= 0) {
@@ -922,9 +845,7 @@ void deplacHaut(void) {
     Servomoteur_cam1.write(valueY);
     }
 }
-<span class="colorGreen">// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-// ------------------------------------------------------------------------------------------------------------------------------
-// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+<span class="colorGreen">//::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // DEPLACEMENT DE LA CAMERA SUR L'AXE DES Y</span>
 void deplacBas(void) {
     if (valueY + indiceDeplac &lt;= 180) {
@@ -935,9 +856,7 @@ void deplacBas(void) {
     Servomoteur_cam1.write(valueY);
     }
 }
-<span class="colorGreen">// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-// ------------------------------------------------------------------------------------------------------------------------------
-// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+<span class="colorGreen">//::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // SCAN DE LA CAMERA SUR L'AXE DES X</span>
 void scanX(void) {
     <span class="colorGreen">// DEPLACEMENT VERS LA GAUCHE</span>
@@ -958,9 +877,7 @@ void scanX(void) {
     }
     indiceDeplac = 20;
 }
-<span class="colorGreen">// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-// ------------------------------------------------------------------------------------------------------------------------------
-// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+<span class="colorGreen">// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // SCAN DE LA CAMERA SUR L'AXE DES Y</span>
 void scanY(void) {
     <span class="colorGreen">// DEPLACEMENT DE LA CAMERA VERS LE HAUT</span>
