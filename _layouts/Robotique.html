@@ -2,18 +2,18 @@
 layout: default
 ---
 
-<section class="container bgColor--blackMedium p-4 mt-2">  
+<section class="container bgColor--blackMedium p-4 my-2">
     <section class="row">
         <div class="col-12 rounded">
             <aside class="text-center bgColor-title--blue box-border">
                 <h1 class="txtShadow--white  p-4">Projet robotique <br>( Raspberry et arduino )</h1>
-                <h3 class="text-info txtShadow--black  p-4">Conception d'un robot motorisé et avec camera infra-rouge articulé sur servomoteurs</h3>
+                <h3 class="text-info txtShadow--black  p-4">Conception d'un robot motorisé avec caméra infra-rouge</h3>
             </aside>
         </div>
-    </section>  
+    </section>
 
     <section class="row text-white mt-4 no-gutters">
-        <div class="col-12 col-xl-3 text-center pb-4 bgColor--orangeLight rounded box-border">
+        <div class="col-12 col-xl-3 text-center pb-4 bgColor--orangeLight box-border">
             <h4 class="txtShadow--black pt-3">Conception de la télécommande</h4>
             <!-- MODAL IMAGE BALISE <img> -->
             {%- assign modal-image__title = "Télécommande" -%}
@@ -22,7 +22,7 @@ layout: default
             {%- assign modal-image__breakpoint = "md" -%}
             {%- include modal-image.html -%}
         </div>
-        <div class="col-12 col-xl-6 text-center  my-2">
+        <div class="col-12 col-xl-6 text-center my-2">
             <h4 class="txtShadow--black pt-3">Démonstration</h4>
             <video controls>
                 <source src="assets/video/video.mp4" type="video/mp4">
@@ -30,7 +30,7 @@ layout: default
                     Voici <a href="assets/video/video.mp4">un lien pour télécharger la vidéo</a>.</p>
             </video>
         </div>
-        <div class="col-12 col-xl-3 text-center pb-4 bgColor--orangeLight rounded box-border">
+        <div class="col-12 col-xl-3 text-center pb-4 bgColor--orangeLight box-border">
             <h4 class="txtShadow--black pt-3">Conception du vehicule</h4>
             <!-- MODAL IMAGE BALISE <img> -->
             {%- assign modal-image__title = "Véhicule" -%}
@@ -40,7 +40,207 @@ layout: default
             {%- include modal-image.html -%}
         </div>
     </section>
+
+    <section class="row text-white no-gutters bgColor--orangeLight box-border mt-4 p-4">
+        <div class="col-12">
+            <h4 class="">Différences entre Raspberry et Arduino</h4>
+            <table class="my-4">
+                <tbody>
+                    <tr>
+                        <td>
+                            <p>&nbsp;</p>
+                        </td>
+                        <td>
+                            <p><strong>Arduino Uno</strong></p>
+                        </td>
+                        <td>
+                            <p><strong>Raspberry Pi Modèle B</strong></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Prix</p>
+                        </td>
+                        <td>
+                            <p>env. 23 €</p>
+                        </td>
+                        <td>
+                            <p>env. 39 €</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Taille</p>
+                        </td>
+                        <td>
+                            <p>7.6 x&nbsp;1.9 x 6.4&nbsp;cm</p>
+                        </td>
+                        <td>
+                            <p>8.6 x&nbsp;5.4 x 1.7&nbsp;cm</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Mémoire vive</p>
+                        </td>
+                        <td>
+                            <p>0.002 MB</p>
+                        </td>
+                        <td>
+                            <p>512 MB</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Vitesse d’horloge</p>
+                        </td>
+                        <td>
+                            <p>16&nbsp;MHz</p>
+                        </td>
+                        <td>
+                            <p>700&nbsp;Mhz</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Réseau embarqué</p>
+                        </td>
+                        <td>
+                            <p>Aucun</p>
+                        </td>
+                        <td>
+                            <p>10/100 Ethernet filaire&nbsp;RJ45</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Capacité multitâche</p>
+                        </td>
+                        <td>
+                            <p>Non</p>
+                        </td>
+                        <td>
+                            <p>Oui</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Tension d’entrée</p>
+                        </td>
+                        <td>
+                            <p>7 à 12&nbsp;V</p>
+                        </td>
+                        <td>
+                            <p>5&nbsp;V</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Mémoire flash</p>
+                        </td>
+                        <td>
+                            <p>32&nbsp;KB</p>
+                        </td>
+                        <td>
+                            <p>Carte SD (2 à 16&nbsp;Go)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>USB</p>
+                        </td>
+                        <td>
+                            <p>1, entrée uniquement</p>
+                        </td>
+                        <td>
+                            <p>2, périphérique OK</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Système d’exploitation</p>
+                        </td>
+                        <td>
+                            <p>Non</p>
+                        </td>
+                        <td>
+                            <p>Distributions Lunix</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Environnement de développement intégré (IDE)</p>
+                        </td>
+                        <td>
+                            <p>Arduino</p>
+                        </td>
+                        <td>
+                            <p>Scratch, IDLE, tout dispositif avec Linux</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Le raspberry est en faite un micro ordinateur, plus rapide et plus complexe à utiliser que l'arduino. <br>
+                Il permet d'exécuter un système d’exploitation réel sous Linux. Il peut effectuer plusieurs tâches, il dispose jusqu’à quatre ports USB en natif (Raspberry pi B+, 2 et 3) et peut se connecter à Internet en wifi ou en filaire. <br>
+                Dans le cadre de se projet il permet d'heberger un serveur (Apache, PHP, MySQL, node Js) et servir de HotPost, gérer une caméra ou webCam. <br>
+                En faite il est idéale pour envoyer des instructions à un arduino. Il accepte de nombreux langages de programmations c++, python, java ... 
+             </p>
+             <p>L'arduino est certe moins puissant, mais cette carte programmable simple sur laquelle on branche des composants électroniques, possède un grand nombre d'entrés/sorties (plus que le raspberry) ce qui permet de brancher beaucoup de composants (capteurs, leds et autres... ). Il est donc principalement utilisé pour réaliser des interfaces électroniques avec des capteurs, des actionneurs, circuits électroniques et autres... Une fois le programme chargé, l'Arduino l’exécute en boucle de manière autonome. Le langage utilisé est le C.</p>
+             <p>En conclusion il fonctionne parfaitement ensemble, et donc complémentaires. </p>
+        </div>
+    </section>
+
+    <section class="row text-white no-gutters bgColor--orangeLight box-border mt-4 p-4">
+        <div class="col-12">
+            <h4 class="txtShadow--black p-4 text-center">Schéma de fonctionnement</h4>
+            <p>
+                J'ai prévu 2 modes de contrôle commande :
+                <ul>
+                    <li>Matériel</li>
+                    <li>Logiciel</li>
+                </ul>
+            </p>
+        </div>
+        <div class="col-6">
+            <h4 class=" mt-4">Matériel</h4>
+            <p>
+                La première solution nécessite la réalisation d'une télécommande image ci-dessus. <br>
+                Dans ce cas la communication entre la télécommande et le véhicule est réalisée via les ondes radios.
+            </p>
+            <!-- MODAL IMAGE BALISE <img> -->
+            <div class="text-center">
+                {%- assign modal-image__title = "Solution matériel" -%}
+                {%- assign modal-image__imgSRC = "assets/img/schema/telecommande-arduino.png" -%}
+                {%- assign modal-image__id = "matériel" -%}
+                {%- assign modal-image__breakpoint = "xl" -%}
+                {%- include modal-image.html -%}
+            </div>
+        </div>
+
+        <div class="col-6">
+            <h4 class=" mt-4">Logiciel</h4>
+            <p>La seconde méthode nécessite le développement d'une interface web connectée à un serveur. J'ai opté pour
+                une technologie de type front end. <br>
+                <span class="font-weight-bold">Node Js</span> permet de développer en quelques lignes un serveur
+                fonctionnel, c'est un environnement d'exécution JavaScript asynchrone et orienté événement. <br>
+                Le noyau de Node.js est tout petit. De base, Node.js ne sait en fait pas faire grand chose, mais il est
+                très riche grâce à son extensibilité, il existe des milliers de modules (extensions) qui offrent des
+                fonctionnalités variées. <br>
+                Comme le montre le schéma ci-dessous, le contrôle commande est géré par le microcontrôleur arduino. <br>
+                Pour que l'arduino puisse exécuter les différentes actions , il doit pouvoir communiquer avec le
+                serveur.
+                Le port serie (port de communication) de type USB va permettre l'échange des données entre le serveur et
+                l'arduino.
+                Le module Node SerialPort permet d'interagir entre les deux périphériques.
+            </p>
+            <!-- MODAL IMAGE BALISE <img> -->
+            <div class="text-center">
+                {%- assign modal-image__title = "Solution logiciel" -%}
+                {%- assign modal-image__imgSRC = "assets/img/schema/serveur-arduino.png" -%}
+                {%- assign modal-image__id = "logiciel" -%}
+                {%- assign modal-image__breakpoint = "xl" -%}
+                {%- include modal-image.html -%}
+            </div>
+        </div>
+    </section>
 </section>
-
-
-
