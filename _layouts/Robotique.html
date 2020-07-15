@@ -8,7 +8,7 @@ layout: default
         </div>
         <div class="col-12 col-lg-6">
             <aside class="text-center">
-                <h1 class="txtShadow--white txt--blueLight p-4">Projet robotique <br>(Raspberry et arduino)</h1>
+                <h1 class="txtShadow--white txt-color--blueLight p-4">Projet robotique <br>(Raspberry et arduino)</h1>
                 <h3 class="text-white txtShadow--black p-4">Conception d'un robot motorisé avec caméra infra-rouge</h3>
             </aside>
         </div>
@@ -18,18 +18,32 @@ layout: default
     </div>
 </section>
 
-<section class="container p-4 my-2">
-    <section class="row mt-4">
-        <div class="col-12 col-xl-3 text-center pb-4 box-border">
-            <h4 class="txtShadow--black pt-3">Conception de la télécommande</h4>
+<section class="container robotique">
+    <div class="row robotique__modele">
+        <div class="col-6 text-center mt-4">
+                 <h5 class="bgColor--blueDark txt-color--orange font-weight-bolder">Télécommande</h5>
             <!-- MODAL IMAGE BALISE <img> -->
             {%- assign modal-image__title = "Télécommande" -%}
-            {%- assign modal-image__imgSRC = "assets/img/telecom1.png" -%}
+            {%- assign modal-image__imgSRC = "assets/img/telecommande.png" -%}
             {%- assign modal-image__id = "telecommande" -%}
+            {%- assign modal-image__breakpoint = "md" -%}
+            {%- include modal-image.html -%}  
+        </div>
+        <div class="col-6 text-center mt-4">
+            <!-- MODAL IMAGE BALISE <img> -->
+            <h5 class="bgColor--blueDark txt-color--orange font-weight-bolder">Robot</h5>
+            {%- assign modal-image__title = "Véhicule" -%}
+            {%- assign modal-image__imgSRC = "assets/img/robot.png" -%}
+            {%- assign modal-image__id = "vehicule" -%}
             {%- assign modal-image__breakpoint = "md" -%}
             {%- include modal-image.html -%}
         </div>
-        <div class="col-12 col-xl-6 text-center my-2">
+    </div>
+</section>
+
+<section class="container p-4 my-2">
+    <section class="row mt-4">
+       <div class="col-12 col-xl-4 offset-lg-4 text-center my-2">
             <h4 class="txtShadow--black pt-3">Démonstration</h4>
             <video controls>
                 <source src="assets/video/video.mp4" type="video/mp4">
@@ -37,15 +51,7 @@ layout: default
                     Voici <a href="assets/video/video.mp4">un lien pour télécharger la vidéo</a>.</p>
             </video>
         </div>
-        <div class="col-12 col-xl-3 text-center pb-4 bgColor--orangeLight box-border">
-            <h4 class="txtShadow--black pt-3">Conception du vehicule</h4>
-            <!-- MODAL IMAGE BALISE <img> -->
-            {%- assign modal-image__title = "Véhicule" -%}
-            {%- assign modal-image__imgSRC = "assets/img/vehicule.jpg" -%}
-            {%- assign modal-image__id = "vehicule" -%}
-            {%- assign modal-image__breakpoint = "md" -%}
-            {%- include modal-image.html -%}
-        </div>
+        
     </section>
 
     <section class="row no-gutters bgColor--orangeLight box-border mt-4 p-4">
