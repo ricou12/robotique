@@ -1,19 +1,26 @@
 ---
 layout: default
 ---
-
-<section class="container bgColor--blackMedium p-4 my-2">
-    <section class="row">
-        <div class="col-12 rounded">
-            <aside class="text-center bgColor-title--blue box-border">
-                <h1 class="txtShadow--white  p-4">Projet robotique <br>( Raspberry et arduino )</h1>
-                <h3 class="text-info txtShadow--black  p-4">Conception d'un robot motorisé avec caméra infra-rouge</h3>
+<section class="container-fluid robotique">
+    <div class="row bgColor--greenLight box-border robotique__header">
+        <div class="col-12 col-lg-3 d-none d-lg-flex justify-content-center align-items-center">
+            <img src="assets/img/composants/raspberry-pi-4.webp" alt="">
+        </div>
+        <div class="col-12 col-lg-6">
+            <aside class="text-center">
+                <h1 class="txtShadow--white txt--blueLight p-4">Projet robotique <br>(Raspberry et arduino)</h1>
+                <h3 class="text-white txtShadow--black p-4">Conception d'un robot motorisé avec caméra infra-rouge</h3>
             </aside>
         </div>
-    </section>
+        <div class="col-12 col-lg-3 d-none d-lg-flex justify-content-center align-items-center">
+            <img src="assets/img/composants/arduino-officiel.png" alt="">
+        </div>
+    </div>
+</section>
 
-    <section class="row text-white mt-4 no-gutters">
-        <div class="col-12 col-xl-3 text-center pb-4 bgColor--orangeLight box-border">
+<section class="container p-4 my-2">
+    <section class="row mt-4">
+        <div class="col-12 col-xl-3 text-center pb-4 box-border">
             <h4 class="txtShadow--black pt-3">Conception de la télécommande</h4>
             <!-- MODAL IMAGE BALISE <img> -->
             {%- assign modal-image__title = "Télécommande" -%}
@@ -41,7 +48,7 @@ layout: default
         </div>
     </section>
 
-    <section class="row text-white no-gutters bgColor--orangeLight box-border mt-4 p-4">
+    <section class="row no-gutters bgColor--orangeLight box-border mt-4 p-4">
         <div class="col-12">
             <h4 class="">Différences entre Raspberry et Arduino</h4>
             <table class="my-4">
@@ -51,20 +58,20 @@ layout: default
                             <p>&nbsp;</p>
                         </td>
                         <td>
-                            <p><strong>Arduino Uno</strong></p>
+                            <p class="text-info"><strong>Arduino Uno</strong></p>
                         </td>
                         <td>
-                            <p><strong>Raspberry Pi Modèle B</strong></p>
+                            <p class="text-info"><strong>Raspberry Pi Modèle B</strong></p>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <p>Prix</p>
                         </td>
-                        <td>
+                        <td class="px-2">
                             <p>env. 23 €</p>
                         </td>
-                        <td>
+                        <td class="px-2">
                             <p>env. 39 €</p>
                         </td>
                     </tr>
@@ -72,10 +79,10 @@ layout: default
                         <td>
                             <p>Taille</p>
                         </td>
-                        <td>
+                        <td class="px-2">
                             <p>7.6 x&nbsp;1.9 x 6.4&nbsp;cm</p>
                         </td>
-                        <td>
+                        <td class="px-2">
                             <p>8.6 x&nbsp;5.4 x 1.7&nbsp;cm</p>
                         </td>
                     </tr>
@@ -83,10 +90,10 @@ layout: default
                         <td>
                             <p>Mémoire vive</p>
                         </td>
-                        <td>
+                        <td class="px-2">
                             <p>0.002 MB</p>
                         </td>
-                        <td>
+                        <td class="px-2">
                             <p>512 MB</p>
                         </td>
                     </tr>
@@ -94,21 +101,21 @@ layout: default
                         <td>
                             <p>Vitesse d’horloge</p>
                         </td>
-                        <td>
+                        <td class="px-2">
                             <p>16&nbsp;MHz</p>
                         </td>
                         <td>
                             <p>700&nbsp;Mhz</p>
-                        </td>
+                        </td class="px-2">
                     </tr>
                     <tr>
                         <td>
                             <p>Réseau embarqué</p>
                         </td>
-                        <td>
+                        <td class="px-2">
                             <p>Aucun</p>
                         </td>
-                        <td>
+                        <td class="px-2">
                             <p>10/100 Ethernet filaire&nbsp;RJ45</p>
                         </td>
                     </tr>
@@ -116,10 +123,10 @@ layout: default
                         <td>
                             <p>Capacité multitâche</p>
                         </td>
-                        <td>
+                        <td class="px-2">
                             <p>Non</p>
                         </td>
-                        <td>
+                        <td class="px-2">
                             <p>Oui</p>
                         </td>
                     </tr>
@@ -127,10 +134,10 @@ layout: default
                         <td>
                             <p>Tension d’entrée</p>
                         </td>
-                        <td>
+                        <td class="px-2">
                             <p>7 à 12&nbsp;V</p>
                         </td>
-                        <td>
+                        <td class="px-2">
                             <p>5&nbsp;V</p>
                         </td>
                     </tr>
@@ -138,10 +145,10 @@ layout: default
                         <td>
                             <p>Mémoire flash</p>
                         </td>
-                        <td>
+                        <td class="px-2">
                             <p>32&nbsp;KB</p>
                         </td>
-                        <td>
+                        <td class="px-2">
                             <p>Carte SD (2 à 16&nbsp;Go)</p>
                         </td>
                     </tr>
@@ -149,10 +156,10 @@ layout: default
                         <td>
                             <p>USB</p>
                         </td>
-                        <td>
+                        <td class="px-2">
                             <p>1, entrée uniquement</p>
                         </td>
-                        <td>
+                        <td class="px-2">
                             <p>2, périphérique OK</p>
                         </td>
                     </tr>
@@ -160,10 +167,10 @@ layout: default
                         <td>
                             <p>Système d’exploitation</p>
                         </td>
-                        <td>
+                        <td class="px-2">
                             <p>Non</p>
                         </td>
-                        <td>
+                        <td class="px-2">
                             <p>Distributions Lunix</p>
                         </td>
                     </tr>
@@ -171,26 +178,73 @@ layout: default
                         <td>
                             <p>Environnement de développement intégré (IDE)</p>
                         </td>
-                        <td>
+                        <td class="px-2">
                             <p>Arduino</p>
                         </td>
-                        <td>
+                        <td class="px-2">
                             <p>Scratch, IDLE, tout dispositif avec Linux</p>
                         </td>
                     </tr>
                 </tbody>
             </table>
-            <p>Le raspberry est en faite un micro ordinateur, plus rapide et plus complexe à utiliser que l'arduino. <br>
-                Il permet d'exécuter un système d’exploitation réel sous Linux. Il peut effectuer plusieurs tâches, il dispose jusqu’à quatre ports USB en natif (Raspberry pi B+, 2 et 3) et peut se connecter à Internet en wifi ou en filaire. <br>
-                Dans le cadre de se projet il permet d'heberger un serveur (Apache, PHP, MySQL, node Js) et servir de HotPost, gérer une caméra ou webCam. <br>
-                En faite il est idéale pour envoyer des instructions à un arduino. Il accepte de nombreux langages de programmations c++, python, java ... 
-             </p>
-             <p>L'arduino est certe moins puissant, mais cette carte programmable simple sur laquelle on branche des composants électroniques, possède un grand nombre d'entrés/sorties (plus que le raspberry) ce qui permet de brancher beaucoup de composants (capteurs, leds et autres... ). Il est donc principalement utilisé pour réaliser des interfaces électroniques avec des capteurs, des actionneurs, circuits électroniques et autres... Une fois le programme chargé, l'Arduino l’exécute en boucle de manière autonome. Le langage utilisé est le C.</p>
-             <p>En conclusion il fonctionne parfaitement ensemble, et donc complémentaires. </p>
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <!-- MODAL IMAGE Raspberry -->
+                    <div class="text-center bg-white">
+                        {%- assign modal-image__title = "Raspberry" -%}
+                        {%- assign modal-image__imgSRC = "assets/img/composants/raspberry-pi-4.webp" -%}
+                        {%- assign modal-image__id = "raspberry" -%}
+                        {%- assign modal-image__breakpoint = "lg" -%}
+                        {%- include modal-image.html -%}
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <p>Le raspberry est en faite un micro ordinateur, plus rapide et plus complexe à utiliser que
+                        l'arduino.
+                        <br>
+                        Il permet d'exécuter un système d’exploitation réel sous Linux. Il peut effectuer plusieurs
+                        tâches, il
+                        dispose jusqu’à quatre ports USB en natif (Raspberry pi B+, 2, 3 et 4) et peut se connecter à
+                        Internet en
+                        wifi ou en filaire. <br>
+                        Dans le cadre de se projet il permet d'heberger un serveur (Apache, PHP, MySQL, node Js) et
+                        servir de
+                        HotPost, gérer une caméra ou webCam. <br>
+                        En faite il est idéale pour envoyer des instructions à un arduino. Il accepte de nombreux
+                        langages de
+                        programmations c++, python, java... .
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-6 order-2 order-lg-1">
+                    <p>L'arduino est certe moins puissant, mais cette carte programmable simple sur laquelle on branche
+                        des
+                        composants électroniques, possède un grand nombre d'entrés/sorties (plus que le raspberry) ce
+                        qui permet
+                        de brancher beaucoup de composants (capteurs, leds et autres... ). <br>
+                        Il est donc principalement utilisé pour réaliser des interfaces électroniques avec des capteurs,
+                        des
+                        actionneurs, circuits électroniques et autres... Une fois le programme chargé, l'Arduino
+                        l’exécute en
+                        boucle de manière autonome. Le langage utilisé est le C.</p>
+                </div>
+                <div class="col-12 col-lg-6 order-1 order-lg-2">
+                    <!-- MODAL IMAGE Arduino -->
+                    <div class="text-center">
+                        {%- assign modal-image__title = "Arduino" -%}
+                        {%- assign modal-image__imgSRC = "assets/img/composants/arduino.jpg" -%}
+                        {%- assign modal-image__id = "arduino" -%}
+                        {%- assign modal-image__breakpoint = "md" -%}
+                        {%- include modal-image.html -%}
+                    </div>
+                </div>
+            </div>
+            <p>En conclusion il fonctionne parfaitement ensemble, et donc complémentaires. </p>
         </div>
     </section>
 
-    <section class="row text-white no-gutters bgColor--orangeLight box-border mt-4 p-4">
+    <section class="row no-gutters bgColor--orangeLight box-border mt-4 p-4">
         <div class="col-12">
             <h4 class="txtShadow--black p-4 text-center">Schéma de fonctionnement</h4>
             <p>

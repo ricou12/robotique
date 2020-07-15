@@ -11,7 +11,7 @@
 
 .bgImage {
     z-index: -500;
-    background-image: url('../../assets/img/robotique.jpg');
+    background-image: url('./../img/robotique.jpg');
     filter: blur(5px);
 }
 
@@ -20,3 +20,4 @@
     background-color: rgba(0, 0, 0, 0.3);
     filter:blur(2px);
 }
+

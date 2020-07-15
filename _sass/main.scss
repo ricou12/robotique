@@ -1,3 +1,7 @@
+*{
+    font-family: "Rubik-light";
+}
+
 /* VIDEO */
 video {
     width: 90%;
@@ -42,7 +46,7 @@ video {
 }
 
 .bgColor--greenLight{
-    background-color: rgba(151, 228, 149, 0.5);
+    background-color:rgb(107, 249, 107);
 }
 
 .bgColor--orangeLight{
@@ -68,6 +72,11 @@ video {
     text-shadow: 1px 2px 2px #ffffff;
 }
 
+.txt--blueLight{
+color:rgb(70, 106, 245);
+}
+
 .box-border{
-    border:2px dotted rgba(56, 56, 62, 0.70);
+    border:2px solid rgba(56, 56, 62, 0.70);
+    border:2px solid rgba(253, 253, 253, 0.3);
 }
