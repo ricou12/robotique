@@ -1,0 +1,54 @@
+.robotique {
+    &__header img {
+        width: 80%;
+        min-width: 200px;
+        max-width: 300px;
+    }
+
+    &__video {
+        background-color: #d7dae0;
+
+        &--height{
+            min-width: 100vw;
+            max-height: 500px;
+        }
+        
+        &__container {
+            background-image: -webkit-gradient(linear, left top, right top, from(rgb(215, 218, 224)), color-stop(25%, rgba(215, 218, 224, 0)), color-stop(75%, rgba(215, 218, 224, 0)), to(#d7dae0)), url(./../img/placeholder.webp);
+            background-image: linear-gradient(90deg, rgb(215, 218, 224) 0, rgba(215, 218, 224, 0) 40%, rgba(215, 218, 224, 0) 60%, rgb(215, 218, 224)), url(./../img/placeholder.webp);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 500px;
+            padding: 0;
+        }
+
+        &__play-button {
+            background-color: #fff;
+            background-image: url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjI4IiB2aWV3Qm94PSIwIDAgMjAgMjgiIHdpZHRoPSIyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtNTUuMTE5ODg2OSAyMS4zMDczODQ2djI3LjM4NTIzMDhsMTkuODg1NDgwNS0xMy42OTI2MTU0eiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTU1IC0yMSkiLz48L3N2Zz4=);
+            background-position: left 2rem center;
+            background-repeat: no-repeat;
+            border: none;
+            border-radius: 100px;
+            color: #000;
+            cursor: pointer;
+            font-size: 1.0rem;
+            font-weight: 700;
+            // line-height: 40px;
+            padding: .5rem 3rem .5rem 4rem;
+            -webkit-transition-duration: .15s;
+            transition-duration: .15s;
+            -webkit-transition-property: background-color;
+            transition-property: background-color;
+            -webkit-transition-timing-function: ease-in-out;
+            transition-timing-function: ease-in-out;
+        }
+    }
+/* VIDEO */
+video {
+    width: 100%;
+}
+}

@@ -1,0 +1,15 @@
+.raspberry{
+    
+    &__background {
+        height:600px;
+        background-image: url('./../img/raspberry-theme/fd1.svg'),linear-gradient(180deg,#c41949,#a90634);
+        // background-position: top;
+        background-repeat: no-repeat;
+        background-size: auto auto;
+    } 
+    &__bg-img{
+        border:1px solid blue;
+        height: 100%;
+        float: right;
+    }
+}

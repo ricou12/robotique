@@ -3,12 +3,12 @@
 <html lang="{{ page.lang | default: site.lang | default: 'fr' }}">
     <head>    
         {%- include head.html -%}
+        
     </head>
     <body>
         <!-- Background fixed full size -->
-        <div class="background bgImage"></div>
-        <div class="background bgColor--black-transparency"></div>
-
+        <!-- <div class="background bgImage"></div> 
+        <div class="background bgColor--black-transparency"></div> -->
         {%- include navbar.html -%}
         {{ content }}
         {% include footer.html %}

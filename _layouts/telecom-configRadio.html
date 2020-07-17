@@ -2,18 +2,19 @@
 layout: default
 ---
 
-<section class="container p-4 mt-2 rounded">
-    <section class="row">
-        <div class="col-12 rounded">
-            <aside class="text-center bgColor-title--blue box-border">
-                <h1 class="txtShadow--white  p-4">Emetteur Récepteur sans Fil 2.4G</h1>
-                <h3 class="text-info txtShadow--black  p-4">Installation et configuration</h3>
+<section class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <aside class="text-center bgColor--orange py-5">
+                <h1 class="txtShadow--black txt-color--blue p-4">Emetteur Récepteur <br> sans Fil 2.4G</h1>
+                <h3 class="text-white txtShadow--black p-4">Installation et configuration</h3>
             </aside>
         </div>
-    </section>
-
-    <section class="container text-white mt-4 bgColor--blueLight rounded">
-        <div class="col-12 mt-4 p-4">
+    </div>
+</section>
+<section class="container py-4 mt-2">
+    <section class="container mt-4">
+        <div class="col-12 mt-4 py-4">
             <h4>Le module NRF24L01</h4>
             <p> Il peut à la fois envoyer et recevoir les données.<p>
             <h4>Spécifications du module nRF24L01</h4>
@@ -29,7 +30,6 @@ layout: default
             </ul>
             <h4>Connectique</h4>
             <div class="row">
-               
                 <div class="col-12 col-md-6">
                     <!-- Modal -->
                     {%- assign modal-image__title = "Module nrf24l01" -%}
@@ -37,7 +37,6 @@ layout: default
                     {%- assign modal-image__id = "connectique" -%}
                     {%- assign modal-image__breakpoint = "xl" -%}
                     {%- include modal-image.html -%}
-                    <!-- <img src="assets/img/montage/nrf24l01.jpg" class="cursor-zoomIn" alt="Module nrf24l01" data-toggle="modal" data-target="#connectique" width="100%"> -->
                 </div>
                 <div class="col-12 col-md-6">
                     <p class="colorGreen">Broches utilisées pour le UNO</p>
@@ -56,11 +55,8 @@ layout: default
             <div class="row"> 
                 <div class="col-12">
                     <p class="mt-2"> La tension de fonctionnement de ce module est de 1,9 à 3,6 V mais les autres broches sont tolérantes à 5 V, ce qui signifie que les autres broches peuvent être directement connectées à l'Arduino. <br>
-
                         Le MOSI, MISO et le SCK sont les broches SPI et ceux-ci doivent être connectés aux broches SPI d'Arduino. Différents Arduino ont différentes broches SPI. <br>
-                        
                         Le CSN et le CE servent à mettre le module en mode actif et à basculer entre le mode de commande et le mode de transmission. Ceux-ci peuvent être connectés à toutes les broches numériques d'Arduino. <br>
-                        
                         La broche IRQ est la broche d'interruption et vous n'avez pas besoin de la connecter.   
                     </p>
                     <p>Télécharger la libraire <span class="font-weight-bold"> nrf24l01</span><a href="assets/librairie/arduino-nrf24l01.zip"> ici.</a></p>
