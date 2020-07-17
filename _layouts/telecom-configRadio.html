@@ -62,7 +62,12 @@ layout: default
                     </p>
                     <p>Télécharger la libraire <span class="font-weight-bold"> nrf24l01</span><a href="assets/librairie/arduino-nrf24l01.zip"> ici.</a></p>
                     <p>Puis l'installer avec le software Arduino téléchargeable à <a href="https://www.arduino.cc/en/main/software" target="_blank"> sur le site officiel.</a></p>
-                    <img src="assets/img/arduino-biblio.jpg" alt="arduino bibliothèque">
+                    {%- assign modal-image__title = "Importer une librairie" -%}
+                    {%- assign modal-image__imgSRC = "assets/img/arduino-biblio.jpg" -%}
+                    {%- assign modal-image__id = "librairie" -%}
+                    {%- assign modal-image__breakpoint = "lg" -%}
+                    {%- include modal-image.html -%}
+                    <!-- <img src="assets/img/arduino-biblio.jpg" alt="arduino bibliothèque"> -->
                     <p class="mt-2">Enfin ajouter la librairie dans l'onglet croquis <span class="extrait">inclure une bibliothèque</span>.</p>
                     <p>Retrouvez les détails dans <a href="{{'./telecom-code.html' | relative_url }}"> le code source.</a> </p>
                 </div>
