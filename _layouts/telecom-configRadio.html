@@ -24,7 +24,7 @@ layout: default
                 <li>Il peut fonctionner avec des débits en bauds de 250 Kbps à 2 Mbps.</li>
                 <li>Sa portée peut atteindre jusqu'à 100 mètres si elle est utilisée en espace ouvert et avec antenne.</li>
                 <li>Il peut à la fois envoyer et recevoir les données simultanément.</li>
-                <li>Chaque module peut communiquer avec jusqu'à 6 autres modules.</li>
+                <li>Chaque module peut communiquer avec 6 autres modules.</li>
                 <li>Il utilise la bande 2,4 GHz.</li>
                 <li>Il peut envoyer de 1 à 25 octets de données brutes à une vitesse de transmission de 1 Mo.</li>
                 <li>Il dispose de 125 canaux différents.</li>
@@ -56,7 +56,7 @@ layout: default
             <div class="row"> 
                 <div class="col-12">
                     <p class="mt-2"> La tension de fonctionnement de ce module est de 1,9 à 3,6 V mais les autres broches sont tolérantes à 5 V, ce qui signifie que les autres broches peuvent être directement connectées à l'Arduino. <br>
-                        Le MOSI, MISO et le SCK sont les broches SPI et ceux-ci doivent être connectés aux broches SPI d'Arduino. Différents Arduino ont différentes broches SPI. <br>
+                        Le MOSI, MISO et le SCK doivent être connectés aux broches SPI d'Arduino. Chaque modèle d'Arduino possède des numéros broches SPI différentes. Ci-dessus un exemple de brochage pour une carte arduino uno, un autre exemple est fourni dans le <a href="{{'./telecom-code.html' | relative_url }}">code</a> pour le modèle mega. <br>
                         Le CSN et le CE servent à mettre le module en mode actif et à basculer entre le mode de commande et le mode de transmission. Ceux-ci peuvent être connectés à toutes les broches numériques d'Arduino. <br>
                         La broche IRQ est la broche d'interruption et vous n'avez pas besoin de la connecter.   
                     </p>
@@ -67,9 +67,8 @@ layout: default
                     {%- assign modal-image__id = "librairie" -%}
                     {%- assign modal-image__breakpoint = "lg" -%}
                     {%- include modal-image.html -%}
-                    <!-- <img src="assets/img/arduino-biblio.jpg" alt="arduino bibliothèque"> -->
                     <p class="mt-2">Enfin ajouter la librairie dans l'onglet croquis <span class="extrait">inclure une bibliothèque</span>.</p>
-                    <p>Retrouvez les détails dans <a href="{{'./telecom-code.html' | relative_url }}"> le code source.</a> </p>
+                    <p>Retrouvez tous les détails dans <a href="{{'./telecom-code.html' | relative_url }}"> le code source.</a> </p>
                 </div>
             </div>
         </div>
