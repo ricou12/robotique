@@ -6,17 +6,17 @@
 -->
 <style>
     .modal__vignettes{
-        max-width: 100%;
+        width: 100%;
         height: auto;
         border-radius: 2px;  
     }
     .modal__cursor-zoomIn{
-        cursor: zoom-in;
+        cursor: pointer;
     }
 </style>
 
 <!-- Image trigger modal -->
-    <img src="{{ modal-image__imgSRC }}" alt="{{ modal-image__title }}" class="modal__vignettes modal__cursor-zoomIn" data-toggle="modal" data-target="#{{ modal-image__id }}">
+<img src="{{ modal-image__imgSRC }}" alt="{{ modal-image__title }}" class="modal__vignettes modal__cursor-zoomIn" data-toggle="modal" data-target="#{{ modal-image__id }}">
 
 <!-- Modal -->
 <div class="modal fade" id="{{ modal-image__id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
