@@ -1,7 +1,7 @@
 <!-- NAVBAR -->
 <div class="container navigation">
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="#">Robotique</a>
+        <a class="navbar-brand" href="#"><img src="assets/img/icon/robots.gif" alt="" width="70"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -11,7 +11,8 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="{{'./index.html' | relative_url }}">Projet robotique<span
-                            class="sr-only">(current)</span></a>
+                            class="sr-only">(current)</span>
+                    </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -19,38 +20,44 @@
                         Conception de la télécommande
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{'./telecom-composant.html' | relative_url }}">Les
-                            composants</a>
-                        <a class="dropdown-item" href="{{'./telecom-code.html' | relative_url }}">Le code Arduino en
-                            C</a>
+                        <div class="dropdown text-left">
+                            <span class="dropdown-item text-danger font-weight-bold">Assemblage</span>
+                        </div>
+                        <a class="dropdown-item" href="{{'./telecom-composant.html' | relative_url }}">Les composants</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{'./telecom-configRadio.html' | relative_url }}">Emetteur
-                            Récepteur
-                            sans Fil 2.4G</a>
+                        <div class="dropdown text-left">
+                            <span class="dropdown-item text-danger font-weight-bold">Interface de commande web</span>
+                            <a class="dropdown-item" href="{{'./telecom-configRadio.html' | relative_url }}">L'application serveur</a>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown text-left">
+                            <span class="dropdown-item text-danger font-weight-bold">Arduino</span>
+                        </div>
+                        <a class="dropdown-item" href="{{'./telecom-configRadio.html' | relative_url }}">Emetteur Récepteur sans Fil</a>
+                        <a class="dropdown-item" href="{{'./telecom-code.html' | relative_url }}">Le code source</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Conception du véhicule
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <div class="dropdown text-left">
-                          <span class="dropdown-item text-danger font-weight-bold"> Assemblage</span> 
+                            <span class="dropdown-item text-danger font-weight-bold">Assemblage</span>
                         </div>
-                        <a class="dropdown-item" href="{{'./vehicule-composants.html' | relative_url }}">Les
-                            composants</a>
+                        <a class="dropdown-item" href="{{'./vehicule-composants.html' | relative_url }}">Les composants</a>
                         <div class="dropdown-divider"></div>
                         <div class="dropdown text-left">
-                            <a class="dropdown-item text-danger font-weight-bold" href="{{'#' | relative_url }}">Arduino</a>
-                        </div>
-                        <a class="dropdown-item" href="{{'./vehicule-code.html' | relative_url }}">Le code Arduino en C</a>
-                        <div class="dropdown-divider"></div>
-                        <div class="dropdown text-left">
-                            <a class="dropdown-item text-danger font-weight-bold" href="{{'./raspberry.html' | relative_url }}">Raspberry</a>
+                            <span class="dropdown-item text-danger font-weight-bold">Raspberry</span>
                         </div>
                         <a class="dropdown-item" href="{{'./hotpost.html' | relative_url }}">Créer un hotspot Wi-Fi</a>
                         <a class="dropdown-item" href="{{'./rpiCam.html' | relative_url }}">Installer une caméra</a>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown text-left">
+                            <span class="dropdown-item text-danger font-weight-bold">Arduino</span>
+                        </div>
+                        <a class="dropdown-item" href="{{'./vehicule-code.html' | relative_url }}">Le code source</a>
                     </div>
                 </li>
             </ul>
