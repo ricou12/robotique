@@ -21,13 +21,9 @@
     filter:blur(2px);
 }
 
-.animate-bg-blue {
-    background-image: url('./../img/icon/Snow-Animation-Background.svg');
-    background-repeat: no-repeat;
-}
-
+// WAVE
 .animate-bg-redWave {
-    background-image: url('./../img/icon/bg-red.svg');
+    background-image: url('./../img/icon/bg-redWave.svg');
     background-repeat: no-repeat;
 }
 
@@ -36,11 +32,22 @@
 }
 
 .animate-bg-raspberryWave {
-    background-image: url('./../img/icon/bg-raspberry.svg');
+    background-image: url('./../img/icon/bg-raspberryWave.svg');
     background-repeat: no-repeat;
 }
 
 .animate-bg-blueWave {
-    background-image: url('./../img/icon/bg-blue.svg');
+    background-image: url('./../img/icon/bg-blueWave.svg');
+    background-repeat: no-repeat;
+}
+
+.animate-bg-blue {
+    background-image: url('./../img/icon/bg-blueSnow.svg');
+    background-repeat: no-repeat;
+}
+
+// SNOW
+.animate-bg-raspberrySnow {
+    background-image: url('./../img/icon/bg-raspberrySnow.svg');
     background-repeat: no-repeat;
 }
