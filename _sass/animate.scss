@@ -1,0 +1,181 @@
+// opacity modified
+@mixin waitShow {
+    -webkit-animation-name: wait;
+            animation-name: wait;
+    -webkit-animation-duration: 1.5s;
+            animation-duration: 1.5s;
+    -webkit-animation-direction: normal;
+            animation-direction: normal;
+}
+
+@-webkit-keyframes wait {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes wait {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+// 
+@mixin effect-light-moveY {
+    -webkit-animation: light 1.5s ease-in-out;
+    animation: light 1.5s ease-in-out;
+}
+
+@-webkit-keyframes light {
+    0% {
+        opacity: 0;
+        text-shadow: 2px 0 10px rgb(250, 248, 248);
+    }
+
+    100% {
+        text-shadow: 0 0 0 rgb(250, 248, 248);
+    }
+}
+
+@keyframes light {
+    0% {
+        opacity: 0;
+        text-shadow: 2px 0 10px rgb(250, 248, 248);
+    }
+
+    100% {
+        text-shadow: 0 0 0 rgb(250, 248, 248);
+    }
+}
+
+// 
+@mixin solarise {
+    -webkit-animation: listeFiche 3s ease-in-out;
+    animation: listeFiche 3s ease-in-out;
+}
+
+@-webkit-keyframes listeFiche {
+    FROM {
+        text-shadow: 2px 0 10px rgb(243, 206, 179);
+    }
+
+    TO {
+        text-shadow: 0 0 0 rgb(230, 184, 151);
+    }
+}
+
+@keyframes listeFiche {
+    FROM {
+        text-shadow: 2px 0 10px rgb(243, 206, 179);
+    }
+
+    TO {
+        text-shadow: 0 0 0 rgb(230, 184, 151);
+    }
+}
+
+// 
+@mixin moveText-X {
+    -webkit-animation: moveX 2s;
+    animation: moveX 2s;
+}
+
+@-webkit-keyframes moveX {
+    FROM {
+        -webkit-transform: translateX(-100vw);
+                transform: translateX(-100vw);
+    }
+
+    TO {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
+}
+
+@keyframes moveX {
+    FROM {
+        -webkit-transform: translateX(-100vw);
+                transform: translateX(-100vw);
+    }
+
+    TO {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
+}
+
+// 
+@mixin moveText-Y {
+    -webkit-animation: moveY 1s;
+            animation: moveY 1s;
+}
+
+@-webkit-keyframes moveY {
+    FROM {
+        -webkit-transform: translateY(-100px);
+                transform: translateY(-100px);
+    }
+
+    TO {
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+    }
+}
+
+@keyframes moveY {
+    FROM {
+        -webkit-transform: translateY(-100px);
+                transform: translateY(-100px);
+    }
+
+    TO {
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+    }
+}
+
+// 
+@mixin login {
+    -webkit-animation-name: login;
+            animation-name: login;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes login {
+    to {
+        -webkit-filter:invert(0.75);
+                filter:invert(0.75);
+    }
+    from {
+        -webkit-filter:invert(1);
+                filter:invert(1);
+    }
+}
+
+@keyframes login {
+    to {
+        -webkit-filter:invert(0.7);
+                filter:invert(0.7);
+    }
+    from {
+        -webkit-filter:invert(1);
+                filter:invert(1);
+    }
+}
+
+//
+  
+  

@@ -1,6 +1,9 @@
 ---
 layout: default
 ---
+
+
+
 <section class="container-fluid robotique">
     <div class="row bgColor--raspberry robotique__header titre-header">
         <div class="col-12 col-lg-3 d-none d-lg-flex justify-content-center align-items-center">
@@ -33,10 +36,16 @@ layout: default
         <div class="col-12 col-md-6 d-flex align-items-center">
             <div>
                 <h4 class="txtShadow--white txt-color--raspberry">La télecommande</h4>
-                <p>Un émetteur récepteur connecté au microcontroleur arduino permet d'envoyer les positions des
+                <p>Un <a href="{{'/telecom-configRadio.html' | relative_url }}"><span class="font-weight-bold"> émetteur récepteur </span></a>connecté au microcontroleur arduino permet d'envoyer les positions des
                     joysticks et l'état de boutons. Un programme convertit les valeurs analogiques et numériques puis
                     structures les données avant de les transmettres par ondes radio.
                 </p>
+                <p>Lorsque la télécommande est mise sous tension, 3
+                    <a href="{{'/led.html' | relative_url }}">
+                        <span class="font-weight-bold"> LED </span>
+                    </a>
+                clignotent, indiquant que le script arduino s'est chargé normalement. <br>
+                Puis le led bleue s'allume à chaque émission d'onde radio. </p>
             </div>
         </div>
     </section>
@@ -47,7 +56,7 @@ layout: default
                 <h4 class="txtShadow--white txt-color--raspberry">Interface de commande web</h4>
                 <p>Son rôle est identique à la solution décrite dans le paragraphe précédent. <br> Le mode de
                     communication
-                    exploite les technologies Web. Déployé sur le raspberry, l'interface web communique avec un serveur
+                    exploite les technologies Web. Déployé sur le raspberry, <a href="{{'#' | relative_url }}"><span class="font-weight-bold"> l'interface web </span></a> communique avec un serveur
                     qui
                     interagit avec le microcontrôleur arduino. <br> Les commandes peuvent être executer de façon
                     distante à
@@ -79,9 +88,13 @@ layout: default
         <div class="col-12 col-md-6 d-flex align-items-center">
             <div>
                 <h4 class="txtShadow--white txt-color--raspberry">Le robot</h4>
-                <p>Une interface web permet de visualiser le flux vidéo et de traiter les requêtes des utilisateurs à
+                <p>Une page web permet de 
+                    <a href="{{'/rpiCam.html' | relative_url }}">
+                        <span class="font-weight-bold">  visualiser le flux vidéo </span>
+                    </a>
+                     et de traiter les requêtes des utilisateurs à
                     l'aide
-                    de interface de commande ci-dessus. <br>Le microcontroleur Arduino gère la partie éléctronique, actionne
+                    de l'interface de commande ci-dessus. <br>Le microcontroleur Arduino gère la partie éléctronique, actionne
                     les
                     moteurs, et récupère les données renvoyées par les capteurs. </p>
             </div>
@@ -320,7 +333,7 @@ layout: default
             <h4 class=" mt-4">Matériel</h4>
             <p>
                 La première solution nécessite la réalisation d'une <a
-                    href="{{'./telecom-composant.html' | relative_url }}"> télécommande</a>. <br>
+                    href="{{'/telecom-composant.html' | relative_url }}"> télécommande</a>. <br>
                 Dans ce cas la communication entre la télécommande et le véhicule est réalisée via les ondes radios.
                 Les composants principaux sont une carte arduino uno, 2 joystick, des leds et un émetteur récepteur
                 2.4
