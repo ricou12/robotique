@@ -1,8 +1,7 @@
-# Projet robotique
-## langages : C, Phyton et technos web
+## [Site de présentation d'un projet robotique](https://ricou12.github.io/Robotique/)
+### Développé avec Jekyll. 
+### Langages utilisés : C, Phyton et technos web
+### Réalisé avec microcontroleurs ARDUINO et RASPBERRY
 
-## Microcontroleurs ARDUINO et RASPBERRY
-
-## [Application robotique](https://ricou12.github.io/Robotique/)
 
 
