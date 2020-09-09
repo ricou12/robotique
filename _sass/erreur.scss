@@ -1,0 +1,22 @@
+.erreur {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+
+    &__title {
+        font-size: 2em;
+        color: white;
+    }
+
+    &__bg--img {
+        z-index: -500;
+        background-image: url("./../img/foret-5.jpg");
+    }
+
+    &__bg--color {
+        z-index: -400;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    
+}

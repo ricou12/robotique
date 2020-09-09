@@ -1,0 +1,81 @@
+---
+layout: default
+title: Télécommande web
+---
+
+<section class="container-fluid">
+    <section class="row bgColor--orangeLight py-5">
+        <div class="col-12">
+            <aside class="text-center titre-header">
+                <h1 class="txtShadow--white txt-color--raspberry p-4">Solution matériel et logiciel</h1>
+                <h3 class="text-white txtShadow--black p-4 text-center">
+                    Schémas de fonctionnements</h3>
+             </aside>        
+        </div>
+    </section>
+</section>
+
+<div class="container-fluid border">
+    <section class="row">
+        <div class="col-12 pt-4">
+            <p>
+                J'ai prévu 2 modes de contrôle commande :
+                <ul>
+                    <li>Matériel<a href="{{'/telecom-composant.html' | relative_url }}"> - Télécommande radio</a></li>
+                    <li>Logiciel<a href="{{'/interfaceWeb.html' | relative_url }}"> - Télécommande web</a></li>
+                </ul>
+            </p>
+        </div>
+        <div class="col-12 col-lg-6 p-2">
+            <h4>Matériel</h4>
+            <p>
+                La première solution nécessite la réalisation d'une <a
+                    href="{{'/telecom-composant.html' | relative_url }}"> télécommande</a>. <br>
+                Dans ce cas la communication entre la télécommande et le véhicule est réalisée via les ondes radios.
+                Les composants principaux sont une carte arduino uno, 2 joystick, des leds et un émetteur récepteur
+                2.4
+                ghz.
+            </p>
+            <!-- MODAL IMAGE BALISE <img> -->
+            <div class="text-center">
+                {%- assign modal-image__title = "Solution matériel" -%}
+                {%- assign modal-image__imgSRC = "assets/img/schema/telecommande-arduino.png" -%}
+                {%- assign modal-image__id = "matériel" -%}
+                {%- assign modal-image__breakpoint = "xl" -%}
+                {%- assign modalEffectImage = '' -%}
+                {%- include modal-image.html -%}
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-6 p-3">
+            <h4 class=" mt-4">Logiciel</h4>
+            <p>La seconde méthode nécessite le développement d'une <a href="{{'/interfaceWeb.html' | relative_url }}">interface web</a> connectée à un serveur. J'ai opté
+                pour
+                une technologie de type front end. <br>
+                <span class="font-weight-bold">Node Js</span> permet de développer en quelques lignes un serveur
+                fonctionnel, c'est un environnement d'exécution JavaScript asynchrone et orienté événement. <br>
+                Le noyau de Node.js est tout petit. De base, Node.js ne sait en fait pas faire grand chose, mais il
+                est
+                très riche grâce à son extensibilité, il existe des milliers de modules (extensions) qui offrent des
+                fonctionnalités variées. <br>
+                Comme le montre le schéma ci-dessous, le contrôle commande est géré par le microcontrôleur arduino.
+                <br>
+                Pour que l'arduino puisse exécuter les différentes actions , il doit pouvoir communiquer avec le
+                serveur.
+                Le port serie (port de communication) de type USB va permettre l'échange des données entre le
+                serveur et
+                l'arduino.
+                Le module Node SerialPort permet d'interagir entre les deux périphériques.
+            </p>
+            <!-- MODAL IMAGE BALISE <img> -->
+            <div class="text-center">
+                {%- assign modal-image__title = "Solution logiciel" -%}
+                {%- assign modal-image__imgSRC = "assets/img/schema/serveur-arduino.png" -%}
+                {%- assign modal-image__id = "logiciel" -%}
+                {%- assign modal-image__breakpoint = "xl" -%}
+                {%- assign modalEffectImage = '' -%}
+                {%- include modal-image.html -%}
+            </div>
+        </div>
+    </section>
+</div>

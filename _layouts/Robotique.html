@@ -2,8 +2,6 @@
 layout: default
 ---
 
-
-
 <section class="container-fluid robotique">
     <div class="row bgColor--raspberry robotique__header titre-header">
         <div class="col-12 col-lg-3 d-none d-lg-flex justify-content-center align-items-center">
@@ -12,7 +10,7 @@ layout: default
         <div class="col-12 col-lg-6 py-5">
             <aside class="text-center">
                 <h1 class="txtShadow--black txt-color--yellow p-4"> Projet robotique<br>(Raspberry et arduino)</h1>
-                <h3 class="text-white txtShadow--black p-4">Conception d'un robot motorisé <br> avec caméra infra-rouge
+                <h3 class="text-white txtShadow--black p-4">Conception d'un véhicule motorisé <br> avec caméra infra-rouge.
                 </h3>
             </aside>
         </div>
@@ -30,12 +28,13 @@ layout: default
                 {%- assign modal-image__imgSRC = "assets/img/telecommande.png" -%}
                 {%- assign modal-image__id = "telecommande" -%}
                 {%- assign modal-image__breakpoint = "lg" -%}
+                {%- assign modalEffectImage = 'effect-Zoom' -%}
                 {%- include modal-image.html -%}
             </div>
         </div>
         <div class="col-12 col-md-6 d-flex align-items-center">
             <div>
-                <h4 class="txtShadow--white txt-color--raspberry">La télecommande</h4>
+                <h4 class="txtShadow--white txt-color--raspberry"><a href="{{'/telecom-composant.html' | relative_url }}">La télecommande</a></h4>
                 <p>Un <a href="{{'/telecom-configRadio.html' | relative_url }}"><span class="font-weight-bold"> émetteur récepteur </span></a>connecté au microcontroleur arduino permet d'envoyer les positions des
                     joysticks et l'état de boutons. Un programme convertit les valeurs analogiques et numériques puis
                     structures les données avant de les transmettres par ondes radio.
@@ -53,10 +52,10 @@ layout: default
     <section class="row mt-4">
         <div class="col-12 order-2 col-md-6 order-md-1 d-flex align-items-center">
             <div>
-                <h4 class="txtShadow--white txt-color--raspberry">Interface de commande web</h4>
+            <h4 class="txtShadow--white txt-color--raspberry"><a href="{{'/interfaceWeb.html' | relative_url }}">Interface de télécommande web</a></h4>
                 <p>Son rôle est identique à la solution décrite dans le paragraphe précédent. <br> Le mode de
                     communication
-                    exploite les technologies Web. Déployé sur le raspberry, <a href="{{'#' | relative_url }}"><span class="font-weight-bold"> l'interface web </span></a> communique avec un serveur
+                    exploite les technologies Web. Déployé sur le raspberry, l'interface web communique avec un serveur
                     qui
                     interagit avec le microcontrôleur arduino. <br> Les commandes peuvent être executer de façon
                     distante à
@@ -64,12 +63,13 @@ layout: default
                     d'exploitation de notre raspberry.</p>
             </div>
         </div>
-        <div class="col-12 order-1 col-md-6 d-flex align-items-center">
-            <div class="text-center">
+        <div class="col-12 order-1 col-md-6 d-flex justify-content-center align-items-center">
+            <div class="text-right">
                 {%- assign modal-image__title = "Interface de commande web" -%}
-                {%- assign modal-image__imgSRC = "assets/img/web-pc.png" -%}
+                {%- assign modal-image__imgSRC = "assets/img/telecom.png" -%}
                 {%- assign modal-image__id = "web" -%}
-                {%- assign modal-image__breakpoint = "lg" -%}
+                {%- assign modal-image__breakpoint = "md" -%}
+                {%- assign modalEffectImage = 'effect-Zoom' -%}
                 {%- include modal-image.html -%}
             </div>
         </div>
@@ -82,15 +82,16 @@ layout: default
                 {%- assign modal-image__imgSRC = "assets/img/robot.png" -%}
                 {%- assign modal-image__id = "vehicule" -%}
                 {%- assign modal-image__breakpoint = "lg" -%}
+                {%- assign modalEffectImage = 'effect-grayscale' -%}
                 {%- include modal-image.html -%}
             </div>
         </div>
         <div class="col-12 col-md-6 d-flex align-items-center">
             <div>
-                <h4 class="txtShadow--white txt-color--raspberry">Le robot</h4>
+                <h4 class="txtShadow--white txt-color--raspberry"><a href="{{'/composants-vehicule.html' | relative_url }}">Le robot</a></h4>
                 <p>Une page web permet de 
                     <a href="{{'/rpiCam.html' | relative_url }}">
-                        <span class="font-weight-bold">  visualiser le flux vidéo </span>
+                        <span class="font-weight-bold"> visualiser le flux vidéo </span>
                     </a>
                      et de traiter les requêtes des utilisateurs à
                     l'aide
@@ -262,6 +263,7 @@ layout: default
                         {%- assign modal-image__imgSRC = "assets/img/composants/raspberry-pi4.png" -%}
                         {%- assign modal-image__id = "raspberry" -%}
                         {%- assign modal-image__breakpoint = "lg" -%}
+                        {%- assign modalEffectImage = '' -%}
                         {%- include modal-image.html -%}
                     </div>
                 </div>
@@ -309,74 +311,12 @@ layout: default
                         {%- assign modal-image__imgSRC = "assets/img/composants/arduino.png" -%}
                         {%- assign modal-image__id = "arduino" -%}
                         {%- assign modal-image__breakpoint = "md" -%}
+                        {%- assign modalEffectImage = '' -%}
                         {%- include modal-image.html -%}
                     </div>
                 </div>
             </div>
-            <p>En conclusion il fonctionne parfaitement ensemble, et donc complémentaires. </p>
-        </div>
-    </section>
-
-    <section class="row no-gutters box-border mt-4 py-4">
-        <div class="col-12">
-            <h4 class="txtShadow--white txt-color--raspberry bgColor--orangeLight p-4 font-weight-bold text-center">
-                Schéma de fonctionnement</h4>
-            <p>
-                J'ai prévu 2 modes de contrôle commande :
-                <ul>
-                    <li>Matériel</li>
-                    <li>Logiciel</li>
-                </ul>
-            </p>
-        </div>
-        <div class="col-12 col-lg-6 p-3">
-            <h4 class=" mt-4">Matériel</h4>
-            <p>
-                La première solution nécessite la réalisation d'une <a
-                    href="{{'/telecom-composant.html' | relative_url }}"> télécommande</a>. <br>
-                Dans ce cas la communication entre la télécommande et le véhicule est réalisée via les ondes radios.
-                Les composants principaux sont une carte arduino uno, 2 joystick, des leds et un émetteur récepteur
-                2.4
-                ghz.
-            </p>
-            <!-- MODAL IMAGE BALISE <img> -->
-            <div class="text-center">
-                {%- assign modal-image__title = "Solution matériel" -%}
-                {%- assign modal-image__imgSRC = "assets/img/schema/telecommande-arduino.png" -%}
-                {%- assign modal-image__id = "matériel" -%}
-                {%- assign modal-image__breakpoint = "xl" -%}
-                {%- include modal-image.html -%}
-            </div>
-        </div>
-
-        <div class="col-12 col-lg-6 p-3">
-            <h4 class=" mt-4">Logiciel</h4>
-            <p>La seconde méthode nécessite le développement d'une interface web connectée à un serveur. J'ai opté
-                pour
-                une technologie de type front end. <br>
-                <span class="font-weight-bold">Node Js</span> permet de développer en quelques lignes un serveur
-                fonctionnel, c'est un environnement d'exécution JavaScript asynchrone et orienté événement. <br>
-                Le noyau de Node.js est tout petit. De base, Node.js ne sait en fait pas faire grand chose, mais il
-                est
-                très riche grâce à son extensibilité, il existe des milliers de modules (extensions) qui offrent des
-                fonctionnalités variées. <br>
-                Comme le montre le schéma ci-dessous, le contrôle commande est géré par le microcontrôleur arduino.
-                <br>
-                Pour que l'arduino puisse exécuter les différentes actions , il doit pouvoir communiquer avec le
-                serveur.
-                Le port serie (port de communication) de type USB va permettre l'échange des données entre le
-                serveur et
-                l'arduino.
-                Le module Node SerialPort permet d'interagir entre les deux périphériques.
-            </p>
-            <!-- MODAL IMAGE BALISE <img> -->
-            <div class="text-center">
-                {%- assign modal-image__title = "Solution logiciel" -%}
-                {%- assign modal-image__imgSRC = "assets/img/schema/serveur-arduino.png" -%}
-                {%- assign modal-image__id = "logiciel" -%}
-                {%- assign modal-image__breakpoint = "xl" -%}
-                {%- include modal-image.html -%}
-            </div>
+            <p>En conclusion il fonctionne parfaitement ensemble, et sont donc complémentaires. </p>
         </div>
     </section>
 </section>

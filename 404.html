@@ -1,25 +1,56 @@
 ---
 permalink: /404.html
-layout: default
+<!-- layout: default -->
 ---
 
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
 
-<div class="container">
-  <h1>404</h1>
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'fr' }}">
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Lien vers mes fichiers css -->
+    <link rel="stylesheet" href="{{ './assets/css/style.css' | relative_url }}" type="text/css">
+
+    <!-- TITRE -->
+    <title>Erreur</title>
+</head>
+
+<body>
+    <section class="erreur">
+        <div class="background erreur__bg--img "></div>
+        <div class="background erreur__bg--color"></div>
+
+        <div class="container d-flex flex-column flex-grow-1 justify-content-around align-items-center text-white">
+            <h1 class="text-center">...OOPS  erreur : 404</h1>
+            <h2 class="text-center">Page non trouvée</h2>
+            <a href="{{'/index.html' | relative_url }}" class="btn btn-outline-light">Retour en page d'accueil</a>
+        </div>
+    </section>
+
+
+
+
+    <!-- Lien vers CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>
+<!-- <div class="container">
+  <img src={{ "assets/img/foret-5.jpg" | relative-url }} alt="">
+   <p><strong>Page not found </strong></p>
+   <p>Désolé, la page que vous avez demandé n'existe pas.</p>
+ </div> -->

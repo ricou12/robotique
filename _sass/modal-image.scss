@@ -1,9 +1,27 @@
-// .modal__vignettes{
-//     width: 100%;
-//     // max-width: 100%;
-//     height: auto;
-//     border-radius: 2px;  
-// }
-// .modal__cursor-zoomIn{
-//     cursor: zoom-in;
-// }
+.effect-Zoom{
+    -webkit-transition: 1s;
+    transition: 1s;
+}
+
+.effect-Zoom:hover{
+    scale: 1.05;
+}
+
+.effect-grayscale{
+	-webkit-transition: 1s ease-in;
+	transition: 1s ease-in;
+}
+
+.effect-grayscale:hover{
+    -webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
+
+.effect-opacity {
+	opacity: 1;
+	-webkit-transition: 2s ease-in-out;
+	transition: 2s ease-in-out;
+}
+.effect-opacity:hover {
+	opacity: .8;
+}

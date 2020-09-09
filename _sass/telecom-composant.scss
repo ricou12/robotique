@@ -1,5 +1,23 @@
+
 .telecommande {
+
     &__header {
         background-image: url('./../img/icon/pattern-8.svg');
+    }
+}
+
+
+
+@media screen and (min-width:991px){
+    .telecommande__box-title{
+        background:no-repeat right bottom url('./../img/telecommande.png');
+        background-size: 250px;
+    }
+}
+
+@media screen and (min-width:1199px){
+    .telecommande__box-title{
+        background:no-repeat right 100px center url('./../img/telecommande.png');
+        background-size: 250px;
     }
 }

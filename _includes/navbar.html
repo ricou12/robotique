@@ -17,24 +17,27 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Conception de la télécommande
+                       Conception des télécommandes
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <div class="dropdown text-left">
-                            <span class="dropdown-item text-danger font-weight-regular">Assemblage</span>
+                            <a class="dropdown-item" href="{{'/telecommandes.html' | relative_url }}">Solution matériel et logiciel</a>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown text-left">
+                            <span class="dropdown-item text-danger font-weight-bold">Solution logiciel</span>
+                            <a class="dropdown-item" href="{{'/interfaceWeb.html' | relative_url }}">Télécommande web</a>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown text-left">
+                            <span class="dropdown-item text-danger font-weight-bold">Solution Matérielle</span>
                         </div>
                         <a class="dropdown-item" href="{{'/telecom-composant.html' | relative_url }}">Les composants</a>
-                        <a class="dropdown-item" href="{{'/led.html' | relative_url }}">Alimentation d'une LED</a>
-                        <div class="dropdown-divider"></div>
-                        <div class="dropdown text-left">
-                            <span class="dropdown-item text-danger font-weight-regular">Interface de commande web</span>
-                            <a class="dropdown-item" href="{{'#' | relative_url }}">L'application serveur</a>
-                        </div>
-                        <div class="dropdown-divider"></div>
-                        <div class="dropdown text-left">
+                        <div class="dropdown">
                             <span class="dropdown-item text-danger font-weight-regular">Arduino</span>
                         </div>
-                        <a class="dropdown-item" href="{{'/telecom-configRadio.html' | relative_url }}">Emetteur Récepteur sans Fil</a>
+                        <a class="dropdown-item" href="{{'/telecom-configRadio.html' | relative_url }}">Emetteur Récepteur NRF24L01<i class="fa fa-server" aria-hidden="true"></i></a>
+                        <a class="dropdown-item" href="{{'/led.html' | relative_url }}">Alimenter une LED</a>
                         <a class="dropdown-item" href="{{'/telecom-code.html' | relative_url }}">Le code source</a>
                     </div>
                 </li>
@@ -44,18 +47,14 @@
                         Conception du véhicule
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <div class="dropdown text-left">
-                            <span class="dropdown-item text-danger font-weight-regular">Assemblage</span>
-                        </div>
-                        <a class="dropdown-item" href="{{'/vehicule-composants.html' | relative_url }}">Les composants</a>
-                        <div class="dropdown-divider"></div>
-                        <div class="dropdown text-left">
+                        
+                        <a class="dropdown-item" href="{{'/composants-vehicule.html' | relative_url }}">Les composants</a>
+                        <div class="dropdown">
                             <span class="dropdown-item text-danger font-weight-regular">Raspberry</span>
                         </div>
                         <a class="dropdown-item" href="{{'/hotpost.html' | relative_url }}">Créer un hotspot Wi-Fi</a>
                         <a class="dropdown-item" href="{{'/rpiCam.html' | relative_url }}">Installer une caméra</a>
-                        <div class="dropdown-divider"></div>
-                        <div class="dropdown text-left">
+                        <div class="dropdown">
                             <span class="dropdown-item text-danger font-weight-regular">Arduino</span>
                         </div>
                         <a class="dropdown-item" href="{{'/vehicule-code.html' | relative_url }}">Le code source</a>

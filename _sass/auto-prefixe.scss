@@ -1,0 +1,19 @@
+/* ******************************************
+ Auto-prefixer les propriétés
+****************************************** */
+@mixin auto-prefix($property, $ltr-value){
+    // (Chrome, nouvelles versions d'Opera.)
+    -webkit-#{$property}: $ltr-value;
+
+    // (Firefox)
+    -moz-#{$property}: $ltr-value;
+
+    // (Internet Explorer et Edge)
+    -ms-#{$property}: $ltr-value;
+
+    // (Anciennes versions d'Opera)
+    -o-#{$property}: $ltr-value;
+
+    // Commun
+    #{$property}: $ltr-value;
+}
