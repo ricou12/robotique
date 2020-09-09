@@ -16,12 +16,6 @@ title: L'interface web
 </section>
 <div class="container interfaceWeb">
     <div class="row mt-4 mb-5 d-flex justify-content-center align-items-center interfaceWeb__video">
-        <div class="col-12 col-md-4 d-flex justify-content-center align-items-start">
-            <img src="assets/img/telecom.png" alt="Telecommande-web" class="interfaceWeb__image">
-            <button class="interfaceWeb__video__play-button">Voir la vidéo</button>
-        </div>
-        <div class="col-12 col-md-8 mt-4 mt-md-0 blocText">
-        </div>
     </div>
     <div class="row">
         <div class="col-12 GistHub">
@@ -31,7 +25,8 @@ title: L'interface web
 </div>
 
 <script>
-    const blocText = () => {
+
+const blocText = () => {
         return `
             <p>Le serveur node JS déployé sur le microcontrôleur raspberry permet d'établir la communication entre
                 l'utilisateur et le microcontrôleur arduino qui executera l'action demandée.</p>
@@ -51,20 +46,45 @@ title: L'interface web
             </p>`
     }
 
-    document.querySelector('.interfaceWeb .blocText').innerHTML = `${blocText()}`;
+    const base_container_video_2 = () => {
+        return`
+        <div class="col-12 col-md-4 d-flex justify-content-center align-items-start">
+            <img src="assets/img/telecom.png" alt="Telecommande-web" class="interfaceWeb__image">
+            <button class="interfaceWeb__video__play-button">Voir la vidéo</button>
+        </div>
+        <div class="col-12 col-md-8 mt-4 mt-md-0 blocText">
+            ${blocText()}
+        </div>
+        `
+    }
 
-    document.querySelector(".interfaceWeb__video__play-button").addEventListener('click', () => {
-        document.querySelector('.interfaceWeb__video').innerHTML = `
-        <div class="col-12 d-flex justify-content-center align-items-start">
-            <video class="interfaceWeb__video--height" controls autoplay>
+    const playVideo = () => {
+        return `<div class="col-12 d-flex justify-content-center align-items-start">
+            <video class="videoWeb interfaceWeb__video--height" controls autoplay>
                 <source src="assets/video/telecom.mp4" type="video/mp4">
                     <p>Votre navigateur ne prend pas en charge les vidéos HTML5. Voici 
                         <a href="assets/video/telecom.mp4">Un lien pour télécharger la vidéo</a>.
                     </p>
             </video>
-        </div> 
-        <div class="col-12 mt-4"> 
-            ${blocText()}
-        </div>`; 
-    });  
+            </div> 
+            <div class="col-12 mt-4">
+                ${blocText()}
+            </div>`; 
+    }
+
+    const container_video_2 = document.querySelector('.interfaceWeb__video');
+    container_video_2.innerHTML = `${base_container_video_2()}`;
+
+    const recharge = () => {
+        document.querySelector(".interfaceWeb__video__play-button").addEventListener('click', () => {
+            container_video_2.innerHTML = ` ${playVideo()} `; 
+            document.querySelector('.videoWeb').addEventListener('ended',() => {
+                container_video_2.innerHTML = `${base_container_video_2()}`;
+                recharge();
+            });
+        });  
+    }
+    
+    recharge();
+
 </script>

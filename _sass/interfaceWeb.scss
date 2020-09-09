@@ -7,7 +7,8 @@
 
         &__play-button {
             // @mixin play_button (position fleche, taille fleche, $ft-size, $line-height, $padding)
-            @include play_button(left 1.5rem center,  1.1rem, .7rem, 40px, .3rem 2rem .3rem 4rem);
+            @include play_button(left 1.5rem center, 1.1rem, .7rem, 40px, .3rem 2rem .3rem 4rem);
+            font-weight: 700;
 
             // @mixin effect_play_button($animation_name, $delai, $valueIn, $valueOut, $bgColor, $textColor)
             @include effect_play_button(btn-2, .8s, left 1rem center, left 2rem center, rgba(195, 195, 195, 0.9), green);

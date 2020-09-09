@@ -322,8 +322,19 @@ layout: default
 </section>
 
 <script>
+    const base_container_video = () =>{
+        return `
+        <div class="o-container robotique__video__container">
+            <button class="robotique__video__play-button">Regarder la vidéo</button>              
+        </div>`;
+    }
+
+    const blocVideo = document.querySelector('.robotique__video');
+    blocVideo.innerHTML =  base_container_video;
+
+    // const 
     document.querySelector(".robotique__video__play-button").addEventListener('click', () => {
-        document.querySelector('.robotique__video').innerHTML = `
+        blocVideo.innerHTML = `
         <video class="robotique__video--height" controls autoplay>
             <source src="assets/video/video.mp4" type="video/mp4">
                 <p>Votre navigateur ne prend pas en charge les vidéos HTML5. Voici 
