@@ -4,7 +4,7 @@
 
 .effect-grayscaleZoomTurnOut:hover{
 	@include auto-prefix(filter, grayscale(100%));
-	@include auto-prefix(transform, rotate(-20deg) scale(.7));
+	@include auto-prefix(transform, rotate(-5deg) scale(.9));
 }
 
 .effect-grayscaleZoomTurnIn{
@@ -13,11 +13,11 @@
 
 .effect-grayscaleZoomTurnIn:hover{
 	@include auto-prefix(filter, grayscale(100%));
-	@include auto-prefix(transform, rotate(20deg) scale(.7));
+	@include auto-prefix(transform, rotate(5deg) scale(.9));
 }
 
 .effect-move_X{
-	@include auto-prefix(transition,.3s ease-in);
+	@include auto-prefix(transition,2s ease-in);
 }
 
 .effect-move_X:hover{

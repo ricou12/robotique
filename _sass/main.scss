@@ -1,8 +1,8 @@
-@import "./../node_modules/bootstrap/scss/bootstrap";
+// @import "./../node_modules/bootstrap/scss/bootstrap";
 @import "auto-prefixe";
 @import "animate";
 @import "play_button";
-@import "gisthub.scss";
+@import "gisthub";
 @import "mixins";
 @import "erreur";
 @import "common";
@@ -11,7 +11,7 @@
 @import "rc-card";
 @import "hostpot";
 @import "robotique";
-@import "interfaceWeb.scss";
-@import "telcom-configRadio.scss";
+@import "interfaceWeb";
+@import "telcom-configRadio";
 @import "telecom-composant";
-@import "modal-image.scss";
+@import "modal-image";
