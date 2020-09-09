@@ -1,27 +1,26 @@
-.effect-Zoom{
-    -webkit-transition: 1s;
-    transition: 1s;
+.effect-grayscaleZoomTurnOut{
+	@include auto-prefix(transition,.7s ease-in);
 }
 
-.effect-Zoom:hover{
-    scale: 1.05;
+.effect-grayscaleZoomTurnOut:hover{
+	@include auto-prefix(filter, grayscale(100%));
+	@include auto-prefix(transform, rotate(-20deg) scale(.7));
 }
 
-.effect-grayscale{
-	-webkit-transition: 1s ease-in;
-	transition: 1s ease-in;
+.effect-grayscaleZoomTurnIn{
+	@include auto-prefix(transition,.7s ease-in);
 }
 
-.effect-grayscale:hover{
-    -webkit-filter: grayscale(100%);
-	filter: grayscale(100%);
+.effect-grayscaleZoomTurnIn:hover{
+	@include auto-prefix(filter, grayscale(100%));
+	@include auto-prefix(transform, rotate(20deg) scale(.7));
 }
 
-.effect-opacity {
-	opacity: 1;
-	-webkit-transition: 2s ease-in-out;
-	transition: 2s ease-in-out;
+.effect-move_X{
+	@include auto-prefix(transition,.3s ease-in);
 }
-.effect-opacity:hover {
-	opacity: .8;
+
+.effect-move_X:hover{
+	@include auto-prefix(filter, grayscale(100%));
+	@include auto-prefix(transform, translateX(100px));
 }
