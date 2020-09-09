@@ -10,7 +10,8 @@ layout: default
         <div class="col-12 col-lg-6 py-5">
             <aside class="text-center">
                 <h1 class="txtShadow--black txt-color--yellow p-4"> Projet robotique<br>(Raspberry et arduino)</h1>
-                <h3 class="text-white txtShadow--black p-4">Conception d'un véhicule motorisé <br> avec caméra infra-rouge.
+                <h3 class="text-white txtShadow--black p-4">Conception d'un véhicule motorisé <br> avec caméra
+                    infra-rouge.
                 </h3>
             </aside>
         </div>
@@ -34,8 +35,10 @@ layout: default
         </div>
         <div class="col-12 col-md-6 d-flex align-items-center">
             <div>
-                <h4 class="txtShadow--white txt-color--raspberry"><a href="{{'/telecom-composant.html' | relative_url }}">La télecommande</a></h4>
-                <p>Un <a href="{{'/telecom-configRadio.html' | relative_url }}"><span class="font-weight-bold"> émetteur récepteur </span></a>connecté au microcontroleur arduino permet d'envoyer les positions des
+                <h4 class="txtShadow--white txt-color--raspberry"><a
+                        href="{{'/telecom-composant.html' | relative_url }}">La télecommande</a></h4>
+                <p>Un <a href="{{'/telecom-configRadio.html' | relative_url }}"><span class="font-weight-bold"> émetteur
+                            récepteur </span></a>connecté au microcontroleur arduino permet d'envoyer les positions des
                     joysticks et l'état de boutons. Un programme convertit les valeurs analogiques et numériques puis
                     structures les données avant de les transmettres par ondes radio.
                 </p>
@@ -43,8 +46,8 @@ layout: default
                     <a href="{{'/led.html' | relative_url }}">
                         <span class="font-weight-bold"> LED </span>
                     </a>
-                clignotent, indiquant que le script arduino s'est chargé normalement. <br>
-                Puis le led bleue s'allume à chaque émission d'onde radio. </p>
+                    clignotent, indiquant que le script arduino s'est chargé normalement. <br>
+                    Puis le led bleue s'allume à chaque émission d'onde radio. </p>
             </div>
         </div>
     </section>
@@ -52,7 +55,8 @@ layout: default
     <section class="row mt-4">
         <div class="col-12 order-2 col-md-6 order-md-1 d-flex align-items-center">
             <div>
-            <h4 class="txtShadow--white txt-color--raspberry"><a href="{{'/interfaceWeb.html' | relative_url }}">Interface de télécommande web</a></h4>
+                <h4 class="txtShadow--white txt-color--raspberry"><a
+                        href="{{'/interfaceWeb.html' | relative_url }}">Interface de télécommande web</a></h4>
                 <p>Son rôle est identique à la solution décrite dans le paragraphe précédent. <br> Le mode de
                     communication
                     exploite les technologies Web. Déployé sur le raspberry, l'interface web communique avec un serveur
@@ -88,14 +92,16 @@ layout: default
         </div>
         <div class="col-12 col-md-6 d-flex align-items-center">
             <div>
-                <h4 class="txtShadow--white txt-color--raspberry"><a href="{{'/composants-vehicule.html' | relative_url }}">Le robot</a></h4>
-                <p>Une page web permet de 
+                <h4 class="txtShadow--white txt-color--raspberry"><a
+                        href="{{'/composants-vehicule.html' | relative_url }}">Le robot</a></h4>
+                <p>Une page web permet de
                     <a href="{{'/rpiCam.html' | relative_url }}">
                         <span class="font-weight-bold"> visualiser le flux vidéo </span>
                     </a>
-                     et de traiter les requêtes des utilisateurs à
+                    et de traiter les requêtes des utilisateurs à
                     l'aide
-                    de l'interface de commande ci-dessus. <br>Le microcontroleur Arduino gère la partie éléctronique, actionne
+                    de l'interface de commande ci-dessus. <br>Le microcontroleur Arduino gère la partie éléctronique,
+                    actionne
                     les
                     moteurs, et récupère les données renvoyées par les capteurs. </p>
             </div>
@@ -107,7 +113,7 @@ layout: default
     <div class="row">
         <div class="col-12 robotique__video p-0">
             <div class="o-container robotique__video__container">
-                <button class="robotique__video__play-button">Regarder la vidéo</button>              
+                <button class="robotique__video__play-button">Regarder la vidéo</button>
             </div>
         </div>
     </div>
@@ -322,24 +328,35 @@ layout: default
 </section>
 
 <script>
-    const base_container_video = () =>{
+    const base_container_video = () => {
         return `
         <div class="o-container robotique__video__container">
             <button class="robotique__video__play-button">Regarder la vidéo</button>              
         </div>`;
     }
 
-    const blocVideo = document.querySelector('.robotique__video');
-    blocVideo.innerHTML =  base_container_video;
-
-    // const 
-    document.querySelector(".robotique__video__play-button").addEventListener('click', () => {
-        blocVideo.innerHTML = `
-        <video class="robotique__video--height" controls autoplay>
+    const play_video = () => {
+        return `
+        <video class="robotique__video--height videoWeb-1" controls autoplay>
             <source src="assets/video/video.mp4" type="video/mp4">
                 <p>Votre navigateur ne prend pas en charge les vidéos HTML5. Voici 
                     <a href="assets/video/video.mp4">un lien pour télécharger la vidéo</a>.
                 </p>
         </video>`;
-    });
+    }
+
+    const container_video = document.querySelector('.robotique__video');
+    container_video.innerHTML = base_container_video();
+
+    const rechargeVideo_1 = () => {
+        document.querySelector(".robotique__video__play-button").addEventListener('click', () => {
+            container_video.innerHTML = play_video();
+            document.querySelector('.videoWeb-1').addEventListener('ended', () => {
+                container_video.innerHTML = base_container_video();
+                rechargeVideo_1();
+            });
+        });
+    }
+
+    rechargeVideo_1();
 </script>
