@@ -2,7 +2,7 @@
     <div class="row border-secondary border-bottom p-4">
         <div class="col-12 text-center ">
             <h6><a href="#anchor">Début de page</a></h6>
-            
+
         </div>
         <!-- <div class="dropdown-divider"></div> -->
     </div>
@@ -14,13 +14,21 @@
                         <span class="font-weight-bold">Webmaster</span>: Lanza Eric <br>
                         <span class="font-weight-bold">Email</span>: dwwm2109@gmail.com
                     </p>
-                    <p>Ce site a ètè développé avec Jekyll un générateur de site statique, hebergé sur GitHub et déployé sur les gitHub pages.   <br>
-                    Langages utilisés: HTML, CSS via le processeur SASS, Javascript, Liquid, Makdown.</p>
+                    <p>Ce site a ètè développé avec Jekyll un générateur de site statique, hebergé sur GitHub et déployé
+                        sur les gitHub pages. <br>
+                        <div class="d-flex flex-row border border-white  rounded">
+                            <img src="{{"/assets/img/icon/github.png" | relative_url }}" alt="GitHub">
+                            <img src="{{"/assets/img/icon/html.png" | relative_url }}" alt="HTML">
+                            <img src="{{"/assets/img/icon/css.png" | relative_url }}" alt="CSS">
+                            <img src="{{"/assets/img/icon/sass.png" | relative_url }}" alt="SASS">
+                            <img src="{{"/assets/img/icon/js.png" | relative_url }}" alt="Javascript">
+                        </div>
                 </div>
             </div>
-            
+
         </div>
-        <div class="col-12 col-md-6 p-4 p-md-1 p-lg-4 order-1 order-md-2 border-secondary border-bottom">
+        <div
+            class="col-12 col-md-6 p-4 p-md-1 p-lg-4 order-1 order-md-2 border-secondary border-bottom d-flex flex-column align-items-center">
             <h4>Navigation</h4>
             <ul>
                 <li><a href="{{'/index.html' | relative_url }}">Projet robotique</a></li>
@@ -39,27 +47,30 @@
             </ul>
         </div>
         <div class="col-12 col-md-3 p-4 p-md-1 p-lg-4 order-3 order-md-3">
-            <div class="col-12">
-                <h3>Découvrir les autres sites</h3>
-           </div>
-           <div class="col-12">
-               <div class="row">
-                   <div class="col-6 col-sm-4 col-md-12 col-lg-6 footer__video_1">
-                       <video autoplay loop muted poster="assets/img/Screenshot_champi.jpg">
-                           <source src="assets/video/myco.mp4" type="video/mp4">
-                           <p>Votre navigateur ne prend pas en charge les vidéos HTML5.Mais vous pouvez toujours 
-                               <a href="assets/video/myco.mp4">la télécharger</a> !
-                           </p>
-                       </video>
-                       <div class="footer__video__link d-flex justify-content-center align-items-center">
-                           <a href="https://petit-guide-des-champignons.000webhostapp.com/" target="__blank" class="footer__video__play-button">Découvrir</a>
-                       </div>
-                   </div>
-                   <div class="col-6 col-sm-4 col-md-12 col-lg-6"></div>
-                   <div class="col-6 col-sm-4 col-md-12 col-lg-6"></div>
-                   <div class="col-6 col-sm-4 col-md-12 col-lg-6"></div>
-               </div>
-           </div>
+            <div class="row">
+                <div class="col-12">
+                    <h3>Découvrir mes autres sites</h3>
+                </div>
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-6 col-sm-4 col-md-12 footer__video_1">
+                            <video autoplay loop muted poster="assets/img/Screenshot_champi.jpg">
+                                <source src="assets/video/myco.mp4" type="video/mp4">
+                                <p>Votre navigateur ne prend pas en charge les vidéos HTML5.Mais vous pouvez toujours
+                                    <a href="assets/video/myco.mp4">la télécharger</a> !
+                                </p>
+                            </video>
+                            <div class="footer__video__link d-flex justify-content-center align-items-center">
+                                <a href="https://petit-guide-des-champignons.000webhostapp.com/" target="__blank"
+                                    class="footer__video__play-button">Découvrir</a>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-12 col-xl-6"></div>
+                        <div class="col-6 col-sm-4 col-md-12 col-xl-6"></div>
+                        <div class="col-6 col-sm-4 col-md-12 col-xl-6"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </footer>

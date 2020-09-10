@@ -12,7 +12,7 @@
             font-weight: 700;
 
             // @mixin effect_play_button($animation_name, $delai, $valueIn, $valueOut, $bgColorIn, $bgColorOut,$textColorOut, $textColorOut)
-            @include effect_play_button(btn-2, .8s, left 1rem center, left 2rem center, rgb(238, 251, 232), rgba(253, 244, 115, 0.8), rgb(255, 146, 146), rgb(255, 30, 0));
+            @include effect_play_button(interfaceWeb, 1.1s, left 1rem center, left 2rem center, rgb(238, 251, 232), rgba(253, 244, 115, 0.8), rgb(255, 146, 146), rgb(255, 30, 0));
         }
     }
 

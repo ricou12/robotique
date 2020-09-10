@@ -59,21 +59,21 @@
 
         &__play-button {
             // @mixin play_button (position fleche, taille fleche, $ft-size, $padding)
-            @include play_button( left 1rem center, .5rem, .7em, .5rem 1.5rem .5rem 3rem );
+            @include play_button(left 1rem center, .8rem, .7em, .5rem 1.5rem .5rem 3rem);
 
-            // @mixin effect_play_button($animation_name, $delai, $valueIn, $valueOut, $bgColorIn, $bgColorOut,$textColorOut, $textColorOut)
-            @include effect_play_button(footerVid01, 1s, left 1rem center, left 2rem center, rgba(68, 67, 67, 0.8), rgba(105, 105, 105, 0.6), rgb(163, 162, 162), white);
+            // @mixin effect_play_button($animation_name, $delai, $valueIn, $valueOut, $bgColorIn, $bgColorOut,$textColorIn, $textColorOut)
+            @include effect_play_button(footerVid01, 1s, left 1rem center, left 1.5rem center, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.4), rgb(107, 107, 107), rgba(0, 0, 0, 0.7));
         }
 
     }
-}
 
-@media screen and (max-width:575px) {
-    .robotique__video__play-button {
-        // @mixin play_button (position fleche, taille fleche, $ft-size, $padding)
-        @include play_button(left 1rem center, 1.2rem, 1.1em, .5rem 2rem 1rem 6rem);
+    @media screen and (max-width:575px) {
+        &__video__play-button {
+            // @mixin play_button (position fleche, taille fleche, $ft-size, $padding)
+            @include play_button(left 1rem center, .7rem, .7em, .2rem 1rem .2rem 3rem);
 
-        // @mixin effect_play_button($animation_name, $delai, $valueIn, $valueOut, $bgColorIn, $bgColorOut,$textColorOut, $textColorOut)
-        @include effect_play_button(btn-3, 1s, left 2rem center, left 3rem center, rgb(255, 255, 255), rgba(255, 0, 0, 0.2), white, red);
+            // @mixin effect_play_button($animation_name, $delai, $valueIn, $valueOut, $bgColorIn, $bgColorOut,$textColorIn, $textColorOut)
+            @include effect_play_button(footerVid01Min, 1s, left 1rem center, left 1.5rem center, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.4), rgb(107, 107, 107), rgba(0, 0, 0, 0.7));
+        }
     }
 }

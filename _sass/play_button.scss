@@ -1,6 +1,5 @@
 @mixin play_button ($bg-position, $bg-size, $ft-size, $padding) {
     position: absolute;
-    // top: calc( 50% - ( ( #{$padding-Y} + #{$ft-size} ) ) );
     background-color: white;
     color: black;
     background-image: url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjI4IiB2aWV3Qm94PSIwIDAgMjAgMjgiIHdpZHRoPSIyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtNTUuMTE5ODg2OSAyMS4zMDczODQ2djI3LjM4NTIzMDhsMTkuODg1NDgwNS0xMy42OTI2MTU0eiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTU1IC0yMSkiLz48L3N2Zz4=);
@@ -9,7 +8,7 @@
     background-size: $bg-size;
     font-size: $ft-size;
     border: none;
-    border-radius: 100px;
+    border-radius: 50px;
     cursor: pointer;
     padding: $padding;
 }
