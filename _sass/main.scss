@@ -1,9 +1,11 @@
 // @import "./../node_modules/bootstrap/scss/bootstrap";
+@use "sass:map";
 @import "auto-prefixe";
 @import "animate";
 @import "play_button";
-@import "gisthub";
 @import "mixins";
+@import "gisthub";
+@import "footer";
 @import "erreur";
 @import "common";
 @import "background";

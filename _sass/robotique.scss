@@ -1,4 +1,3 @@
-
 .robotique {
 
     &__header img {
@@ -31,11 +30,11 @@
         }
 
         &__play-button {
-             // @mixin play_button (position fleche, taille fleche, $ft-size, $line-height, $padding)
-             @include play_button(left 3rem center,  1.7rem, 1.3rem, 50px, .3rem 3rem .3rem 8rem);
+            // @mixin play_button (position fleche, taille fleche, $ft-size, $padding)
+            @include play_button(left 1rem center, 1.6rem, 1.2em, 1rem 3rem 1rem 8rem);
 
-            // @mixin effect_play_button($animation_name, $delai, $valueIn, $valueOut, $bgColor, $textColor)
-            @include effect_play_button(btn-1, 1s, left 2rem center, left 5rem center,rgba(255, 0, 0, 0.2), red);
+            // @mixin effect_play_button($animation_name, $delai, $valueIn, $valueOut, $bgColorIn, $bgColorOut,$textColorOut, $textColorOut)
+            @include effect_play_button(btn-1, 1s, left 2rem center, left 5rem center, rgb(255, 255, 255), rgba(255, 0, 0, 0.2), white, red);
         }
     }
 
@@ -55,11 +54,11 @@
 
 @media screen and (max-width:575px) {
     .robotique__video__play-button {
-         // @mixin play_button (position fleche, taille fleche, $ft-size, $line-height, $padding)
-         @include play_button(left 4rem center,  1.5rem, 1.1rem, 30px, 1rem 4rem 1rem 6rem);
+        // @mixin play_button (position fleche, taille fleche, $ft-size, $padding)
+        @include play_button(left 1rem center, 1.2rem, 1.1em, .7rem 2rem .7rem 5rem);
 
-         // @mixin effect_play_button($animation_name, $delai, $valueIn, $valueOut, $bgColor, $textColor)
-         @include effect_play_button(btn-3, 1s, left 2rem center, left 3rem center,rgba(255, 0, 0, 0.2), red);
+        // @mixin effect_play_button($animation_name, $delai, $valueIn, $valueOut, $bgColorIn, $bgColorOut,$textColorOut, $textColorOut)
+        @include effect_play_button(btn-3, 1s, left 2rem center, left 3rem center, rgb(255, 255, 255), rgba(255, 0, 0, 0.2), white, red);
     }
 }
 
@@ -72,4 +71,3 @@
         width: 1300px;
     }
 }
-

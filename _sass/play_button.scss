@@ -1,7 +1,6 @@
-
-@mixin play_button ($bg-position, $bg-size, $ft-size, $line-height, $padding) {
+@mixin play_button ($bg-position, $bg-size, $ft-size, $padding) {
     position: absolute;
-    top: 50%;
+    // top: calc( 50% - ( ( #{$padding-Y} + #{$ft-size} ) ) );
     background-color: white;
     color: black;
     background-image: url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjI4IiB2aWV3Qm94PSIwIDAgMjAgMjgiIHdpZHRoPSIyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtNTUuMTE5ODg2OSAyMS4zMDczODQ2djI3LjM4NTIzMDhsMTkuODg1NDgwNS0xMy42OTI2MTU0eiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTU1IC0yMSkiLz48L3N2Zz4=);
@@ -12,7 +11,6 @@
     border: none;
     border-radius: 100px;
     cursor: pointer;
-    line-height: $line-height;
     padding: $padding;
 }
 
@@ -25,34 +23,45 @@ effet sur les boutons de lecture video.
     @-webkit-keyframes #{$animation_name} {
         @content;
     }
+
     @-moz-keyframes #{$animation_name} {
         @content;
     }
+
     @-ms-keyframes #{$animation_name} {
         @content;
     }
-    @-o-keyframes #{$animation_name}{
+
+    @-o-keyframes #{$animation_name} {
         @content;
     }
+
     @keyframes #{$animation_name} {
         @content;
     }
-  }
-
-@mixin effect_play_button($animation_name, $delai, $valueIn, $valueOut, $bgColor, $textColor) {
-    -webkit-animation: $animation_name $delai alternate linear infinite;
-    animation: $animation_name $delai alternate linear infinite;
-    @include keyframes($animation_name) {
-        0% {
-            background-position: $valueIn;
-        }
-        50%, 100% {
-            color: $textColor;
-            @include box-shadow-down;
-        }
-        100%{
-            background-color: $bgColor;
-        }
-      }
 }
 
+@mixin effect_play_button($animation_name, $delai, $valueIn, $valueOut, $bgColorIn, $bgColorOut, $textColorIn, $textColorOut) {
+    -webkit-animation: $animation_name $delai alternate linear infinite;
+    animation: $animation_name $delai alternate linear infinite;
+
+    @include keyframes($animation_name) {
+        0% {
+            background-color: $bgColorIn;
+            background-position: $valueIn;
+            color: $textColorIn;
+            @include box-shadow-up;
+        }
+
+        70%,
+        100% {
+            color: $textColorOut;
+            @include box-shadow-down;
+        }
+
+        100% {
+            background-position: $valueOut;
+            background-color: $bgColorOut;
+        }
+    }
+}

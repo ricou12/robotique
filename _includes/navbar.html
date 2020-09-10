@@ -1,5 +1,5 @@
 <!-- NAVBAR -->
-<div class="container navigation">
+<div class="container navigation" id="anchor">
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="{{'./index.html' | relative_url }}"><img src="assets/img/icon/robots.gif" alt="" width="70"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -36,7 +36,7 @@
                         <div class="dropdown">
                             <span class="dropdown-item text-danger font-weight-regular">Arduino</span>
                         </div>
-                        <a class="dropdown-item" href="{{'/telecom-configRadio.html' | relative_url }}">Emetteur Récepteur NRF24L01<i class="fa fa-server" aria-hidden="true"></i></a>
+                        <a class="dropdown-item" href="{{'/telecom-configRadio.html' | relative_url }}">Emetteur Récepteur NRF24L01</a>
                         <a class="dropdown-item" href="{{'/led.html' | relative_url }}">Alimenter une LED</a>
                         <a class="dropdown-item" href="{{'/telecom-code.html' | relative_url }}">Le code source</a>
                     </div>
@@ -47,7 +47,6 @@
                         Conception du véhicule
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        
                         <a class="dropdown-item" href="{{'/composants-vehicule.html' | relative_url }}">Les composants</a>
                         <div class="dropdown">
                             <span class="dropdown-item text-danger font-weight-regular">Raspberry</span>
@@ -59,6 +58,12 @@
                         </div>
                         <a class="dropdown-item" href="{{'/vehicule-code.html' | relative_url }}">Le code source</a>
                     </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#footer" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Contact
+                    </a>
                 </li>
             </ul>
         </div>
