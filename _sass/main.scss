@@ -1,9 +1,10 @@
 // @import "./../node_modules/bootstrap/scss/bootstrap";
-@use "sass:map";
 @import "auto-prefixe";
 @import "animate";
-@import "play_button";
 @import "mixins";
+@import "components/boxVideoLinkURL";
+@import "components/modalRc";
+@import "play_button";
 @import "gisthub";
 @import "footer";
 @import "erreur";
@@ -16,4 +17,3 @@
 @import "interfaceWeb";
 @import "telcom-configRadio";
 @import "telecom-composant";
-@import "modal-image";

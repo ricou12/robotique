@@ -2,35 +2,35 @@
     <div class="row border-secondary border-bottom p-4">
         <div class="col-12 text-center ">
             <h6><a href="#anchor">Début de page</a></h6>
-
         </div>
-        <!-- <div class="dropdown-divider"></div> -->
     </div>
     <div class="row">
-        <div class="col-12 col-md-3 p-4 p-md-1 p-lg-4 order-2 order-md-1 border-secondary border-bottom">
+        <div class="col-12 col-md-4 col-lg-4 col-xl-4 p-4 order-2 order-md-1 border-secondary border-bottom">
             <div class="row">
                 <div class="col-12">
                     <p>
                         <span class="font-weight-bold">Webmaster</span>: Lanza Eric <br>
                         <span class="font-weight-bold">Email</span>: dwwm2109@gmail.com
                     </p>
-                    <p>Ce site a ètè développé avec Jekyll un générateur de site statique, hebergé sur GitHub et déployé
-                        sur les gitHub pages. <br>
-                        <div class="d-flex flex-row border border-white  rounded">
-                            <img src="{{"/assets/img/icon/github.png" | relative_url }}" alt="GitHub">
-                            <img src="{{"/assets/img/icon/html.png" | relative_url }}" alt="HTML">
-                            <img src="{{"/assets/img/icon/css.png" | relative_url }}" alt="CSS">
-                            <img src="{{"/assets/img/icon/sass.png" | relative_url }}" alt="SASS">
-                            <img src="{{"/assets/img/icon/js.png" | relative_url }}" alt="Javascript">
-                        </div>
+                    <p>
+                        Ce site a ètè développé avec Jekyll un générateur de site statique, hebergé sur GitHub et
+                        déployé
+                        sur les gitHub pages.
+                    </p>
+                </div>
+                <div class="col-12 d-flex flex-wrap justify-content-start footer__langIcon">
+                    <a href="https://github.com/" target="__blank"><img src="{{"/assets/img/icon/github.png" | relative_url }}" alt="GitHub"></a>
+                    <a href="https://developer.mozilla.org/fr/docs/Web/HTML" target="__blank"><img src="{{"/assets/img/icon/html.png" | relative_url }}" alt="HTML"></a>
+                    <a href="https://www.w3schools.com/css/" target="__blank"><img src="{{"/assets/img/icon/css.png" | relative_url }}" alt="CSS"></a>
+                    <a href="https://sass-lang.com/" target="__blank"><img src="{{"/assets/img/icon/sass.png" | relative_url }}" alt="SASS"></a>
+                    <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript" target="__blank"><img src="{{"/assets/img/icon/js.png" | relative_url }}" alt="Javascript"></a>
                 </div>
             </div>
-
         </div>
         <div
-            class="col-12 col-md-6 p-4 p-md-1 p-lg-4 order-1 order-md-2 border-secondary border-bottom d-flex flex-column align-items-center">
-            <h4>Navigation</h4>
+            class="col-12 col-md-5 col-lg-5 col-xl-4 p-4 order-1 order-md-2 border-secondary border-bottom d-flex flex-column align-items-center">
             <ul>
+                <h4>Navigation</h4>
                 <li><a href="{{'/index.html' | relative_url }}">Projet robotique</a></li>
                 <span class="mt-4 text-secondary font-weight-bold">Conception des télécommandes</span>
                 <li><a href="{{'/telecommandes.html' | relative_url }}">Solution matériel et logiciel</a></li>
@@ -46,30 +46,39 @@
                 <li><a href="{{'/vehicule-code.html' | relative_url }}">Le code source</a></li>
             </ul>
         </div>
-        <div class="col-12 col-md-3 p-4 p-md-1 p-lg-4 order-3 order-md-3">
+        <div class="col-12 col-md-3 col-lg-3 col-xl-4 p-4 order-3 order-md-3">
             <div class="row">
                 <div class="col-12">
-                    <h3>Découvrir mes autres sites</h3>
+                    <h3 class="text-center">Découvrir mes autres sites</h3>
                 </div>
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-6 col-sm-4 col-md-12 footer__video_1">
-                            <video autoplay loop muted poster="assets/img/Screenshot_champi.jpg">
-                                <source src="assets/video/myco.mp4" type="video/mp4">
-                                <p>Votre navigateur ne prend pas en charge les vidéos HTML5.Mais vous pouvez toujours
-                                    <a href="assets/video/myco.mp4">la télécharger</a> !
-                                </p>
-                            </video>
-                            <div class="footer__video__link d-flex justify-content-center align-items-center">
-                                <a href="https://petit-guide-des-champignons.000webhostapp.com/" target="__blank"
-                                    class="footer__video__play-button">Découvrir</a>
-                            </div>
-                        </div>
-                        <div class="col-6 col-sm-4 col-md-12 col-xl-6"></div>
-                        <div class="col-6 col-sm-4 col-md-12 col-xl-6"></div>
-                        <div class="col-6 col-sm-4 col-md-12 col-xl-6"></div>
-                    </div>
+                <div class="col-6 col-sm-4 col-md-12 col-xl-6 d-flex flex-column align-items-center">
+                    {% include components/components_video/boxVideoLinkURL.html 
+                        path_image = "./assets/img/Screenshot_champi.jpg"
+                        path_video = "./assets/video/myco.mp4"  
+                        play_option= "autoplay loop muted"
+                        url_link = "https://petit-guide-des-champignons.000webhostapp.com/"
+                        commentaire = "Architecture MVC personnalisée, langages: Html, Sass, Php, Twig, Sql."
+                    %}
                 </div>
+                <div class="col-6 col-sm-4 col-md-12 col-xl-6 d-flex flex-column align-items-center">
+                    {% include components/components_video/boxVideoLinkURL.html 
+                        path_image = "./assets/img/Screenshot_Meteo.png"
+                        path_video = "./assets/video/meteo.mp4"
+                        play_option= "autoplay loop muted" 
+                        url_link = "https://ricou12.github.io/meteo-webService/"
+                        commentaire = "Application météo Javascript uitlisant une API."
+                    %}
+                </div>
+                <div class="col-6 col-sm-4 col-md-12 col-xl-6 d-flex flex-column align-items-center">
+                    {% include components/components_video/boxVideoLinkURL.html 
+                        path_image = "./assets/img/Screenshot_Meteo.png"
+                        path_video = "./assets/video/pictureBox.mp4"
+                        play_option= "autoplay loop muted" 
+                        url_link = "https://ricou12.github.io/PictureBox-BOOTSTRAP-JS/"
+                        commentaire = "Premier pas avec HTML, CSS, Javascript."
+                    %}
+                </div>
+                <div class="col-6 col-sm-4 col-md-12"></div>
             </div>
         </div>
     </div>

@@ -1,26 +1,37 @@
-.effect-grayscaleZoomTurnOut{
+.modal__vignettes {
+    width: 100%;
+    height: auto;
+    border-radius: 2px;  
+}
+
+.modal__cursor-zoomIn {
+    cursor: pointer;
+}
+
+// Effect
+.effect-grayscaleZoomTurnOut {
 	@include auto-prefix(transition,.7s ease-in);
 }
 
-.effect-grayscaleZoomTurnOut:hover{
+.effect-grayscaleZoomTurnOut:hover {
 	@include auto-prefix(filter, grayscale(100%));
 	@include auto-prefix(transform, rotate(-5deg) scale(.9));
 }
 
-.effect-grayscaleZoomTurnIn{
+.effect-grayscaleZoomTurnIn {
 	@include auto-prefix(transition,.7s ease-in);
 }
 
-.effect-grayscaleZoomTurnIn:hover{
+.effect-grayscaleZoomTurnIn:hover {
 	@include auto-prefix(filter, grayscale(100%));
 	@include auto-prefix(transform, rotate(5deg) scale(.9));
 }
 
-.effect-move_X{
+.effect-move_X {
 	@include auto-prefix(transition,2s ease-in);
 }
 
-.effect-move_X:hover{
+.effect-move_X:hover {
 	@include auto-prefix(filter, grayscale(100%));
 	@include auto-prefix(transform, translateX(100px));
 }

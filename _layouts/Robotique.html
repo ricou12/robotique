@@ -25,12 +25,13 @@ layout: default
     <section class="row mt-4">
         <div class="col-12 col-md-6 d-flex align-items-center">
             <div class="text-center">
-                {%- assign modal-image__title = "Radio télécommande" -%}
-                {%- assign modal-image__imgSRC = "assets/img/telecommande.png" -%}
-                {%- assign modal-image__id = "telecommande" -%}
-                {%- assign modal-image__breakpoint = "lg" -%}
-                {%- assign modalEffectImage = 'effect-grayscaleZoomTurnIn' -%}
-                {%- include modal-image.html -%}
+                {% include components/modalRc.html 
+                    modal__title = "Radio télécommande" 
+                    modal__imgSRC = "assets/img/telecommande.png" 
+                    modal__id = "telecommande" 
+                    modal__breakpoint = "lg" 
+                    modal__effectImage = 'effect-grayscaleZoomTurnIn'
+                %}
             </div>
         </div>
         <div class="col-12 col-md-6 d-flex align-items-center">
@@ -70,12 +71,13 @@ layout: default
         </div>
         <div class="col-12 order-1 col-md-6 d-flex justify-content-center align-items-center">
             <div class="text-right">
-                {%- assign modal-image__title = "Interface de commande web" -%}
-                {%- assign modal-image__imgSRC = "assets/img/telecom.png" -%}
-                {%- assign modal-image__id = "web" -%}
-                {%- assign modal-image__breakpoint = "md" -%}
-                {%- assign modalEffectImage = 'effect-grayscaleZoomTurnOut' -%}
-                {%- include modal-image.html -%}
+                {% include components/modalRc.html 
+                    modal__title = "Interface de commande web"
+                    modal__imgSRC = "./assets/img/telecom.png"
+                    modal__id = "web"
+                    modal__breakpoint = "md" 
+                    modal__effectImage = 'effect-grayscaleZoomTurnOut'
+                %}
             </div>
         </div>
     </section>
@@ -83,12 +85,13 @@ layout: default
     <section class="row mt-4">
         <div class="col-12 col-md-6 d-flex align-items-center">
             <div class="text-center">
-                {%- assign modal-image__title = "Robot" -%}
-                {%- assign modal-image__imgSRC = "assets/img/robot.png" -%}
-                {%- assign modal-image__id = "vehicule" -%}
-                {%- assign modal-image__breakpoint = "lg" -%}
-                {%- assign modalEffectImage = 'effect-move_X' -%}
-                {%- include modal-image.html -%}
+                {% include components/modalRc.html 
+                    modal__title = "Robot"
+                    modal__imgSRC = "./assets/img/robot.png"
+                    modal__id = "vehicule"
+                    modal__breakpoint = "lg" 
+                    modal__effectImage = 'effect-move_X'
+                %}
             </div>
         </div>
         <div class="col-12 col-md-6 d-flex align-items-center">
@@ -113,9 +116,6 @@ layout: default
 <section class="container-fluid robotique my-2">
     <div class="row">
         <div class="col-12 robotique__video p-0">
-            <div class="o-container robotique__video__container">
-                <button class="robotique__video__play-button">Regarder la vidéo</button>
-            </div>
         </div>
     </div>
 </section>
@@ -266,12 +266,12 @@ layout: default
                 <div class="col-12 col-lg-6">
                     <!-- MODAL IMAGE Raspberry -->
                     <div class="text-center bg-white">
-                        {%- assign modal-image__title = "Raspberry" -%}
-                        {%- assign modal-image__imgSRC = "assets/img/composants/raspberry-pi4.png" -%}
-                        {%- assign modal-image__id = "raspberry" -%}
-                        {%- assign modal-image__breakpoint = "lg" -%}
-                        {%- assign modalEffectImage = '' -%}
-                        {%- include modal-image.html -%}
+                        {% include components/modalRc.html 
+                            modal__title = "Raspberry"
+                            modal__imgSRC = "./assets/img/composants/raspberry-pi4.png"
+                            modal__id = "raspberry"
+                            modal__breakpoint = "lg" 
+                        %}
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 d-flex align-items-center">
@@ -314,12 +314,12 @@ layout: default
                 <div class="col-12 col-lg-6 order-1 order-lg-2">
                     <!-- MODAL IMAGE Arduino -->
                     <div class="text-center">
-                        {%- assign modal-image__title = "Arduino" -%}
-                        {%- assign modal-image__imgSRC = "assets/img/composants/arduino.png" -%}
-                        {%- assign modal-image__id = "arduino" -%}
-                        {%- assign modal-image__breakpoint = "md" -%}
-                        {%- assign modalEffectImage = '' -%}
-                        {%- include modal-image.html -%}
+                        {% include components/modalRc.html 
+                            modal__title = "Arduino"
+                            modal__imgSRC = "assets/img/composants/arduino.png"
+                            modal__id = "arduino"
+                            modal__breakpoint = "md" 
+                        %}
                     </div>
                 </div>
             </div>

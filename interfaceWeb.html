@@ -73,13 +73,13 @@ const blocText = () => {
     }
 
     const container_video_2 = document.querySelector('.interfaceWeb__video');
-    container_video_2.innerHTML = `${base_container_video_2()}`;
+    container_video_2.innerHTML = base_container_video_2();
 
     const rechargeVideo_2 = () => {
         document.querySelector(".interfaceWeb__video__play-button").addEventListener('click', () => {
-            container_video_2.innerHTML = ` ${playVideo()} `; 
+            container_video_2.innerHTML = playVideo(); 
             document.querySelector('.videoWeb').addEventListener('ended',() => {
-                container_video_2.innerHTML = `${base_container_video_2()}`;
+                container_video_2.innerHTML = base_container_video_2();
                 rechargeVideo_2();
             });
         });  

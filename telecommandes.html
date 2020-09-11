@@ -38,12 +38,12 @@ title: Télécommande web
             </p>
             <!-- MODAL IMAGE BALISE <img> -->
             <div class="text-center">
-                {%- assign modal-image__title = "Solution matériel" -%}
-                {%- assign modal-image__imgSRC = "assets/img/schema/telecommande-arduino.png" -%}
-                {%- assign modal-image__id = "matériel" -%}
-                {%- assign modal-image__breakpoint = "xl" -%}
-                {%- assign modalEffectImage = '' -%}
-                {%- include modal-image.html -%}
+                {% include components/modalRc.html 
+                    modal__title = "Solution matériel"
+                    modal__imgSRC = "./assets/img/schema/telecommande-arduino.png"
+                    modal__id = "matériel"
+                    modal__breakpoint = "xl" 
+                %}
             </div>
         </div>
 
@@ -69,12 +69,12 @@ title: Télécommande web
             </p>
             <!-- MODAL IMAGE BALISE <img> -->
             <div class="text-center">
-                {%- assign modal-image__title = "Solution logiciel" -%}
-                {%- assign modal-image__imgSRC = "assets/img/schema/serveur-arduino.png" -%}
-                {%- assign modal-image__id = "logiciel" -%}
-                {%- assign modal-image__breakpoint = "xl" -%}
-                {%- assign modalEffectImage = '' -%}
-                {%- include modal-image.html -%}
+                {% include components/modalRc.html 
+                    modal__title = "Solution logiciel"
+                    modal__imgSRC = "./assets/img/schema/serveur-arduino.png"
+                    modal__id = "logiciel"
+                    modal__breakpoint = "xl" 
+                %}
             </div>
         </div>
     </section>

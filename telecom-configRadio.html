@@ -40,12 +40,12 @@ title: Emetteur recepteur radio 2.4Ghz
     <div class="row">
         <div class="col-12 col-md-6">
             <h4>Connectique</h4>
-            {%- assign modal-image__title = "Module nrf24l01" -%}
-            {%- assign modal-image__imgSRC = "assets/img/montage/nrf24l01.jpg" -%}
-            {%- assign modal-image__id = "connectique" -%}
-            {%- assign modal-image__breakpoint = "xl" -%}
-            {%- assign modalEffectImage = '' -%}
-            {%- include modal-image.html -%}
+            {% include components/modalRc.html
+                modal__title = "Module nrf24l01" 
+                modal__imgSRC = "./assets/img/montage/nrf24l01.jpg"
+                modal__id = "connectique" 
+                modal__breakpoint = "xl"  
+            %}
         </div>
         <div class="col-12 col-md-6 mt-md-5">
             <p class="colorGreen">Broches utilisées pour le UNO</p>
@@ -82,11 +82,12 @@ title: Emetteur recepteur radio 2.4Ghz
                     bibliothèque</span>.</p>
             <div class="row">
                 <div class="col-12 col-sm-10 col-lg-8">
-                    {%- assign modal-image__title = "Importer une librairie" -%}
-                    {%- assign modal-image__imgSRC = "assets/img/arduino-biblio.jpg" -%}
-                    {%- assign modal-image__id = "librairie" -%}
-                    {%- assign modal-image__breakpoint = "lg" -%}
-                    {%- include modal-image.html -%}
+                    {%- include components/modalRc.html 
+                        modal__title = "Importer une librairie"
+                        modal__imgSRC = './assets/img/arduino-biblio.jpg'
+                        modal__id = "librairie"
+                        modal__breakpoint = "lg"
+                    -%}
                 </div>
             </div>
 
