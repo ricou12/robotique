@@ -1,14 +1,14 @@
-// .configRadio{
-//     background-image: url('./../img/icon/emetteur-recepteur.png');
-//     background-repeat: no-repeat;
-//     background-position: right bottom;
-//     background-size: 100px;
-//     // background-position: right bottom;
-//     // background-size: 33%;
-// }
+.configRadio{
+    background-image: url('./../img/icon/emetteur-recepteur.png');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 100px;
+    // background-position: right bottom;
+    // background-size: 33%;
+}
 
-// @media screen and (min-width:1199px){
-//     .configRadio{
-//         background-size: 250px;
-//     }
-// }
+@media screen and (min-width:1199px){
+    .configRadio{
+        background-size: 250px;
+    }
+}
