@@ -3,25 +3,26 @@ layout: default
 ---
 
 <section class="container-fluid robotique">
-    <div class="row bgColor--raspberry robotique__header titre-header">
+    <div class="row bgColor--raspberry robotique__header">
         <div class="col-12 col-lg-3 d-none d-lg-flex justify-content-center align-items-center">
-            <img src="assets/img/composants/raspberry-pi-4.webp" alt="Raspberry-pi">
+            <img src="assets/img/composants/raspberry-pi-4.webp" alt="Raspberry-pi" class="robotique__header__img01">
         </div>
         <div class="col-12 col-lg-6 py-5">
             <aside class="text-center">
-                <h1 class="txtShadow--black txt-color--yellow p-4"> Projet robotique<br>(Raspberry et arduino)</h1>
-                <h3 class="text-white txtShadow--black p-4">Conception d'un véhicule motorisé <br> avec caméra
+                <h1 class="txtShadow--black txt-color--yellow py-4"><span class="text-uppercase">Projet robotique</span>
+                  <br>(Raspberry et arduino)</h1>
+                <h2 class="text-white txtShadow--black py-4">Conception d'un véhicule motorisé <br> avec caméra
                     infra-rouge.
-                </h3>
+                </h2>
             </aside>
         </div>
         <div class="col-12 col-lg-3 d-none d-lg-flex justify-content-center align-items-center">
-            <img src="assets/img/composants/arduino-officiel.png" alt="Arduino uno">
+            <img src="assets/img/composants/arduino-officiel.png" alt="Arduino uno"  class="robotique__header__img02">
         </div>
     </div>
 </section>
 
-<section class="container">
+<section class="container robotique">
     <section class="row mt-4">
         <div class="col-12 col-md-6 d-flex align-items-center">
             <div class="text-center">
@@ -34,10 +35,10 @@ layout: default
                 %}
             </div>
         </div>
-        <div class="col-12 col-md-6 d-flex align-items-center">
+        <div class="col-12 col-md-6 d-flex align-items-center pt-3 pt-md-0">
             <div>
-                <h4 class="txtShadow--white txt-color--raspberry"><a
-                        href="{{'/telecom-composant.html' | relative_url }}">La télecommande</a></h4>
+                <h3 class="txtShadow--white txt-color--raspberry"><a
+                        href="{{'/telecom-composant.html' | relative_url }}">La télecommande</a></h3>
                 <p>Un <a href="{{'/telecom-configRadio.html' | relative_url }}"><span class="font-weight-bold"> émetteur
                             récepteur </span></a>connecté au microcontroleur arduino permet d'envoyer les positions des
                     joysticks et l'état de boutons. Un programme convertit les valeurs analogiques et numériques puis
@@ -55,10 +56,10 @@ layout: default
     </section>
 
     <section class="row mt-4">
-        <div class="col-12 order-2 col-md-6 order-md-1 d-flex align-items-center">
+        <div class="col-12 order-2 col-md-6 order-md-1 d-flex align-items-center pt-3 pt-md-0">
             <div>
-                <h4 class="txtShadow--white txt-color--raspberry"><a
-                        href="{{'/interfaceWeb.html' | relative_url }}">Interface de télécommande web</a></h4>
+                <h3 class="txtShadow--white txt-color--raspberry"><a
+                        href="{{'/interfaceWeb.html' | relative_url }}">Interface de télécommande web</a></h3>
                 <p>Son rôle est identique à la solution décrite dans le paragraphe précédent. <br> Le mode de
                     communication
                     exploite les technologies Web. Déployé sur le raspberry, l'interface web communique avec un serveur
@@ -70,7 +71,7 @@ layout: default
             </div>
         </div>
         <div class="col-12 order-1 col-md-6 d-flex justify-content-center align-items-center">
-            <div class="text-right">
+            <div class="text-center">
                 {% include components/modalRc.html 
                     modal__title = "Interface de commande web"
                     modal__imgSRC = "./assets/img/telecom.png"
@@ -96,8 +97,8 @@ layout: default
         </div>
         <div class="col-12 col-md-6 d-flex align-items-center">
             <div>
-                <h4 class="txtShadow--white txt-color--raspberry"><a
-                        href="{{'/composants-vehicule.html' | relative_url }}">Le robot</a></h4>
+                <h3 class="txtShadow--white txt-color--raspberry"><a
+                        href="{{'/composants-vehicule.html' | relative_url }}">Le robot</a></h3>
                 <p>Une page web permet de
                     <a href="{{'/rpiCam.html' | relative_url }}">
                         <span class="font-weight-bold"> visualiser le flux vidéo </span>
@@ -123,8 +124,8 @@ layout: default
 <section class="container robotique py-4 my-2">
     <section class="row no-gutters box-border">
         <div class="col-12">
-            <h4 class="txtShadow--white txt-color--raspberry bgColor--orangeLight p-4 text-center">
-                Différences entre Raspberry et Arduino</h4>
+            <h3 class="txtShadow--white txt-color--raspberry bgColor--orangeLight p-4 text-center">
+                Différences entre Raspberry et Arduino</h3>
             <table class="mt-5">
                 <tbody>
                     <tr>

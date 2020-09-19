@@ -1,5 +1,19 @@
 // @import "animate.scss";
 .interfaceWeb {
+    &__header{
+        background-image:  url('./../img/header/server.jpg');
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: cover;
+        min-height: 400px;
+        @include move-Axe-Y(header,4s, 40px);
+        overflow: hidden;
+
+        h1,h2{
+            @include move-Axe-Y(title,4s, -100px);
+        }
+    }
+
     &__image {
         width: 100%;
     }

@@ -1,9 +1,29 @@
 .robotique {
 
-    &__header img {
-        width: 80%;
-        min-width: 200px;
-        max-width: 300px;
+
+    &__header {
+        background-image: url('./../img/header/connect.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        min-height: 400px;
+
+        @include move-Axe-Y(header, 4s, 40px);
+        overflow: hidden;
+
+        img {
+            width: 80%;
+            min-width: 200px;
+            max-width: 300px;
+        }
+
+        &__img01 {
+            @include move-Axe-Y(img01, 1s, -500px, -90deg);
+        }
+
+        &__img02 {
+            @include move-Axe-Y(img02, 1s, -500px, 90deg);
+        }
     }
 
     &__video {
@@ -53,15 +73,16 @@
 }
 
 @media screen and (max-width:575px) {
-    .robotique__video__play-button {
-        // @mixin play_button (position fleche, taille fleche, $ft-size, $padding)
-        @include play_button(left 1rem center, 1.2rem, 1.1em, .7rem 2rem .7rem 5rem);
+    .robotique {
+        &__video__play-button {
+            // @mixin play_button (position fleche, taille fleche, $ft-size, $padding)
+            @include play_button(left 1rem center, 1.2rem, 1.1em, .7rem 2rem .7rem 5rem);
 
-        // @mixin effect_play_button($animation_name, $delai, $valueIn, $valueOut, $bgColorIn, $bgColorOut,$textColorOut, $textColorOut)
-        @include effect_play_button(robotiqueMin, 1s, left 2rem center, left 3rem center, rgba(255, 255, 255, 0.8), rgba(255, 0, 0, 0.2), rgb(148, 63, 63), red);
+            // @mixin effect_play_button($animation_name, $delai, $valueIn, $valueOut, $bgColorIn, $bgColorOut,$textColorOut, $textColorOut)
+            @include effect_play_button(robotiqueMin, 1s, left 2rem center, left 3rem center, rgba(255, 255, 255, 0.8), rgba(255, 0, 0, 0.2), rgb(148, 63, 63), red);
+        }
     }
 }
-
 
 @media screen and (min-width: 1300px) {
     .robotique__video__container {

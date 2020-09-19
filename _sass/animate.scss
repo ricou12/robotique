@@ -1,51 +1,82 @@
 
-//****************************************
-
-@mixin waitShow {
-    -webkit-animation-name: wait;
-    animation-name: wait;
-    -webkit-animation-duration: 1.5s;
-    animation-duration: 1.5s;
-    -webkit-animation-direction: normal;
-    animation-direction: normal;
-    @-webkit-keyframes wait {
+@mixin changeOpacity($delai, $min, $max) {
+    @include auto-prefix(animation, changeOpacity $delai);
+    @include keyframes(changeOpacity) {
         from {
-            opacity: 0;
+            opacity: $min;
         }
     
         to {
-            opacity: 1;
-        }
-    }
-    
-    @keyframes wait {
-        from {
-            opacity: 0;
-        }
-    
-        to {
-            opacity: 1;
+            opacity: $max;
         }
     }
 }
 
+// 
+@mixin move-Axe-Y($name,$delai, $start-Top:0, $startRotateDgr:0deg) {
+    @include auto-prefix(animation, $name 1s);
 
+    @include keyframes($name) {
+        0% {
+            @include auto-prefix(transform, translateY($start-Top) rotateZ($startRotateDgr));
+        }
+
+        100% {
+            @include auto-prefix(transform, translateY(0));
+
+        }
+    }
+}
+
+// 
+@mixin move-Axe-X($name, $delai, $start-Top:0, $startRotateDgr:0deg) {
+    @include auto-prefix(animation, $name $delai);
+
+    @include keyframes($name) {
+        0% {
+            @include auto-prefix(transform, translateX($start-Top) rotateZ($startRotateDgr));
+        }
+    
+        100% {
+            @include auto-prefix(transform, translateX(0));
+        }
+    }
+    
+}
+
+@mixin zoom($delai,$zoomSize) {
+    @include auto-prefix(animation,zoom $delai ease-in-out);
+
+    @include keyframes(zoom) {
+        0% {
+            @include auto-prefix(transform, scale(0));
+        }
+    
+        100% {
+            @include auto-prefix(transform, scale($zoomSize));
+        }
+    }
+}
+
+@mixin shadow($delai) {
+    @include auto-prefix(animation,shadow $delai alternate infinite);
+
+    @include keyframes(shadow) {
+        0% {
+            
+        }    
+        100% {
+            text-shadow: 1px 2px 2px #ffffff,-1px -2px 1px #ffffff;
+            
+        }
+    }
+}
 
 // 
 @mixin changeOpacityInfinite {
-    -webkit-animation: changeOpacityInfinite 1.5s ease-in-out alternate-reverse infinite;
-    animation: changeOpacityInfinite 1.5s ease-in-out alternate-reverse infinite;
-    @-webkit-keyframes changeOpacityInfinite {
-        0% {
-            opacity: .2;
-        }
-    
-        100% {
-            opacity: 1;
-        }
-    }
-    
-    @keyframes changeOpacityInfinite {
+    @include auto-prefix(changeOpacityInfinite, 1.5s ease-in-out alternate-reverse infinite);
+
+    @include keyframes(changeOpacityInfinite) {
         0% {
             opacity: .2;
         }
@@ -55,24 +86,12 @@
         }
     }
 }
-
-
 
 // 
 @mixin solarise {
-    -webkit-animation: solarise 3s ease-in-out;
-    animation: solarise 3s ease-in-out;
-    @-webkit-keyframes solarise {
-        FROM {
-            text-shadow: 2px 0 10px rgb(243, 206, 179);
-        }
-    
-        TO {
-            text-shadow: 0 0 0 rgb(230, 184, 151);
-        }
-    }
-    
-    @keyframes solarise {
+    @include auto-prefix(animation, solarise 3s ease-in-out);
+
+    @include keyframes(solarise) {
         FROM {
             text-shadow: 2px 0 10px rgb(243, 206, 179);
         }
@@ -82,82 +101,12 @@
         }
     }
 }
-
-
-
-// 
-@mixin moveText-X {
-    -webkit-animation: moveText-X 2s;
-    animation: moveText-X 2s;
-    @-webkit-keyframes moveText-X {
-        FROM {
-            -webkit-transform: translateX(-100vw);
-            transform: translateX(-100vw);
-        }
-    
-        TO {
-            -webkit-transform: translateX(0);
-            transform: translateX(0);
-        }
-    }
-    
-    @keyframes moveText-X {
-        FROM {
-            -webkit-transform: translateX(-100vw);
-            transform: translateX(-100vw);
-        }
-    
-        TO {
-            -webkit-transform: translateX(0);
-            transform: translateX(0);
-        }
-    }
-}
-
-
-
-// 
-@mixin moveText-Y {
-    -webkit-animation: moveText-Y 1s;
-    animation: moveText-Y 1s alternate-reverse infinite;
-    @-webkit-keyframes moveText-Y {
-        FROM {
-            -webkit-transform: translateY(-10px);
-            transform: translateY(-10px);
-        }
-    
-        TO {
-            -webkit-transform: translateY(0);
-            transform: translateY(0);
-        }
-    }
-    
-    @keyframes moveText-Y {
-        FROM {
-            -webkit-transform: translateY(-10px);
-            transform: translateY(-10px);
-        }
-    
-        TO {
-            -webkit-transform: translateY(0);
-            transform: translateY(0);
-        }
-    }
-}
-
-
 
 // 
 @mixin invertColor {
-    -webkit-animation-name: invertColor;
-    animation-name: invertColor;
-    -webkit-animation-duration: 2s;
-    animation-duration: 2s;
-    -webkit-animation-direction: alternate;
-    animation-direction: alternate;
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
-    @-webkit-keyframes invertColor {
+    @include auto-prefix(animation,invertColor 2s alternate infinite);
+
+    @include keyframes(invertColor) {
         to {
             -webkit-filter: invert(0);
             filter: invert(0);
@@ -166,45 +115,6 @@
         from {
             -webkit-filter: invert(1);
             filter: invert(1);
-        }
-    }
-    
-    @keyframes invertColor {
-        to {
-            -webkit-filter: invert(0);
-            filter: invert(0);
-        }
-    
-        from {
-            -webkit-filter: invert(1);
-            filter: invert(1);
-        }
-    }
-}
-
-
-
-//
-@mixin zoomInOutInfinite {
-    -webkit-animation: zoomInOutInfinite 7s alternate-reverse infinite;
-    animation: zoomInOutInfinite 7s alternate-reverse infinite;
-    @-webkit-keyframes zoomInOutInfinite {
-        to {
-            scale: 1;
-        }
-    
-        from {
-            scale: 1.02;
-        }
-    }
-    
-    @keyframes zoomInOutInfinite {
-        to {
-            scale: 1;
-        }
-    
-        from {
-            scale: 1.02;
         }
     }
 }

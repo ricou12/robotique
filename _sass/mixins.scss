@@ -1,13 +1,9 @@
 /* BOX SHADOW */
 @mixin box-shadow-up {
     @include auto-prefix( box-shadow,(7px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0)));
-    // -webkit-box-shadow: 7px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-    // box-shadow: 7px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 
 @mixin box-shadow-down {
     @include auto-prefix( box-shadow, (2px 4px 13px -7px rgb(0, 0, 0), 5px 5px 15px 5px rgba(0, 0, 0, 0)) );
-    // -webkit-box-shadow: 2px 4px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-    // box-shadow: 2px 4px 13px -7px rgb(0, 0, 0), 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 

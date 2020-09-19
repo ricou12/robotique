@@ -1,14 +1,24 @@
-.configRadio{
-    background-image: url('./../img/icon/emetteur-recepteur.png');
-    background-repeat: no-repeat;
-    background-position: right bottom;
-    background-size: 100px;
-    // background-position: right bottom;
-    // background-size: 33%;
-}
+.telecom-configRadio {
+    &__header {
+        background-image:  url('./../img/header/ondesRadio.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        min-height: 400px;
 
-@media screen and (min-width:1199px){
-    .configRadio{
+        @include move-Axe-Y(configRadio01, 4s, 40px);
+        overflow: hidden;
+
+        h1{
+            @include move-Axe-X(configRadio03, 1s, -50%, $startRotateDgr:-90deg);
+        }
+        h2 {
+            @include move-Axe-X(configRadio02, 1s, 50%, $startRotateDgr:90deg); 
+        }
+    }
+
+
+    @media screen and (min-width:1199px) {
         background-size: 250px;
     }
 }

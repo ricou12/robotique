@@ -35,3 +35,9 @@
 	@include auto-prefix(filter, grayscale(100%));
 	@include auto-prefix(transform, translateX(100px));
 }
+
+@media screen and (max-width:575px){
+    .modal__vignettes {
+		width: 80%;  
+	}
+}

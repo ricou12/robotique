@@ -1,0 +1,21 @@
+.telecommand {
+
+    &__header {
+        background-image:  url('./../img/header/techno.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        min-height: 400px;
+
+        @include move-Axe-Y(header,4s, 100px);
+        overflow: hidden;
+
+        h1{
+            @include move-Axe-X(telecommandh1,2s,-100%);
+        }
+
+        h2{
+            @include move-Axe-X(telecommandh2,2s,100%);
+        }
+    }
+}

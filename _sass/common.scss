@@ -2,12 +2,12 @@
     font-family: 'Rubik', sans-serif;
 }
 
-h1,h3{
-    font-weight: 300;
+h1,h2{
+    font-weight: 400;
 }
 
 h4{
-    font-weight: 500;
+    font-weight: 400;
 }
 
 // NAVIGATION
@@ -74,7 +74,7 @@ h4{
 }
 
 .bgColor--raspberry {
-    background-color: #c51d4a;
+    background-color: rgb(197, 29, 74);
 }
 
 /* COLOR */
@@ -86,24 +86,39 @@ h4{
     color: rgb(70, 106, 245);
 }
 
+.txt-color--turquoise {
+    color: rgb(144, 228, 220);
+}
+.txt-color--blueSky {
+    color: #00caf8;
+}
+
+.txt-color--blueDark {
+    color:rgb(50, 50, 80);
+}
+
 .txt-color--orange {
-    color: #fb7524;
+    color: rgb(251, 117, 36);
+}
+
+.txt-color--red {
+    color: rgb(255, 0, 0);
 }
 
 .txt-color--raspberry {
-    color: #c51d4a;
+    color: rgb(197, 29, 74);
+}
+
+.txt-color--yellowHight {
+    color: rgb(255, 255, 0);
 }
 
 .txt-color--yellow {
-    color: #ecf24d;
-}
-
-.txt-color--turquoise {
-    color: #90e4dc;
+    color: rgb(236, 242, 77);
 }
 
 .txt-color--green {
-    color:  #9af368;
+    color:  rgb(154, 243, 104);
 }
 
 /* TEXT COLOR */
@@ -121,6 +136,18 @@ h4{
     text-shadow: 1px 2px 2px #ffffff;
 }
 
+.txtShadow--raspberry {
+    text-shadow: 1px 2px 2px rgb(254, 0, 0);
+}
+
+.txtShadow--red {
+    text-shadow:-1px -1px 1px black, 1px 1px 1px rgb(255, 3, 3);
+}
+
+.txtShadow--turquoise {
+    text-shadow: -1px -1px 1px black, 1px 1px 1px #00cfff;
+}
+
 /* BOX BORDER */
 .box-border {
     border: 2px solid rgba(253, 253, 253, 0.3);
@@ -129,4 +156,26 @@ h4{
 .titre-header h1,
 h3 {
     line-height: 1.5em;
+}
+
+@media screen and (max-width:575px){
+    h1{
+       font-size: 1.8rem; 
+    }
+
+    h2{
+        font-size: 1.4rem;
+    }
+
+    h3{
+        font-size: 1.2rem;
+    }
+
+    h4{
+        font-size: 1rem;
+    }
+
+    p{
+        font-size: .9rem;
+    }
 }
