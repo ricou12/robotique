@@ -5,7 +5,7 @@
         background-position: center;
         background-size: cover;
         min-height: 400px;
-        @include move-Axe-Y(led01, 4s, 40px);
+        @include move-Axe-Y(led01, 4s, 15px);
 
         h1 {
             @include move-Axe-Y(led02, 1s, 100%)

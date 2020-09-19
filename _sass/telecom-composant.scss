@@ -7,14 +7,13 @@
         background-size: cover;
         min-height: 400px;
         overflow: hidden;
-        @include move-Axe-Y(header,4s, 40px);
     
         h1 {
-            @include move-Axe-Y(cpRobot01, 1s, 100%)
+            @include move-Axe-Y(teleCompos02, 2s, 100%);
         }
 
         h2 {
-            @include move-Axe-Y(cpRobot02, 1s, -100%)
+            @include move-Axe-Y(teleCompos03, 2s, -100%);
         }           
     }
 }

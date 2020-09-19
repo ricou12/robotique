@@ -6,7 +6,7 @@
         background-size: cover;
         min-height: 400px;
 
-        @include move-Axe-Y(configRadio01, 4s, 40px);
+        @include move-Axe-Y(configRadio01, 4s, -10px);
         overflow: hidden;
 
         h1{

@@ -14,7 +14,7 @@
 
 // 
 @mixin move-Axe-Y($name,$delai, $start-Top:0, $startRotateDgr:0deg) {
-    @include auto-prefix(animation, $name 1s);
+    @include auto-prefix(animation, $name $delai);
 
     @include keyframes($name) {
         0% {

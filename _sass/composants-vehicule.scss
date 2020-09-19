@@ -6,7 +6,7 @@
         background-size: cover;
         min-height: 400px;
         overflow: hidden;
-        @include move-Axe-Y(header,4s, 40px);
+        @include move-Axe-Y(header,4s, 25px);
     
         h1 {
             @include move-Axe-Y(cpRobot01, 1s, 100%)

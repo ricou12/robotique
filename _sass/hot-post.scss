@@ -1,16 +1,15 @@
 .hotPost{
     &__header{
-        // right bottom / 33% no-repeat url('./../img/icon/logo_raspap.png'),
-        // background: cover url('./../img/header/hotPost.jpg') ;
         background: right bottom/33% no-repeat  url('./../img/icon/logo_raspap.png'),
         center / cover no-repeat url('./../img/header/hotPost.jpg');
-        // background-image: url('./../img/icon/logo_raspap.png');
-        // background-repeat: no-repeat;
-        // background-position: right bottom;
-        // background-size: 33%;
         min-height: 400px;
-        @include move-Axe-Y(header,4s, 40px);
         overflow: hidden;
+        @include move-Axe-Y(hotPost01,4s, 20px);
+
+        h1,h2{
+            @include move-Axe-Y(hotPost02,4s, 100%);
+        }
+
     }
 }
 

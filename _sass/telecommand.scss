@@ -6,16 +6,15 @@
         background-position: center;
         background-size: cover;
         min-height: 400px;
-
-        @include move-Axe-Y(header,4s, 100px);
         overflow: hidden;
+        @include move-Axe-Y(telecommand01,3s, 10px);
 
         h1{
-            @include move-Axe-X(telecommandh1,2s,-100%);
+            @include move-Axe-X(telecommand02,2s,-100%);
         }
 
         h2{
-            @include move-Axe-X(telecommandh2,2s,100%);
+            @include move-Axe-X(telecommand03,2s,100%);
         }
     }
 }

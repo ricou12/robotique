@@ -4,5 +4,11 @@
         background-repeat: no-repeat;
         background-size: cover;
         min-height: 400px;
+        overflow: hidden;
+        @include move-Axe-Y(rpiCam01,4s, 10px);
+
+        h1,h2{
+            @include move-Axe-Y(rpiCam02,3s, -250%);
+        }
     }
 }

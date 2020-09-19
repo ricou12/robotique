@@ -6,11 +6,11 @@
         background-position: right;
         background-size: cover;
         min-height: 400px;
-        @include move-Axe-Y(header,4s, 40px);
         overflow: hidden;
+        @include move-Axe-Y(interfaceWeb01,4s, 20px);
 
         h1,h2{
-            @include move-Axe-Y(title,4s, -100px);
+            @include move-Axe-Y(interfaceWeb02,4s, 100%);
         }
     }
 
