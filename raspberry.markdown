@@ -1,4 +1,0 @@
----
-layout: raspberry
-title: Raspberry
----
