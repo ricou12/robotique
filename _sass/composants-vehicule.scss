@@ -6,14 +6,14 @@
         background-size: cover;
         min-height: 400px;
         overflow: hidden;
-        @include move-Axe-Y(header,4s, 25px);
+        // @include move-Axe-Y(header,4s, 25px);
     
         h1 {
-            @include move-Axe-Y(cpRobot01, 1s, 100%)
+            @include move-Axe-Y($name:cpRobot01, $delai:2s, $start-Top:60%)
         }
 
         h2 {
-            @include move-Axe-Y(cpRobot02, 1s, -100%)
+            @include move-Axe-Y($name:cpRobot02, $delai:2s, $start-Top:-60%)
         }           
     }
 }

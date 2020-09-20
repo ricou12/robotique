@@ -30,13 +30,13 @@
     min-height: 400px;
     overflow: hidden;
 
-    @include move-Axe-Y(code01, 3s, -10px);
+    @include move-Axe-Y($name:code01, $delai:3s, $start-Top:-10px);
 
     h1 {
-        @include move-Axe-Y(code02, 2s, -100%, 90deg);
+        @include move-Axe-Y($name:code02, $delai:2s, $start-Top:-100%, $startRotateDgr:90deg);
     }
 
     h2 {
-        @include move-Axe-Y(code03, 2s, 300px,90deg);
+        @include move-Axe-Y($name:code03, $delai:2s, $start-Top:300px, $startRotateDgr:90deg);
     }
 }

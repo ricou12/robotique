@@ -1,0 +1,19 @@
+<div class="cardRc">
+    <div class="cardRc__titre">
+        {{ include.cardRc__title }}
+    </div>
+    <div class="cardRc__body">
+
+            {% if include.cardRc__link  %}
+                <a href="{{ include.cardRc__link | relative_url }}">
+                    <img src="{{ include.cardRc__img | relative_url }}" alt="{{ include.cardRc__title }}"> 
+                </a> 
+            {% else %} 
+                <img src="{{ include.cardRc__img | relative_url }}" alt="{{ include.cardRc__title }}"> 
+            {% endif %}
+
+        <!-- <div class="cardRc__body__text text-dark txtShadow--white">
+            {{ include.cardRc__content__text }}
+        </div> -->
+    </div>
+</div>

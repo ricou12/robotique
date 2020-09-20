@@ -7,14 +7,14 @@
         background-size: cover;
         min-height: 400px;
         overflow: hidden;
-        @include move-Axe-Y(telecommand01,3s, 10px);
+        @include move-Axe-Y($name:telecommand01,$delai:3s, $start-Top:10px);
 
         h1{
-            @include move-Axe-X(telecommand02,2s,-100%);
+            @include move-Axe-X($name:telecommand02,$delai:2s,$start-Top:-100%);
         }
 
         h2{
-            @include move-Axe-X(telecommand03,2s,100%);
+            @include move-Axe-X($name:telecommand03,$delai:2s,$start-Top:100%);
         }
     }
 }

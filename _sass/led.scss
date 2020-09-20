@@ -5,14 +5,14 @@
         background-position: center;
         background-size: cover;
         min-height: 400px;
-        @include move-Axe-Y(led01, 4s, 15px);
+        @include move-Axe-Y($name:led01, $delai:4s, $start-Top:15px);
 
         h1 {
-            @include move-Axe-Y(led02, 1s, 100%)
+            @include move-Axe-Y($name:led02, $delai:1s, $start-Top:100%)
         }
 
         h2 {
-            @include move-Axe-Y(led03, 1s, -100%)
+            @include move-Axe-Y($name:led03, $delai:1s, $start-Top:-100%)
         }
     }
 

@@ -20,14 +20,14 @@ effet sur les boutons de lecture video.
 ****************************************** */
 
 
-@mixin effect_play_button($animation_name, $delai, $valueIn, $valueOut, $bgColorIn, $bgColorOut, $textColorIn, $textColorOut) {
+@mixin effect_play_button($animation_name, $delai, $bgPositionIn, $bgPositionOut, $bgColorIn, $bgColorOut, $textColorIn, $textColorOut) {
     -webkit-animation: $animation_name $delai alternate linear infinite;
     animation: $animation_name $delai alternate linear infinite;
 
     @include keyframes($animation_name) {
         0% {
             background-color: $bgColorIn;
-            background-position: $valueIn;
+            background-position: $bgPositionIn;
             color: $textColorIn;
             @include box-shadow-up;
         }
@@ -39,7 +39,7 @@ effet sur les boutons de lecture video.
         }
 
         100% {
-            background-position: $valueOut;
+            background-position: $bgPositionOut;
             background-color: $bgColorOut;
         }
     }

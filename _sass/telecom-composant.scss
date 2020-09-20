@@ -9,11 +9,11 @@
         overflow: hidden;
     
         h1 {
-            @include move-Axe-Y(teleCompos02, 2s, 100%);
+            @include move-Axe-Y($name:teleCompos02, $delai:2s, $start-Top:60%);
         }
 
         h2 {
-            @include move-Axe-Y(teleCompos03, 2s, -100%);
+            @include move-Axe-Y($name:teleCompos03, $delai:2s, $start-Top:-60%);
         }           
     }
 }

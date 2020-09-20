@@ -6,14 +6,14 @@
         background-size: cover;
         min-height: 400px;
 
-        @include move-Axe-Y(configRadio01, 4s, -10px);
+        @include move-Axe-Y($name:configRadio01, $delai:4s, $start-Top:-10px);
         overflow: hidden;
 
         h1{
-            @include move-Axe-X(configRadio03, 1s, -50%, $startRotateDgr:-90deg);
+            @include move-Axe-X($name:configRadio03, $delai:2s, $start-Top:-100%, $startRotateDgr:-45deg);
         }
         h2 {
-            @include move-Axe-X(configRadio02, 1s, 50%, $startRotateDgr:90deg); 
+            @include move-Axe-X($name:configRadio02, $delai:2s, $start-Top:100%, $startRotateDgr:-45deg); 
         }
     }
 

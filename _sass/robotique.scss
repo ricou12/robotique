@@ -8,7 +8,12 @@
         background-size: cover;
         min-height: 400px;
         overflow: hidden;
-        @include move-Axe-Y(header, 3s, 40px);
+
+        @include move-Axe-Y($name:robotique02, $delai:4s, $start-Top:20px);
+
+        h1,h2{
+            @include move-Axe-Y($name:robotique03, $delai:2s, $start-Top:100%);
+        }
 
         img {
             width: 80%;
@@ -17,11 +22,11 @@
         }
 
         &__img01 {
-            @include move-Axe-Y(img01, 2s, -500px, -90deg);
+            @include move-Axe-Y($name:img01, $delai:3s, $start-Top:-500px, $startRotateDgr:-90deg);
         }
 
         &__img02 {
-            @include move-Axe-Y(img02, 2s, -500px, 90deg);
+            @include move-Axe-Y($name:img02, $delai:3s, $start-Top:-500px, $startRotateDgr:90deg);
         }
     }
 
@@ -49,11 +54,10 @@
         }
 
         &__play-button {
-            // @mixin play_button (position fleche, taille fleche, $ft-size, $padding)
-            @include play_button(left 1rem center, 1.6rem, 1.2em, 1rem 3rem 1rem 8rem);
+            @include play_button($bg-position:left 1rem center, $bg-size:1.6rem,$ft-size: 1.2em, $padding:1rem 3rem 1rem 8rem);
 
-            // @mixin effect_play_button($animation_name, $delai, $valueIn, $valueOut, $bgColorIn, $bgColorOut,$textColorOut, $textColorOut)
-            @include effect_play_button(robotiqueMax, 1s, left 2rem center, left 5rem center, rgba(255, 255, 255, 0.8), rgba(255, 0, 0, 0.2), rgb(148, 63, 63), red);
+            // $animation_name, $delai, $bgPositionIn, $bgPositionOut, $bgColorIn, $bgColorOut, $textColorIn, $textColorOut
+            @include effect_play_button($animation_name:robotiqueMax, $delai:1s, $bgPositionIn:left 2rem center, $bgPositionOut:left 5rem center, $bgColorIn:rgba(255, 255, 255, 0.8), $bgColorOut:rgba(255, 0, 0, 0.2),  $textColorIn:rgb(148, 63, 63), $textColorOut:red);
         }
     }
 

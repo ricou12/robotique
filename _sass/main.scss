@@ -1,9 +1,27 @@
-// @import "./../node_modules/bootstrap/scss/bootstrap";
+/* 
+Creer un fichier .nojekyll à la racine du projet pour les github pages
+    est nécessaire que si votre site utilise des fichiers ou des répertoires
+    commençant par des traits de soulignement, car Jekyll les considère comme
+    des ressources spéciales et ne les copie pas sur le site final
+*/
+/*
+    Comment jekyll procède pour compiler le code scss en css
+    -> Jekyll lit /assets/main.scss
+    -> imports Sass partials 
+    -> import variables and import bootstrap/scss/bootstrap
+    -> /_sass/_variables.scss and /node_modules/bootstrap/scss/bootstrap.scss
+    -> Generates /assets/main.css
+
+ @import "variables";
+ @import "bootstrap/scss/bootstrap";
+*/
+
 @import "auto-prefixe";
 @import "animate";
 @import "mixins";
 @import "components/boxVideoLinkURL";
 @import "components/modalRc";
+@import "components/cardRc";
 @import "play_button";
 @import "gisthub";
 @import 'default.scss';
@@ -12,7 +30,6 @@
 @import "common";
 @import "background";
 @import "show-code";
-@import "rc-card";
 @import "hot-post";
 @import "robotique";
 @import "rpi-cam";
