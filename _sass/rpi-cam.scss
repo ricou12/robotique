@@ -7,8 +7,12 @@
         overflow: hidden;
         @include move-Axe-Y($name:rpiCam01,$delai:4s, $start-Top:10px);
 
-        h1,h2{
-            @include move-Axe-Y($name:rpiCam02,$delai:3s, $start-Top:-250%);
+        h1{
+            animation: bounceInDown 2.5s;
+        }
+
+        h2{
+            animation: bounceInDown 2s;
         }
     }
 }

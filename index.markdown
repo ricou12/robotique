@@ -1,4 +1,4 @@
 ---
 layout: Robotique
-title: Robotique
+title: Accueil
 ---

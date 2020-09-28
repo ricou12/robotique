@@ -17,7 +17,8 @@ Creer un fichier .nojekyll à la racine du projet pour les github pages
 */
 
 @import "auto-prefixe";
-@import "animate";
+@import "animateOrigin";
+@import "animateRc";
 @import "mixins";
 @import "components/boxVideoLinkURL";
 @import "components/modalRc";
@@ -39,3 +40,4 @@ Creer un fichier .nojekyll à la racine du projet pour les github pages
 @import "telecom-composant";
 @import "composants-vehicule";
 @import "led";
+@import "RGPD";

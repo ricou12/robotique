@@ -7,10 +7,13 @@
         background-size: cover;
         min-height: 400px;
         overflow: hidden;
-        @include move-Axe-Y($name:interfaceWeb01,$delai:4s, $start-Top:20px);
+        @include move-Axe-Y($name:interfaceWeb01,$delai:1s, $start-Top:20px);
 
-        h1,h2{
-            @include move-Axe-Y($name:interfaceWeb02,$delai:4s, $start-Top:100%);
+        h1{
+            @include auto-prefixer__property(animation, (backInUp 2s,jello 1s 1.8s), webkit moz o);
+        }
+        h2{
+            @include auto-prefixer__property(animation, backInUp 1.5s, webkit moz o);
         }
     }
 

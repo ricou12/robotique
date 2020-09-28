@@ -1,20 +1,19 @@
 .telecommand {
-
+    
     &__header {
         background-image:  url('./../img/header/techno.jpg');
-        background-repeat: no-repeat;
-        background-position: center;
         background-size: cover;
-        min-height: 400px;
-        overflow: hidden;
-        @include move-Axe-Y($name:telecommand01,$delai:3s, $start-Top:10px);
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 300px;
 
+        @include move-Axe-Y($name:telecommand01,$delai:1s, $start-Top:10px);
         h1{
-            @include move-Axe-X($name:telecommand02,$delai:2s,$start-Top:-100%);
+            @include auto-prefixer__property(animation, (lightSpeedInLeft 2s, bounceIn 1.5s 1.8s), webkit moz o);
         }
 
         h2{
-            @include move-Axe-X($name:telecommand03,$delai:2s,$start-Top:100%);
+            @include auto-prefixer__property(animation, lightSpeedInRight 2s, webkit moz o);
         }
     }
 }

@@ -18,13 +18,14 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Présentation d'un projet robotique.
+title: IHM-Robotique
 author: Eric Lanza
 email: dwwm2019@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Ce site détaille le réalisation d'un projet robotique.
 baseurl: "/Robotique" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
+myHost: Github pages
 twitter_username: jekyllrb
 github_username:  ricou12
 

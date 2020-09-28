@@ -38,7 +38,7 @@
 
         &__play_button_max {
             @include play_button_max (rgba(255, 0, 0, 0.5), black);
-            transition: .4s ease-in;
+            @include auto-prefixer__property(transition, .4s ease-in);
 
         }
 

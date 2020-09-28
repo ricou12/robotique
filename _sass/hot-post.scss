@@ -4,10 +4,14 @@
         center / cover no-repeat url('./../img/header/hotPost.jpg');
         min-height: 400px;
         overflow: hidden;
-        @include move-Axe-Y($name:hotPost01,$delai:4s, $start-Top:20px);
+        @include move-Axe-Y($name:hotPost01,$delai:1s, $start-Top:20px);
 
-        h1,h2{
-            @include move-Axe-Y($name:hotPost02,$delai:4s, $start-Top:100%);
+        h1{
+            animation: bounceInUp 2s;
+        }
+
+        h2{
+            animation: bounceInUp 2.5s;
         }
 
     }

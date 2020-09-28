@@ -19,18 +19,23 @@ title: Pièces de la télécommande
 
 
 <section class="container mt-2 rounded">
-    <section class="row text-white" id="composant">
+    <section class="row text-white">
         <div class="col-12 composant">
             <!-- CARTE -->
             {% include components/cardRc.html 
                 cardRc__title = "Plaque de plexiglass"
-                cardRc__link="https://decoration.ooreka.fr/fiche/voir/664797/couper-du-plexiglas"
+                cardRc__linkOut = true
+                cardRc__link = "https://decoration.ooreka.fr/fiche/voir/664797/couper-du-plexiglas"
+                cardRc__text ="Comment couper le pexigless"
                 cardRc__img = "assets/img/composants/pexi.png" 
             %}
 
             <!-- CARTE -->
             {% include components/cardRc.html 
-                cardRc__title = "Arduino uno" 
+                cardRc__title = "Arduino uno"
+                cardRc__linkOut = true
+                cardRc__link = "https://www.arduino.cc/"
+                cardRc__text = "Découvrir le site officiel"
                 cardRc__img = "assets/img/composants/arduino.png" 
             %}
 
@@ -68,6 +73,8 @@ title: Pièces de la télécommande
             <!-- CARTE -->
             {% include components/cardRc.html 
                 cardRc__title =  "Emetteur Récepteur sans Fil 2.4G 100m NRF24L01+PA+LNA avec antenne KY67"
+                cardRc__link = "telecom-configRadio.html"
+                cardRc__text ="Installation et configuration de l'émetteur Récepteur NRF24L01"
                 cardRc__img = "assets/img/composants/emetteur-recepteur.png"
             %}
 

@@ -20,206 +20,126 @@ title: Pièces du Véhicule
         <section class="row text-white">
             <section class="col-12 composant">
                 <!-- CARTE -->
-                <div class="rc-carte  box-shadow-down">
-                    <div class="rc-carte__titre">
-                        Plaque de plexiglass
-                    </div>
-                    <div class="rc-carte__image">
-                        <img src="assets/img/composants/pexi.png" alt="Plaque de plexiglass">
-                    </div>
-                </div>
+                {% include components/cardRc.html 
+                    cardRc__title = "Plaque de plexiglass"
+                    cardRc__img = "assets/img/composants/pexi.png"
+                %}
 
                 <!-- CARTE -->
-                <div class="rc-carte">
-                    <div class="rc-carte__titre">
-                        Arduino Mega
-                    </div>
-                    <div class="rc-carte__image">
-                        <img src="assets/img/composants/arduino-mega.png" alt="Arduino Mega">
-                    </div>
-                </div>
+                {% include components/cardRc.html 
+                    cardRc__title = "Arduino Mega"
+                    cardRc__img = "assets/img/composants/arduino-mega.png"
+                %}
                 
                 <!-- CARTE -->
-                <div class="rc-carte">
-                    <div class="rc-carte__titre">
-                        Raspberry
-                    </div>
-                    <div class="rc-carte__image">
-                        <img src="assets/img/composants/raspberry.png" alt="Raspberry">
-                    </div>
-                </div>
+                {% include components/cardRc.html 
+                    cardRc__title = "Raspberry"
+                    cardRc__img = "assets/img/composants/raspberry.png"
+                %}
 
                 <!-- CARTE -->
-                <div class="rc-carte">
-                    <div class="rc-carte__titre">
-                        2X Module IBT-2
-                    </div>
-                    <div class="rc-carte__image">
-                        <img src="assets/img/composants/ibt2.png" alt="2X Module IBT-2">
-                    </div>
-                </div>
+                {% include components/cardRc.html 
+                    cardRc__title = "2X Module IBT-2"
+                    cardRc__img = "assets/img/composants/ibt2.png"
+                %}
 
                 <!-- CARTE -->
-                <div class="rc-carte">
-                    <div class="rc-carte__titre">
-                        Emetteur Récepteur sans Fil 2.4G 1100m NRF24L01+PA+LNA avec antenne KY67
-                    </div>
-                    <div class="rc-carte__image">
-                        <a href="{{'./telecom-configRadio.html' | relative_url }}">
-                            <img src="assets/img/composants/emetteur-recepteur.png" alt="Emetteur Récepteur sans Fil 2.4G 1100m NRF24L01+PA+LNA avec antenne KY67">
-                        </a>
-                    </div>
-                </div>
+                {% include components/cardRc.html 
+                    cardRc__title = "Emetteur Récepteur sans Fil 2.4G 1100m NRF24L01+PA+LNA avec antenne KY67"
+                    cardRc__link = "/telecom-configRadio.html"
+                    cardRc__img = "assets/img/composants/emetteur-recepteur.png"
+                %}
 
                 <!-- CARTE -->
-                <div class="rc-carte">
-                    <div class="rc-carte__titre">
-                        Caméra infrarouge de vision nocturne
-                    </div>
-                    <div class="rc-carte__image">
-                        <img src="assets/img/composants/camera.png" alt="Caméra infrarouge de vision nocturne">
-                    </div>
-                </div>
+                {% include components/cardRc.html 
+                    cardRc__title = "Caméra infrarouge de vision nocturne"
+                    cardRc__img = "assets/img/composants/camera.png"
+                %}
 
                 <!-- CARTE -->
-                <div class="rc-carte">
-                    <div class="rc-carte__titre">
-                        Nappe pour raccordement caméra
-                    </div>
-                    <div class="rc-carte__image">
-                        <img src="assets/img/composants/nappe.png" alt="Nappe pour raccordement caméra">
-                    </div>
-                </div>
+                {% include components/cardRc.html 
+                    cardRc__title = "Nappe pour raccordement caméra"
+                    cardRc__img = "assets/img/composants/nappe.png"
+                %}
 
                 <!-- CARTE -->
-                <div class="rc-carte">
-                    <div class="rc-carte__titre">
-                        Servomoteurs
-                    </div>
-                    <div class="rc-carte__image">
-                        <img src="assets/img/composants/servomoteur.png" alt="Servomoteurs">
-                    </div>
-                </div>
+                {% include components/cardRc.html 
+                    cardRc__title = "Servomoteurs"
+                    cardRc__img = "assets/img/composants/servomoteur.png"
+                %}
 
                 <!-- CARTE -->
-                <div class="rc-carte">
-                    <div class="rc-carte__titre">
-                        MCP23017- utilise 2 broches I2C, pour ajouter 16 entrées/sorties à votre Arduino. 
-                    </div>
-                    <div class="rc-carte__image">
-                        <img src="assets/img/composants/MCP23017-chip.png" alt="MCP23017">
-                    </div>
-                </div>
+                {% include components/cardRc.html 
+                    cardRc__title = "MCP23017- utilise 2 broches I2C, pour ajouter 16 entrées/sorties à votre Arduino." 
+                    cardRc__img = "assets/img/composants/MCP23017-chip.png"
+                %}
 
                 <!-- CARTE -->
-                <div class="rc-carte">
-                    <div class="rc-carte__titre">
-                        Ecran LCD
-                    </div>
-                    <div class="rc-carte__image">
-                        <img src="assets/img/composants/afficheur-lcd.png" alt="Ecran LCD">
-                    </div>
-                </div>
+                {% include components/cardRc.html 
+                    cardRc__title = "Ecran LCD"
+                    cardRc__img = "assets/img/composants/afficheur-lcd.png"
+                %}
 
                 <!-- CARTE -->
-                <div class="rc-carte">
-                    <div class="rc-carte__titre">
-                        Motoréducteur - 6V
-                    </div>
-                    <div class="rc-carte__image">
-                        <img src="assets/img/composants/motoreducteur.png" alt="Motoréducteur - 6V - 75:1">
-                    </div>
-                </div>
+                {% include components/cardRc.html 
+                    cardRc__title = "Motoréducteur - 6V"
+                    cardRc__img = "assets/img/composants/motoreducteur.png"
+                %}
 
                 <!-- CARTE -->
-                <div class="rc-carte">
-                    <div class="rc-carte__titre">
-                        Boitier piles 4 x 1,5V AA
-                    </div>
-                    <div class="rc-carte__image">
-                        <img src="assets/img/composants/boitier-piles.png" alt="Boitier piles 4 x 1,5V AA">
-                    </div>
-                </div>
+                {% include components/cardRc.html 
+                    cardRc__title ="Boitier piles 4 x 1,5V AA" 
+                    cardRc__img = "assets/img/composants/boitier-piles.png"
+                %}
 
                 <!-- CARTE -->
-                <div class="rc-carte">
-                    <div class="rc-carte__titre">
-                        Plaque de prototypage (Breadboard)
-                    </div>
-                    <div class="rc-carte__image">
-                        <img src="assets/img/composants/breadboard.png" alt="Plaque de prototypage (Breadboard)">
-                    </div>
-                </div>
+                {% include components/cardRc.html 
+                    cardRc__title = "Plaque de prototypage (Breadboard)"
+                    cardRc__img = "assets/img/composants/breadboard.png"
+                %}
    
                 <!-- CARTE -->
-                <div class="rc-carte">
-                    <div class="rc-carte__titre">
-                        Circuit imprimé 4x6cm
-                    </div>
-                    <div class="rc-carte__image">
-                        <img src="assets/img/composants/plaquesasouder.png" alt="Circuit imprimé 4x6cm">
-                    </div>
-                </div>
+                {% include components/cardRc.html 
+                    cardRc__title = "Circuit imprimé 4x6cm"
+                    cardRc__img = "assets/img/composants/plaquesasouder.png"
+                %}
 
                 <!-- CARTE -->
-                <div class="rc-carte">
-                    <div class="rc-carte__titre">
-                        Cables pour plaque de prototypage
-                    </div>
-                    <div class="rc-carte__image">
-                        <img src="assets/img/composants/cable.png" alt="Cables pour plaque de prototypage">
-                    </div>
-                </div>
+                {% include components/cardRc.html 
+                    cardRc__title =  "Cables pour plaque de prototypage"
+                    cardRc__img = "assets/img/composants/cable.png"
+                %}
 
                 <!-- CARTE -->
-                <div class="rc-carte">
-                    <div class="rc-carte__titre">
-                        Potentiomètres
-                    </div>
-                    <div class="rc-carte__image">
-                        <img src="assets/img/composants/potentiometre.png" alt="Potentiomètres">
-                    </div>
-                </div>
+                {% include components/cardRc.html 
+                    cardRc__title = "Potentiomètres"
+                    cardRc__img = "assets/img/composants/potentiometre.png"
+                %}
 
                 <!-- CARTE -->
-                <div class="rc-carte">
-                    <div class="rc-carte__titre">
-                        Boutons pour potentiomètres
-                    </div>
-                    <div class="rc-carte__image">
-                        <img src="assets/img/composants/Boutons-potentiometre.png" alt="Boutons pour potentiomètres">
-                    </div>
-                </div>
+                {% include components/cardRc.html 
+                    cardRc__title = " Boutons pour potentiomètres"
+                    cardRc__img = "assets/img/composants/Boutons-potentiometre.png"
+                %}
 
                 <!-- CARTE -->
-                <div class="rc-carte">
-                    <div class="rc-carte__titre">
-                        Résistances
-                    </div>
-                    <div class="rc-carte__image border">
-                        <img src="assets/img/composants/resistances.png" alt="Résistances">
-                    </div>
-                </div>
+                {% include components/cardRc.html 
+                    cardRc__title = "Résistances"
+                    cardRc__img = "assets/img/composants/resistances.png"
+                %}
 
                 <!-- CARTE -->
-                <div class="rc-carte">
-                    <div class="rc-carte__titre">
-                        Led
-                    </div>
-                    <div class="rc-carte__image">
-                        <img src="assets/img/composants/led.png" alt="Led">
-                    </div>
-                </div>
+                {% include components/cardRc.html 
+                    cardRc__title = " Led"
+                    cardRc__img = "assets/img/composants/led.png"
+                %}
 
                 <!-- CARTE -->
-                <div class="rc-carte">
-                    <div class="rc-carte__titre">
-                        Pin strip Reglette a broches
-                    </div>
-                    <div class="rc-carte__image">
-                        <img src="assets/img/composants/broches.png" alt="Pin strip Reglette a broches">
-                    </div>
-                </div>
+                {% include components/cardRc.html 
+                    cardRc__title = "Pin strip Reglette a broches"
+                    cardRc__img = "assets/img/composants/broches.png"
+                %}
+
             </section>
         </section>
 

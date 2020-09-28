@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/ricou12/robotique#readme",
   "dependencies": {
+    "animate.css": "^4.1.1",
     "bootstrap": "^4.5.0",
     "jquery": "^3.5.1",
     "node-sass": "^4.14.1",

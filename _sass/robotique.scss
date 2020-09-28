@@ -1,6 +1,5 @@
 .robotique {
 
-
     &__header {
         background-image: url('./../img/header/connect.jpg');
         background-repeat: no-repeat;
@@ -9,11 +8,16 @@
         min-height: 400px;
         overflow: hidden;
 
-        @include move-Axe-Y($name:robotique02, $delai:4s, $start-Top:20px);
+        @include move-Axe-Y($name:robotique02, $delai:2s, $start-Top:20px);
 
-        h1,h2{
-            @include move-Axe-Y($name:robotique03, $delai:2s, $start-Top:100%);
+        h1{
+            @include auto-prefixer__property(animation, (zoomInDown 3s, rubberBand 1.5s 2.4s), webkit moz o);
         }
+
+        h2{
+            @include auto-prefixer__property(animation, zoomInUp 2s, webkit moz o);
+        }
+
 
         img {
             width: 80%;
@@ -22,11 +26,11 @@
         }
 
         &__img01 {
-            @include move-Axe-Y($name:img01, $delai:3s, $start-Top:-500px, $startRotateDgr:-90deg);
+            animation:zoomIn 2s;
         }
 
         &__img02 {
-            @include move-Axe-Y($name:img02, $delai:3s, $start-Top:-500px, $startRotateDgr:90deg);
+            animation:zoomIn 2s;
         }
     }
 
@@ -55,8 +59,6 @@
 
         &__play-button {
             @include play_button($bg-position:left 1rem center, $bg-size:1.6rem,$ft-size: 1.2em, $padding:1rem 3rem 1rem 8rem);
-
-            // $animation_name, $delai, $bgPositionIn, $bgPositionOut, $bgColorIn, $bgColorOut, $textColorIn, $textColorOut
             @include effect_play_button($animation_name:robotiqueMax, $delai:1s, $bgPositionIn:left 2rem center, $bgPositionOut:left 5rem center, $bgColorIn:rgba(255, 255, 255, 0.8), $bgColorOut:rgba(255, 0, 0, 0.2),  $textColorIn:rgb(148, 63, 63), $textColorOut:red);
         }
     }

@@ -1,24 +1,16 @@
-/* ******************************************
- Auto-prefixer les propriétés
-****************************************** */
-@mixin auto-prefix($property, $ltr-value){
-    // (Chrome, nouvelles versions d'Opera.)
-    -webkit-#{$property}: $ltr-value;
+/* ***********************************************************************
+ **         Mixin destiné à automatiser la génération de préfixes       **
+ *********************************************************************** */
 
-    // (Firefox)
-    -moz-#{$property}: $ltr-value;
-
-    // (Internet Explorer et Edge)
-    -ms-#{$property}: $ltr-value;
-
-    // (Anciennes versions d'Opera)
-    -o-#{$property}: $ltr-value;
-
-    // Dernières Version de navigateur 
-    #{$property}: $ltr-value;
+@mixin auto-prefixer__property($property, $valueOfProperty, $prefixes: webkit moz ms o) {
+    @each $prefix in $prefixes {
+        #{"-" + $prefix + "-" + $property}: $valueOfProperty;
+    }
+    #{$property}: $valueOfProperty;
 }
 
-@mixin keyframes($animation_name) {
+/* AUTO PREFIXE POUR KEYFRAMES */
+@mixin auto-prefixer__keyframes($animation_name) {
     @-webkit-keyframes #{$animation_name} {
         @content;
     }
@@ -27,9 +19,6 @@
         @content;
     }
 
-    @-ms-keyframes #{$animation_name} {
-        @content;
-    }
 
     @-o-keyframes #{$animation_name} {
         @content;
