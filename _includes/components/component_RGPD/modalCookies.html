@@ -1,0 +1,56 @@
+<div class="modalCookies" id="cookie-notice">
+    <h4 class="txt-color--orange">Bonjour c'est nous...</h4>
+    <h4 class="font-weight-bold txt-color--raspberry cookies"> les Cookies !</h4>
+    <p class="text-white">En poursuivant votre navigation, vous acceptez l’utilisation de cookies pour réaliser des
+        statistiques de visites et vous proposer des publicités ciblées adaptées à vos centres d’intérêts.</p>
+    <div class="d-flex justify-content-between">
+        <a href="{{ './RGPD.html' | relative_url }}" class="btn btn-outline-light">En savoir plus.</a>
+        <a id="cookie-notice-accept" href="#" class="btn btn-outline-success">Ok pour moi</a>
+    </div>
+</div>
+
+<!-- GESTION DES COOKIES -->
+<script>
+    function createCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+            let date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + value + expires + "; path=/";
+    }
+
+    function readCookie(name) {
+        let nameEQ = name + "=";
+        let ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+    function eraseCookie(name) {
+        createCookie(name, "", -1);
+    }
+
+    if (readCookie('cookie-notice-dismissed') == 'true') {
+        // gestion des cookies
+    } else {
+        document.getElementById('cookie-notice').style.display = 'block';
+    }
+
+    // si l'utilisateur donne son consentement pour l'utilisation des cookies
+    document.getElementById('cookie-notice-accept').addEventListener("click", function () {
+        document.getElementById('cookie-notice').style.animation = "fadeOutTopRight 2s";
+        setTimeout(function(){ 
+            createCookie('cookie-notice-dismissed', 'true', 31);
+            document.getElementById('cookie-notice').style.display = 'none';
+        // location.reload();
+         }, 2000);
+    });
+</script>
+
+

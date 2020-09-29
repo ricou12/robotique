@@ -1,0 +1,29 @@
+.modalCookies {
+    animation:fadeInTopLeft 1s;
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    left: 10px;
+    z-index: 1050;
+    width: 300px;
+    border-radius: 20px;
+    padding: 20px;
+    overflow: hidden;
+    outline: 0;
+
+    .cookies {
+        font-size: 1em;
+    }
+
+    h4 {
+        font-size: .8em;
+    }
+
+    p {
+        font-size: .7em;
+    }
+    a{
+        font-size: .7em;
+    }   
+}
