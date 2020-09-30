@@ -1,0 +1,87 @@
+<div class="modalCookies" id="cookie-notice">
+    <h4 class="txt-color--orange">Bonjour c'est nous...</h4>
+    <h4 class="font-weight-bold txt-color--raspberry cookies"> les Cookies !</h4>
+    <p class="text-white">En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour réaliser des
+        statistiques de visites.</p>
+    <div class="d-flex justify-content-between">
+        <a id="cookie-notice-reject" href="#" class="btn btn-outline-secondary">Non merci</a>
+        <a href="{{ './RGPD.html' | relative_url }}" class="btn btn-outline-light">En Savoir Plus</a>
+        <a id="cookie-notice-accept" href="#" class="btn btn-outline-success">J'adore les cookies</a>
+    </div>
+</div>
+
+<!-- GESTION DES COOKIES avec JS -->
+<script>
+    function createCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+            let date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + value + expires + "; path=/";
+    }
+
+    function readCookie(name) {
+        let nameEQ = name + "=";
+        let ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+    function eraseCookie(name) {
+        createCookie(name, "", -1);
+    }
+
+    // Recherche et extrait le contenu du cookies
+    switch(readCookie('cookie-notice-dismissed')){
+        case 'Authorized':
+        // Ajoute la balise de google analytics
+        var scriptGoogleAnalytics = document.createElement("script");  // create a script DOM node
+        scriptGoogleAnalytics.src = "https://www.googletagmanager.com/gtag/js?id=UA-179257014-1"; // set its src to the provided URL
+        document.head.appendChild(scriptGoogleAnalytics);
+
+        var scriptGoogleTagManager = document.createElement('script'); // create a script DOM node
+        scriptGoogleTagManager.textContent = `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-179257014-1');`
+        document.head.appendChild(scriptGoogleTagManager);
+        break;
+
+        case 'Rejected':
+        // Ne fait rien laisse la modalCookies masqué.
+        break;
+
+        default:
+        // Si le cookies n'exite pas ou la valeur ne correspond pas alors on affiche le modalCookies
+        document.getElementById('cookie-notice').style.display = 'block';
+    }
+
+    // Si l'utilisateur donne son consentement pour l'utilisation des cookies
+    document.getElementById('cookie-notice-accept').addEventListener("click", function () {
+        document.getElementById('cookie-notice').style.animation = "fadeOutTopRight 2s";
+        setTimeout(function(){ 
+            createCookie('cookie-notice-dismissed', 'Authorized', 31);
+            document.getElementById('cookie-notice').style.display = 'none';
+        location.reload();
+         }, 2000);
+    });
+
+    // Si l'utilisateur refuse l'utilisation des cookies
+    document.getElementById('cookie-notice-reject').addEventListener("click", function () {
+        document.getElementById('cookie-notice').style.animation = "fadeOutTopRight 2s";
+        setTimeout(function(){ 
+            createCookie('cookie-notice-dismissed', 'Rejected', 31);
+            document.getElementById('cookie-notice').style.display = 'none';
+        location.reload();
+         }, 2000);
+    });
+</script>
+
+
