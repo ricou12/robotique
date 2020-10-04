@@ -1,17 +1,65 @@
-<div class="modalCookies" id="cookie-notice">
-    <h4 class="txt-color--orange">Bonjour c'est nous...</h4>
-    <h4 class="font-weight-bold txt-color--raspberry cookies"> les Cookies !</h4>
-    <p class="text-white">En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour réaliser des
-        statistiques de visites.</p>
-    <div class="d-flex justify-content-between">
-        <a id="cookie-notice-reject" href="#" class="btn btn-outline-secondary">Non merci</a>
-        <a href="{{ './RGPD.html' | relative_url }}" class="btn btn-outline-light">En Savoir Plus</a>
-        <a id="cookie-notice-accept" href="#" class="btn btn-outline-success">J'adore les cookies</a>
-    </div>
-</div>
+<div class="modalCookies__box text-white" id="cookie-root"></div>
 
-<!-- GESTION DES COOKIES avec JS -->
 <script>
+    /*
+        EXEMPLE DE STRUCTURE 
+         {
+            cookie:"Google Analytics",
+            categorie: 'Audience&statistique',
+            description: "Permet d'analyser les statistiques de consultation de notre site",
+            checked: false,
+            script_src:"https://www.googletagmanager.com/gtag/js?id=UA-179257014-1",
+            script_config: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-179257014-1');`,
+        }
+    */
+    const CookiesList = [
+        {
+            cookie:"Google Analytics",
+            categorie: 'Audience&statistique',
+            description: "Permet d'analyser les statistiques de consultation de notre site",
+            checked: false,
+            script_src:"https://www.googletagmanager.com/gtag/js?id=UA-179257014-1",
+            script_config: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-179257014-1');`,
+        },
+        {
+            // Hotjar Tracking Code for https://ricou12.github.io/Robotique/
+            cookie:"Hotjar",
+            categorie: 'Expérience&relation',
+            description: "Enregistrement du parcours de navigation",
+            checked: false,
+            script_config: `
+                (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:2023699,hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`,
+        },
+    ];
+
+    // Injection des scripts dans l'en tete de la page
+    const addCookiesUrl = (url) => {
+        var scriptCookiesUrl = document.createElement("script"); // create a script DOM node
+        scriptCookiesUrl.src = url; //set its src to the provided URL
+        document.head.appendChild(scriptCookiesUrl);
+    }
+    const addCookiesParameters = (parameters) => {
+        var scriptCookiesParameters = document.createElement("script"); // create a script DOM node
+        scriptCookiesParameters.textContent = parameters; //set its src to the provided URL
+        document.head.appendChild(scriptCookiesParameters);
+    }
+
+    // <!-- GESTION DES COOKIES avec JS -->
     function createCookie(name, value, days) {
         let expires = "";
         if (days) {
@@ -27,61 +75,361 @@
         let ca = document.cookie.split(';');
         for (let i = 0; i < ca.length; i++) {
             let c = ca[i];
-            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            while (c.charAt(0) == ' '){
+                c = c.substring(1, c.length);
+                } 
+            if (c.indexOf(nameEQ) == 0) {
+                return c.substring(nameEQ.length, c.length);
+            }
         }
-        return null;
+        return false;
     }
 
     function eraseCookie(name) {
         createCookie(name, "", -1);
     }
 
-    // Recherche et extrait le contenu du cookies
-    switch(readCookie('cookie-notice-dismissed')){
-        case 'Authorized':
-        // Ajoute la balise de google analytics
-        var scriptGoogleAnalytics = document.createElement("script");  // create a script DOM node
-        scriptGoogleAnalytics.src = "https://www.googletagmanager.com/gtag/js?id=UA-179257014-1"; // set its src to the provided URL
-        document.head.appendChild(scriptGoogleAnalytics);
-
-        var scriptGoogleTagManager = document.createElement('script'); // create a script DOM node
-        scriptGoogleTagManager.textContent = `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'UA-179257014-1');`
-        document.head.appendChild(scriptGoogleTagManager);
-        break;
-
-        case 'Rejected':
-        // Ne fait rien laisse la modalCookies masqué.
-        break;
-
-        default:
-        // Si le cookies n'exite pas ou la valeur ne correspond pas alors on affiche le modalCookies
-        document.getElementById('cookie-notice').style.display = 'block';
+    // Creation des composants checkbox pour chaque categorie
+    const createFormCheckForCookie = (categorie) => {
+        let concat = [];
+        CookiesList.forEach( (cookieItem) => {
+            if(cookieItem.categorie === categorie){
+                const stateCheckBox = cookieItem.checked ? 'checked' : '';
+                concat.push(
+                    `<div class="form-check">
+                        <input class="form-check-input" type="checkbox" data-cookie="${cookieItem.cookie}" data-categorie="${cookieItem.categorie}" id="${cookieItem.cookie.replace(' ','')}" ${stateCheckBox}>
+                        <label class="form-check-label" for="${cookieItem.cookie.replace(' ','')}">
+                            <h6 class="ftsz-9">${cookieItem.cookie}</h6>
+                            <p class="ftsz-7">${cookieItem.description}</p>
+                        </label>
+                    </div>`
+                );
+            }
+        });
+        return concat.join('');
     }
 
-    // Si l'utilisateur donne son consentement pour l'utilisation des cookies
-    document.getElementById('cookie-notice-accept').addEventListener("click", function () {
-        document.getElementById('cookie-notice').style.animation = "fadeOutTopRight 2s";
-        setTimeout(function(){ 
-            createCookie('cookie-notice-dismissed', 'Authorized', 31);
-            document.getElementById('cookie-notice').style.display = 'none';
-        location.reload();
-         }, 2000);
-    });
+    // Mise à jour du tableau (CookiesList) au chargement de la page en fonction du choix de l'utilisateur 
+    const checkedArrayCookies = (fileCookieContent) => {
+        // Parcours le tableau liste des cookies
+        CookiesList.forEach( (cookieListItem) => {
+            // Recherche les cookies autorisés par l'utilisateur
+            const cookieMatch = fileCookieContent.find(fileCookieItem => fileCookieItem === cookieListItem.cookie);
+            if (cookieMatch != undefined) {
+                // Cookie autorisé par l'utilisateur
+                cookieListItem.checked = true;
+            } else {
+                // Cookie rejeté par l'utilisateur
+                cookieListItem.checked= false;
+            }
+        });
+    }
 
-    // Si l'utilisateur refuse l'utilisation des cookies
-    document.getElementById('cookie-notice-reject').addEventListener("click", function () {
-        document.getElementById('cookie-notice').style.animation = "fadeOutTopRight 2s";
-        setTimeout(function(){ 
-            createCookie('cookie-notice-dismissed', 'Rejected', 31);
-            document.getElementById('cookie-notice').style.display = 'none';
-        location.reload();
-         }, 2000);
-    });
+    // Injecte les scripts dans la balise head de la page
+    const injectScriptsHead = () => {
+        // Parcours le tableau liste des cookies
+        CookiesList.forEach( (cookieListItem) => {
+            // Recherche les cookies autorisés par l'utilisateur
+            if(cookieListItem.checked){
+                //  injecte les scripts dans head
+                if(cookieListItem.script_src) {
+                    addCookiesUrl(cookieListItem.script_src);
+                }
+                if(cookieListItem.script_config) {
+                    addCookiesParameters(cookieListItem.script_config);
+                }
+            }
+        });
+    }
+
+    const iconCookiesPage = () => {
+        const iconCookies = () => {
+            return(`<div class="iconCookies"></div>`);
+        }
+    }
+
+    // CHARGEMENT DE LA PREMIERE PAGE
+    const loadFirstPage = () => {
+        const cookiesLoader = () => {
+            return (
+                `
+                <h4 class="txt-color--orange ftsz-8">Bonjour c'est nous...</h4>
+                <h4 class="font-weight-bold txt-color--raspberry ftsz-9"> les Cookies !</h4>
+                <p class="ftsz-7 text-justify">En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour réaliser des statistiques de visites. Vous pourrez à tout moment revoir vos choix en utilisant le lien "Modifier mes choix cookies" en bas de page du site.</p>
+                <div class="d-flex justify-content-around">
+                    <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="cookie-notice-reject">Non merci</a>
+                    <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="cookies-choice">Je choisis</a>
+                    <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="cookie-notice-accept">Ok pour moi</a>
+                </div>
+                <a href="{{ './mentions-legales.html' | relative_url }}" class="text-center text-info mt-3 ftsz-7 font-weight-bold">En Savoir Plus</a>
+                <p class="copyright ftsz-7 text-right text-dark mt-3">Copyright &copy; 2020 Ricou</p>
+                `
+            )
+        }
+
+        // Injecte les éléménts html dans la balise parent
+        document.getElementById('cookie-root').innerHTML = cookiesLoader();
+
+        // Ecoute les évenements
+        // Si l'utilisateur donne son consentement pour l'utilisation des l'ensemble des cookies
+        document.getElementById('cookie-notice-accept').addEventListener("click", () => {
+            document.getElementById('cookie-root').style.animation = "fadeOutTopRight 2s";
+            setTimeout(function () {
+                // TODO Ajoute tout les cookies
+                let writeContentCookie = "Authorized";
+                CookiesList.forEach( (cookieItem) => {
+                    writeContentCookie += ',' + cookieItem.cookie;
+                });
+                createCookie('cookie-notice-dismissed',writeContentCookie, 31);
+                document.getElementById('cookie-root').style.display = 'none';
+                location.reload();
+            }, 2000);
+        });
+
+        // Si l'utilisateur refuse l'utilisation de l'ensemble des cookies
+        document.getElementById('cookie-notice-reject').addEventListener("click", () => {
+            document.getElementById('cookie-root').style.animation = "fadeOutTopRight 2s";
+            setTimeout(function () {
+                createCookie('cookie-notice-dismissed', "rejected", 31);
+                document.getElementById('cookie-root').style.display = 'none';
+                location.reload();
+            }, 2000);
+        });
+
+        // Si l'utilisateur choisi d'afficher la liste des cookies
+        document.getElementById('cookies-choice').addEventListener("click", () => {
+            loadAudiencePage();
+        });
+    }
+
+
+    // CHARGEMENT DE LA DEUXIEME PAGE
+    const loadAudiencePage = () => {
+        let cookiesAudience = () => {
+            return (
+                `
+                <h4 class="txt-color--orange ftsz-8">Mesure d'audience et statistique</h4>
+                <h4 class="font-weight-bold txt-color--raspberry ftsz-9">Améliorer l'expérience utilisateur, c’est important !</h4>
+                <p class="ftsz-7 text-justify">IHM-robotique souhaite gagner en popularité ! Et pour cette raison, la plupart des sites internet mesurent leur audience en utilisant des solutions spécialisées.</p>
+                <div class="contentCookies">
+                    ${createFormCheckForCookie('Audience&statistique')}
+                </div>
+                <div class="d-flex justify-content-around mt-3">
+                    <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="returnFirstPage">Retour</a>
+                    <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="acceptAllAudience">J'accepte tout</a>
+                    <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="loadExperience">Suivant</a>
+                </div>
+                <p class="copyright ftsz-7 text-right text-dark mt-3">Copyright &copy; 2020 Ricou</p>
+                `
+            )
+        }
+        /* 
+        TODO lors d'un clique sur checkbox on met à jour le tableau cookie list
+        Si clique sur  accept all met à jour tous les élément de la categorie tableau cookie list et bascule sur la p
+        age suivante
+        Si clique sur suivant affiche simplement la page suivante
+        puis sur la dernière page btn terminer créé le cookie
+        lorsqu'une autre page est ouverte la mise a jour du cookie affichera les scripts automatiquement 
+        */
+
+        // Injecte les éléménts html dans la balise parent
+        document.getElementById('cookie-root').innerHTML = cookiesAudience();
+
+        // ECOUTE LES EVENEMENTS
+        // si l'utilisateur clique sur un checkbox
+        document.querySelectorAll('.contentCookies > .form-check > input').forEach(inputItem => {
+            inputItem.addEventListener('change', () => {
+                CookiesList.forEach( (CookiesListItem) => {
+                    if(CookiesListItem.cookie === inputItem.getAttribute('data-cookie')) {
+                        CookiesListItem.checked = inputItem.checked;
+                    }
+                });
+            });
+        });
+        document.getElementById('returnFirstPage').addEventListener('click', () => {
+            loadFirstPage();
+        });
+        document.getElementById('loadExperience').addEventListener('click', () => {
+            loadExperiencesPages();
+        });
+        document.getElementById('acceptAllAudience').addEventListener('click', () => {
+            document.querySelectorAll('.contentCookies > .form-check > input').forEach( (inputItem) => {
+                CookiesList.forEach( (CookiesListItem) => {
+                    if(CookiesListItem.categorie === inputItem.getAttribute('data-categorie')) {
+                        CookiesListItem.checked = true;
+                    }
+                    loadExperiencesPages();
+                });
+            });
+        });
+    }
+
+
+    // CHARGEMENT DE LA TROISIEME PAGE
+    const loadExperiencesPages = () => {
+        let cookiesExperiences = () => {
+            return (
+                `
+                <h4 class="txt-color--orange ftsz-8">Expérience et relation</h4>
+                <h4 class="font-weight-bold txt-color--raspberry ftsz-9">Diététiques et complétement inoffensifs</h4>
+                <p class="ftsz-7 text-justify">Pour détecter des problèmes de conception sur notre site, dialoguer avec vous et construire notre relation client, nous utilisons 3 solutions éprouvées et respectueuses de vos données.</p>
+                <div class="contentCookies">
+                    ${createFormCheckForCookie('Expérience&relation')}
+                </div>
+                <div class="d-flex justify-content-around mt-3">
+                    <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="returnAudiences">Retour</a>
+                    <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="acceptAllExperience">J'accepte tout</a>
+                    <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="loadAnnonces">Suivant</a>
+                </div>
+                <p class="copyright ftsz-7 text-right text-dark mt-3">Copyright &copy; 2020 Ricou</p>
+                `
+            )
+        }
+
+        // Injecte les éléménts html dans la balise parent
+        document.getElementById('cookie-root').innerHTML = cookiesExperiences();
+
+        // Ecoute les évenements
+        // si l'utilisateur clique sur un checkbox
+        document.querySelectorAll('.contentCookies > .form-check > input').forEach(inputItem => {
+            inputItem.addEventListener('change', () => {
+                CookiesList.forEach( (CookiesListItem) => {
+                    if(CookiesListItem.cookie === inputItem.getAttribute('data-cookie')) {
+                        CookiesListItem.checked = inputItem.checked;
+                    }
+                });
+            });
+        });
+
+        document.getElementById('returnAudiences').addEventListener('click', () => {
+            loadAudiencePage();
+        });
+        
+        document.getElementById('loadAnnonces').addEventListener('click', () => {
+            loadAnnoncesPages();
+        });
+
+        document.getElementById('acceptAllExperience').addEventListener('click', () => {
+            document.querySelectorAll('.contentCookies > .form-check > input').forEach( (inputItem) => {
+                CookiesList.forEach( (CookiesListItem) => {
+                    if(CookiesListItem.categorie === inputItem.getAttribute('data-categorie')) {
+                        CookiesListItem.checked = true;
+                    }
+                    loadAnnoncesPages();
+                });
+            });
+        });
+    }
+
+
+    // CHARGEMENT DE LA QUATRIEME PAGE
+    const loadAnnoncesPages = () => {
+        let cookiesAnnonces = () => {
+            return (
+                `
+            <h4 class="txt-color--orange ftsz-8">Restons connectés</h4>
+            <h4 class="font-weight-bold txt-color--raspberry ftsz-9">Annonces personnalisées</h4>
+            <p class="ftsz-7 text-justify">Quand vous quittez notre site, il est possible de prolonger l’expérience. Mais parce qu’il est hors de question de polluer votre navigation, ces cookies s’assurent à ce qu’on vous envoie uniquement des messages non-intrusifs et adaptés à votre profil.</p>
+            <div class="contentCookies">
+                ${createFormCheckForCookie('Annonces&personnalisées')}
+            </div>
+            <div class="d-flex justify-content-around mt-3">
+                <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="returnExperiences">Retour</a>
+                <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="acceptAllAnnonces">J'accepte tout</a>
+                <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="createCookie">Terminer</a>
+            </div>
+            <p class="copyright ftsz-7 text-right text-dark mt-3">Copyright &copy; 2020 Ricou</p>
+        `
+            )
+        }
+
+        // Injecte les éléménts html dans la balise parent
+        document.getElementById('cookie-root').innerHTML = cookiesAnnonces();
+
+        // Ecoute les évenements
+        // si l'utilisateur clique sur un checkbox
+        document.querySelectorAll('.contentCookies > .form-check > input').forEach(inputItem => {
+            inputItem.addEventListener('change', () => {
+                CookiesList.forEach( (CookiesListItem) => {
+                    if(CookiesListItem.cookie === inputItem.getAttribute('data-cookie')) {
+                        CookiesListItem.checked = inputItem.checked;
+                    }
+                });
+            });
+        });
+
+        document.getElementById('returnExperiences').addEventListener('click', ()  => {
+            loadExperiencesPages();
+        });
+
+        document.getElementById('acceptAllAnnonces').addEventListener('click', () => {
+            document.querySelectorAll('.contentCookies > .form-check > input').forEach( (inputItem) => {
+                CookiesList.forEach( (CookiesListItem) => {
+                    if(CookiesListItem.categorie === inputItem.getAttribute('data-categorie')) {
+                        CookiesListItem.checked = true;
+                    }
+                    loadAnnoncesPages();
+                });
+            });
+        });
+
+        document.getElementById('createCookie').addEventListener('click', () => {
+            document.getElementById('cookie-root').style.animation = "fadeOutTopRight 2s";
+            setTimeout(function () {
+                // TODO Ajoute tout les cookies
+                let writeContentCookie = "Authorized";
+                CookiesList.forEach( (cookieItem) => {
+                    if(cookieItem.checked) {
+                        writeContentCookie += ',' + cookieItem.cookie;
+                    }
+                });
+                createCookie('cookie-notice-dismissed',writeContentCookie, 31);
+                        document.getElementById('cookie-root').style.display = 'none';
+                        location.reload();
+            }, 2000);
+        });
+    }
+
+
+   // au chargement de la page
+   if (document.readyState='complete'){
+       // Recherche et ouvre le cookie si il existe
+        const readFileCookieContent = readCookie('cookie-notice-dismissed');
+        // Si le cookie existe
+        if (readFileCookieContent) {
+            // Divise la chaîne de caractères à partir d'un séparateur pour fournir un tableau de sous-chaînes
+            const splitFileCookieContent = readFileCookieContent.split(',');
+            // Renvois le choix de l'utilisateur (accepte ou rejete l'utilisation de cookies)
+            const userChoice = splitFileCookieContent[0];
+            // Renvoi la liste des cookies autorisé
+            const userListCookie = splitFileCookieContent.slice(1);
+            // Si le cookie contient des données (indique le nombre d'éléments présents dans le tableau.)
+            if(splitFileCookieContent.length > 0) {
+                switch (userChoice){
+                    case 'Authorized':
+                        checkedArrayCookies(userListCookie);
+                        injectScriptsHead();
+                        break;
+
+                    case 'Rejected':
+                        // Ne fait rien laisse la modalCookies masqué.
+                        break;
+
+                    default:
+                }
+            } else {
+                // le cookie est vide on le supprime.
+                eraseCookie('cookie-notice-dismissed');
+            }
+        } else {
+            // Le cookies n'exite pas ou la valeur ne correspond pas alors on affiche le modalCookies
+            document.getElementById('cookie-root').style.display = 'flex';
+            document.getElementById('cookie-root').style.flexDirection = 'column';   
+        } 
+
+        // Charge la première page
+        loadFirstPage();
+        console.log(CookiesList);
+    }
+    
 </script>
-
-
