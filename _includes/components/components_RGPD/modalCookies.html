@@ -1,4 +1,4 @@
-
+<article class="modalCookies__root"><img src="{{ '/assets/img/icon/consentement.png' | relative_url }}" alt="Protection des données personnelles"></article>
 <article class="modalCookies__box text-white" id="cookie-root"></article>
 
 <script>
@@ -143,12 +143,6 @@
         });
     }
 
-    // const iconCookiesPage = () => {
-    //     const iconCookies = () => {
-    //         return(`<div class="iconCookies"></div>`);
-    //     }
-    // }
-
     // CHARGEMENT DE LA PREMIERE PAGE
     const loadFirstPage = () => {
         const cookiesLoader = () => {
@@ -163,7 +157,7 @@
                         <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="cookies-choice">Je choisis</a>
                         <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="cookie-notice-accept">Ok pour moi</a>
                     </div>
-                    <a href="{{ './mentions-legales.html' | relative_url }}" class="text-center text-info mt-3 ftsz-7 font-weight-bold">En Savoir Plus</a>
+                    <a href="{{ '/mentions-legales.html' | relative_url }}" class="text-center text-info mt-3 ftsz-7 font-weight-bold">En Savoir Plus</a>
                     <p class="copyright ftsz-7 text-right text-dark mt-3">Copyright &copy; 2020 Ricou</p>
                 </section>
                 `
@@ -430,7 +424,5 @@
 
         // Charge la première page
         loadFirstPage();
-        console.log(CookiesList);
 
-    
 </script>
