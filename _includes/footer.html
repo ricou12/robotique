@@ -8,6 +8,7 @@
         <section class="col-12 col-md-4 col-lg-4 col-xl-4 p-4 order-2 order-md-1 border-secondary border-bottom">
             <div class="row">
                 <div class="col-12">
+                    <h4 class="text-center">A propos</h4>
                     <p>
                         <span class="font-weight-bold">Développeur</span>: Lanza Eric <br>
                         <span class="font-weight-bold">Email</span>: dwwm2109@gmail.com
@@ -29,10 +30,9 @@
                 </div>
             </div>
         </section>
-        <section
-            class="col-12 col-md-5 col-lg-5 col-xl-4 p-4 order-1 order-md-2 border-secondary border-bottom d-flex flex-column align-items-center">
+        <section class="col-12 col-md-5 col-lg-5 col-xl-4 p-4 order-1 order-md-2 border-secondary border-bottom d-flex flex-column align-items-center">
+            <h4>Navigation</h4>
             <ul>
-                <h4>Navigation</h4>
                 <li><a href="{{'/projet-robotique.html' | relative_url }}">Projet robotique</a></li>
                 <span class="mt-4 text-secondary font-weight-bold">Conception des télécommandes</span>
                 <li><a href="{{'/telecommande/solution-materiel-et-logiciel.html' | relative_url }}">Solution matériel et logiciel</a></li>
@@ -55,7 +55,7 @@
                 <div class="col-12">
                     <h4 class="text-center mb-3">Découvrir mes autres sites</h4>
                 </div>
-                <article class="col-6 col-sm-4 col-md-12 col-xl-6 d-flex flex-column align-items-center">
+                <aside class="col-6 col-sm-4 col-md-12 col-xl-6 d-flex flex-column align-items-center">
                     {% include components/components_video/boxVideoLinkURL.html 
                         path_image = "/assets/img/Screenshot_champi.jpg"
                         path_video = "/assets/video/myco.mp4"  
@@ -63,8 +63,8 @@
                         url_link = "https://petit-guide-des-champignons.000webhostapp.com/"
                         commentaire = "Architecture MVC personnalisée, langages: Html, Sass, Php, Twig, Sql."
                     %}
-                </article>
-                <article class="col-6 col-sm-4 col-md-12 col-xl-6 d-flex flex-column align-items-center">
+                </aside>
+                <aside class="col-6 col-sm-4 col-md-12 col-xl-6 d-flex flex-column align-items-center">
                     {% include components/components_video/boxVideoLinkURL.html 
                         path_image = "./assets/img/Screenshot_Meteo.png"
                         path_video = "./assets/video/meteo.mp4"
@@ -72,8 +72,8 @@
                         url_link = "https://ricou12.github.io/meteo-webService/"
                         commentaire = "Application météo Javascript uitlisant une API."
                     %}
-                </article>
-                <article class="col-6 col-sm-4 col-md-12 col-xl-6 d-flex flex-column align-items-center">
+                </aside>
+                <aside class="col-6 col-sm-4 col-md-12 col-xl-6 d-flex flex-column align-items-center">
                     {% include components/components_video/boxVideoLinkURL.html 
                         path_image = "./assets/img/Screenshot_Meteo.png"
                         path_video = "./assets/video/pictureBox.mp4"
@@ -81,7 +81,7 @@
                         url_link = "https://ricou12.github.io/PictureBox-BOOTSTRAP-JS/"
                         commentaire = "Premier pas avec HTML, CSS, Javascript."
                     %}
-                </article>
+                </aside>
                 <aside class="footer__copyright ftsz-7">
                     <a href="http://copyright.be" target="_blank" >Copyright © 2020 {{site.title}} - Tous droits réservés</a>
                 </aside>
