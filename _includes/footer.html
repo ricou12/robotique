@@ -5,7 +5,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-md-4 col-lg-4 col-xl-4 p-4 order-2 order-md-1 border-secondary border-bottom">
+        <section class="col-12 col-md-4 col-lg-4 col-xl-4 p-4 order-2 order-md-1 border-secondary border-bottom">
             <div class="row">
                 <div class="col-12">
                     <p>
@@ -28,43 +28,43 @@
                     <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript" target="__blank"><img src="{{"/assets/img/icon/js.png" | relative_url }}" alt="Javascript"></a>
                 </div>
             </div>
-        </div>
-        <div
+        </section>
+        <section
             class="col-12 col-md-5 col-lg-5 col-xl-4 p-4 order-1 order-md-2 border-secondary border-bottom d-flex flex-column align-items-center">
             <ul>
                 <h4>Navigation</h4>
                 <li><a href="{{'/index.html' | relative_url }}">Projet robotique</a></li>
                 <span class="mt-4 text-secondary font-weight-bold">Conception des télécommandes</span>
-                <li><a href="{{'/telecommandes.html' | relative_url }}">Solution matériel et logiciel</a></li>
-                <li><a href="{{'/interfaceWeb.html' | relative_url }}">Télécommande web</a></li>
-                <li><a href="{{'/telecom-composant.html' | relative_url }}">Les composants</a></li>
-                <li><a href="{{'/telecom-configRadio.html' | relative_url }}">Emetteur Récepteur NRF24L01</a></li>
-                <li><a href="{{'/led.html' | relative_url }}">Alimenter une LED</a></li>
-                <li><a href="{{'/telecom-code.html' | relative_url }}">Le code source</a></li>
-                <span class="mt-4 text-secondary font-weight-bold">Conception du véhicule</span>
-                <li><a href="{{'/composants-vehicule.html' | relative_url }}">Les composants</a></li>
-                <li><a href="{{'/hot-post.html' | relative_url }}">Créer un hotspot Wi-Fi</a></li>
-                <li><a href="{{'/rpi-cam.html' | relative_url }}">Installer une caméra</a></li>
-                <li><a href="{{'/vehicule-code.html' | relative_url }}">Le code source</a></li>
+                <li><a href="{{'/telecommande/solution-materiel-et-logiciel.html' | relative_url }}">Solution matériel et logiciel</a></li>
+                <li><a href="{{'/telecommande/telecommande-web.html' | relative_url }}">Télécommande web</a></li>
+                <li><a href="{{'/telecommande/liste-des-composants.html' | relative_url }}">Les composants</a></li>
+                <li><a href="{{'/telecommande/emetteur-recepteur-radio.html' | relative_url }}">Emetteur Récepteur NRF24L01</a></li>
+                <li><a href="{{'/telecommande/diode-electroluminescente.html' | relative_url }}">Alimenter une LED</a></li>
+                <li><a href="{{'/telecommande/code-source-arduino.html' | relative_url }}">Le code source</a></li>
+                <span class="mt-4 text-secondary font-weight-bold">Conception du robot</span>
+                <li><a href="{{'/robot/liste-des-composants.html' | relative_url }}">Les composants</a></li>
+                <li><a href="{{'/robot/creer-un-hotspot-WiFi.html' | relative_url }}">Créer un hotspot Wi-Fi</a></li>
+                <li><a href="{{'/robot/installer-et-configurer-une-camera.html' | relative_url }}">Installer une caméra</a></li>
+                <li><a href="{{'robot/code-source-arduino.html' | relative_url }}">Le code source</a></li>
                 <li><a href="{{'/mentions-legales.html' | relative_url }}">Mentions légales</a></li>
                 <li><a href="#" id="boxCookies">Modifier mes choix cookies</a></li>
             </ul>
-        </div>
-        <div class="col-12 col-md-3 col-lg-3 col-xl-4 p-4 order-3 order-md-3">
+        </section>
+        <section class="col-12 col-md-3 col-lg-3 col-xl-4 p-4 order-3 order-md-3">
             <div class="row">
                 <div class="col-12">
                     <h4 class="text-center mb-3">Découvrir mes autres sites</h4>
                 </div>
-                <div class="col-6 col-sm-4 col-md-12 col-xl-6 d-flex flex-column align-items-center">
+                <article class="col-6 col-sm-4 col-md-12 col-xl-6 d-flex flex-column align-items-center">
                     {% include components/components_video/boxVideoLinkURL.html 
-                        path_image = "./assets/img/Screenshot_champi.jpg"
-                        path_video = "./assets/video/myco.mp4"  
+                        path_image = "/assets/img/Screenshot_champi.jpg"
+                        path_video = "/assets/video/myco.mp4"  
                         play_option= "autoplay loop muted"
                         url_link = "https://petit-guide-des-champignons.000webhostapp.com/"
                         commentaire = "Architecture MVC personnalisée, langages: Html, Sass, Php, Twig, Sql."
                     %}
-                </div>
-                <div class="col-6 col-sm-4 col-md-12 col-xl-6 d-flex flex-column align-items-center">
+                </article>
+                <article class="col-6 col-sm-4 col-md-12 col-xl-6 d-flex flex-column align-items-center">
                     {% include components/components_video/boxVideoLinkURL.html 
                         path_image = "./assets/img/Screenshot_Meteo.png"
                         path_video = "./assets/video/meteo.mp4"
@@ -72,8 +72,8 @@
                         url_link = "https://ricou12.github.io/meteo-webService/"
                         commentaire = "Application météo Javascript uitlisant une API."
                     %}
-                </div>
-                <div class="col-6 col-sm-4 col-md-12 col-xl-6 d-flex flex-column align-items-center">
+                </article>
+                <article class="col-6 col-sm-4 col-md-12 col-xl-6 d-flex flex-column align-items-center">
                     {% include components/components_video/boxVideoLinkURL.html 
                         path_image = "./assets/img/Screenshot_Meteo.png"
                         path_video = "./assets/video/pictureBox.mp4"
@@ -81,11 +81,12 @@
                         url_link = "https://ricou12.github.io/PictureBox-BOOTSTRAP-JS/"
                         commentaire = "Premier pas avec HTML, CSS, Javascript."
                     %}
-                </div>
-
-                <a href="http://copyright.be" target="_blank" class="footer__copyright ftsz-7">Copyright © 2020 {{site.title}} - Tous droits réservés</a>  
+                </article>
+                <aside class="footer__copyright ftsz-7">
+                    <a href="http://copyright.be" target="_blank" >Copyright © 2020 {{site.title}} - Tous droits réservés</a>
+                </aside>
             </div>
-        </div>
+        </section>
     </div>
 </footer>
 

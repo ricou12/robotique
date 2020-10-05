@@ -1,36 +1,38 @@
 ---
 layout: default
 title: Télécommande web
+description: Décrit les méthodes déployée pour établir la communication avec le robot. Soit à partir d'une interface web connectée à un serveur impliquant une connection wifi ou avec une télécommande équipé d'un émetteur récepteur radio.
+permalink: /telecommande/solution-materiel-et-logiciel.html
 ---
-<section class="container-fluid">
-    <section class="row">
+<header class="container-fluid">
+    <div class="row">
         <div class="col-12 py-5 telecommand__header">
-            <aside class="text-center">
+            <div class="text-center">
                 <h1 class="txtShadow--white txt-color--raspberry py-4 text-uppercase">Solution matériel et logiciel</h1>
                 <h2 class="text-white txtShadow--black py-5 text-center">
                     Schémas de fonctionnement</h2>
-             </aside>        
+             </div>        
         </div>
-    </section>
-</section>
+    </div>
+</header>
 
-<div class="container-fluid border">
-    <section class="row">
-        <div class="col-12 pt-4">
+<main class="container-fluid border">
+    <article class="row">
+        <section class="col-12 pt-4">
             <p>
                 J'ai prévu 2 modes de contrôle commande :
                 <ul>
-                    <li>Matériel<a href="{{'/telecom-composant.html' | relative_url }}"> - Télécommande radio</a></li>
-                    <li>Logiciel<a href="{{'/interfaceWeb.html' | relative_url }}"> - Télécommande web</a></li>
+                    <li>Matériel<a href="{{'/telecommande/liste-des-composants.html' | relative_url }}"> - Télécommande radio</a></li>
+                    <li>Logiciel<a href="{{'/telecommande/telecommande-web.html' | relative_url }}"> - Télécommande web</a></li>
                 </ul>
             </p>
-        </div>
-        <div class="col-12 col-lg-6 p-2">
+        </section>
+        <section class="col-12 col-lg-6 p-2">
             <h3>Matériel</h3>
             <p>
                 La première solution nécessite la réalisation d'une <a
-                    href="{{'/telecom-composant.html' | relative_url }}"> télécommande</a>. <br>
-                Dans ce cas la communication entre la télécommande et le véhicule est réalisée via les ondes radios.
+                    href="{{'/telecommande/liste-des-composants.html' | relative_url }}"> télécommande</a>. <br>
+                Dans ce cas la communication entre la télécommande et le robot est réalisée via les ondes radios.
                 Les composants principaux sont une carte arduino uno, 2 joystick, des leds et un émetteur récepteur
                 2.4
                 ghz.
@@ -39,17 +41,17 @@ title: Télécommande web
             <div class="text-center">
                 {% include components/modalRc.html 
                     modal__title = "Solution matériel"
-                    modal__imgSRC = "./assets/img/schema/telecommande-arduino.png"
+                    modal__imgSRC = "/assets/img/schema/telecommande-arduino.png"
                     modal__id = "matériel"
                     modal__breakpoint = "xl" 
                 %}
             </div>
-        </div>
+        </section>
 
-        <div class="col-12 col-lg-6 p-3">
+        <section class="col-12 col-lg-6 p-3">
             <h3 class=" mt-4">Logiciel</h3>
             <p>La seconde méthode nécessite le développement d'une <a
-                    href="{{'/interfaceWeb.html' | relative_url }}">interface web</a> connectée à un serveur. J'ai opté
+                    href="{{'/telecommande/telecommande-web.html' | relative_url }}">interface web</a> connectée à un serveur. J'ai opté
                 pour
                 une technologie de type front end. <br>
                 <span class="font-weight-bold">Node Js</span> permet de développer en quelques lignes un serveur
@@ -76,6 +78,6 @@ title: Télécommande web
                     modal__breakpoint = "xl" 
                 %}
             </div>
-        </div>
-    </section>
-</div>
+        </section>
+    </article>
+</main>

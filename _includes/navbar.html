@@ -1,7 +1,7 @@
 <!-- NAVBAR -->
 <div class="container navigation" id="anchor">
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="{{'./index.html' | relative_url }}"><img src="assets/img/icon/robots.gif" alt="" width="70"></a>
+        <a class="navbar-brand" href="{{'/index.html' | relative_url }}"><img src="{{ '/assets/img/icon/robots.gif' | relative_url }}" alt="" width="70"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -21,42 +21,42 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <div class="dropdown text-left">
-                            <a class="dropdown-item" href="{{'/telecommandes.html' | relative_url }}">Solution matériel et logiciel</a>
+                            <a class="dropdown-item" href="{{'/telecommande/solution-materiel-et-logiciel.html' | relative_url }}">Solution matériel et logiciel</a>
                         </div>
                         <div class="dropdown-divider"></div>
                         <div class="dropdown text-left">
                             <span class="dropdown-item text-danger font-weight-bold">Solution logiciel</span>
-                            <a class="dropdown-item" href="{{'/interfaceWeb.html' | relative_url }}">Télécommande web</a>
+                            <a class="dropdown-item" href="{{'/telecommande/telecommande-web.html' | relative_url }}">Télécommande web</a>
                         </div>
                         <div class="dropdown-divider"></div>
                         <div class="dropdown text-left">
                             <span class="dropdown-item text-danger font-weight-bold">Solution Matérielle</span>
                         </div>
-                        <a class="dropdown-item" href="{{'/telecom-composant.html' | relative_url }}">Les composants</a>
+                        <a class="dropdown-item" href="{{'/telecommande/liste-des-composants.html' | relative_url }}">Les composants</a>
                         <div class="dropdown">
                             <span class="dropdown-item text-danger font-weight-regular">Arduino</span>
                         </div>
-                        <a class="dropdown-item" href="{{'/telecom-configRadio.html' | relative_url }}">Emetteur Récepteur NRF24L01</a>
-                        <a class="dropdown-item" href="{{'/led.html' | relative_url }}">Alimenter une LED</a>
-                        <a class="dropdown-item" href="{{'/telecom-code.html' | relative_url }}">Le code source</a>
+                        <a class="dropdown-item" href="{{'/telecommande/emetteur-recepteur-radio.html' | relative_url }}">Emetteur Récepteur NRF24L01</a>
+                        <a class="dropdown-item" href="{{'/telecommande/diode-electroluminescente.html' | relative_url }}">Alimenter une LED</a>
+                        <a class="dropdown-item" href="{{'/telecommande/code-source-arduino.html' | relative_url }}">Le code source</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Conception du véhicule
+                        Conception du robot
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{'/composants-vehicule.html' | relative_url }}">Les composants</a>
+                        <a class="dropdown-item" href="{{ '/robot/liste-des-composants.html' | relative_url }}">Les composants</a>
                         <div class="dropdown">
                             <span class="dropdown-item text-danger font-weight-regular">Raspberry</span>
                         </div>
-                        <a class="dropdown-item" href="{{'/hot-post.html' | relative_url }}">Créer un hotspot Wi-Fi</a>
-                        <a class="dropdown-item" href="{{'/rpi-cam.html' | relative_url }}">Installer une caméra</a>
+                        <a class="dropdown-item" href="{{ '/robot/creer-un-hotspot-WiFi.html' | relative_url }}">Créer un hotspot Wi-Fi</a>
+                        <a class="dropdown-item" href="{{ '/robot/installer-et-configurer-une-camera.html' | relative_url }}">Installer une caméra</a>
                         <div class="dropdown">
                             <span class="dropdown-item text-danger font-weight-regular">Arduino</span>
                         </div>
-                        <a class="dropdown-item" href="{{'/vehicule-code.html' | relative_url }}">Le code source</a>
+                        <a class="dropdown-item" href="{{ '/robot/code-source-arduino.html' | relative_url  }}">Le code source</a>
                     </div>
                 </li>
                 <a class="nav-link" href="#footer" id="navbarDropdown" role="button">

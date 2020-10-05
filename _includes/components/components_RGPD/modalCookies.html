@@ -1,4 +1,5 @@
-<div class="modalCookies__box text-white" id="cookie-root"></div>
+
+<article class="modalCookies__box text-white" id="cookie-root"></article>
 
 <script>
     /*
@@ -96,13 +97,13 @@
             if(cookieItem.categorie === categorie){
                 const stateCheckBox = cookieItem.checked ? 'checked' : '';
                 concat.push(
-                    `<div class="form-check">
+                    `<section class="form-check">
                         <input class="form-check-input" type="checkbox" data-cookie="${cookieItem.cookie}" data-categorie="${cookieItem.categorie}" id="${cookieItem.cookie.replace(' ','')}" ${stateCheckBox}>
                         <label class="form-check-label" for="${cookieItem.cookie.replace(' ','')}">
                             <h6 class="ftsz-9">${cookieItem.cookie}</h6>
                             <p class="ftsz-7">${cookieItem.description}</p>
                         </label>
-                    </div>`
+                    </section>`
                 );
             }
         });
@@ -142,27 +143,29 @@
         });
     }
 
-    const iconCookiesPage = () => {
-        const iconCookies = () => {
-            return(`<div class="iconCookies"></div>`);
-        }
-    }
+    // const iconCookiesPage = () => {
+    //     const iconCookies = () => {
+    //         return(`<div class="iconCookies"></div>`);
+    //     }
+    // }
 
     // CHARGEMENT DE LA PREMIERE PAGE
     const loadFirstPage = () => {
         const cookiesLoader = () => {
             return (
                 `
-                <h4 class="txt-color--orange ftsz-8">Bonjour c'est nous...</h4>
-                <h4 class="font-weight-bold txt-color--raspberry ftsz-9"> les Cookies !</h4>
-                <p class="ftsz-7 text-justify">En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour réaliser des statistiques de visites. Vous pourrez à tout moment revoir vos choix en utilisant le lien "Modifier mes choix cookies" en bas de page du site.</p>
-                <div class="d-flex justify-content-around">
-                    <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="cookie-notice-reject">Non merci</a>
-                    <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="cookies-choice">Je choisis</a>
-                    <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="cookie-notice-accept">Ok pour moi</a>
-                </div>
-                <a href="{{ './mentions-legales.html' | relative_url }}" class="text-center text-info mt-3 ftsz-7 font-weight-bold">En Savoir Plus</a>
-                <p class="copyright ftsz-7 text-right text-dark mt-3">Copyright &copy; 2020 Ricou</p>
+                <section>
+                    <h4 class="txt-color--orange ftsz-8">Bonjour c'est nous...</h4>
+                    <h4 class="font-weight-bold txt-color--raspberry ftsz-9"> les Cookies !</h4>
+                    <p class="ftsz-7 text-justify">En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour réaliser des statistiques de visites. Vous pourrez à tout moment revoir vos choix en utilisant le lien "Modifier mes choix cookies" en bas de page du site.</p>
+                    <div class="d-flex justify-content-around">
+                        <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="cookie-notice-reject">Non merci</a>
+                        <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="cookies-choice">Je choisis</a>
+                        <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="cookie-notice-accept">Ok pour moi</a>
+                    </div>
+                    <a href="{{ './mentions-legales.html' | relative_url }}" class="text-center text-info mt-3 ftsz-7 font-weight-bold">En Savoir Plus</a>
+                    <p class="copyright ftsz-7 text-right text-dark mt-3">Copyright &copy; 2020 Ricou</p>
+                </section>
                 `
             )
         }
@@ -173,7 +176,7 @@
         // Ecoute les évenements
         // Si l'utilisateur donne son consentement pour l'utilisation des l'ensemble des cookies
         document.getElementById('cookie-notice-accept').addEventListener("click", () => {
-            document.getElementById('cookie-root').style.animation = "fadeOutTopRight 2s";
+            document.getElementById('cookie-root').style.animation = "fadeOutTopRight 1s";
             setTimeout(function () {
                 // TODO Ajoute tout les cookies
                 let writeContentCookie = "Authorized";
@@ -182,18 +185,18 @@
                 });
                 createCookie('cookie-notice-dismissed',writeContentCookie, 31);
                 document.getElementById('cookie-root').style.display = 'none';
-                location.reload();
-            }, 2000);
+                // location.reload();
+            }, 1000);
         });
 
         // Si l'utilisateur refuse l'utilisation de l'ensemble des cookies
         document.getElementById('cookie-notice-reject').addEventListener("click", () => {
-            document.getElementById('cookie-root').style.animation = "fadeOutTopRight 2s";
+            document.getElementById('cookie-root').style.animation = "fadeOutTopRight 1s";
             setTimeout(function () {
                 createCookie('cookie-notice-dismissed', "rejected", 31);
                 document.getElementById('cookie-root').style.display = 'none';
-                location.reload();
-            }, 2000);
+                // location.reload();
+            }, 1000);
         });
 
         // Si l'utilisateur choisi d'afficher la liste des cookies
@@ -208,29 +211,23 @@
         let cookiesAudience = () => {
             return (
                 `
-                <h4 class="txt-color--orange ftsz-8">Mesure d'audience et statistique</h4>
-                <h4 class="font-weight-bold txt-color--raspberry ftsz-9">Améliorer l'expérience utilisateur, c’est important !</h4>
-                <p class="ftsz-7 text-justify">IHM-robotique souhaite gagner en popularité ! Et pour cette raison, la plupart des sites internet mesurent leur audience en utilisant des solutions spécialisées.</p>
-                <div class="contentCookies">
-                    ${createFormCheckForCookie('Audience&statistique')}
-                </div>
-                <div class="d-flex justify-content-around mt-3">
-                    <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="returnFirstPage">Retour</a>
-                    <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="acceptAllAudience">J'accepte tout</a>
-                    <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="loadExperience">Suivant</a>
-                </div>
-                <p class="copyright ftsz-7 text-right text-dark mt-3">Copyright &copy; 2020 Ricou</p>
+                <section>
+                    <h4 class="txt-color--orange ftsz-8">Mesure d'audience et statistique</h4>
+                    <h4 class="font-weight-bold txt-color--raspberry ftsz-9">Améliorer l'expérience utilisateur, c’est important !</h4>
+                    <p class="ftsz-7 text-justify">IHM-robotique souhaite gagner en popularité ! Et pour cette raison, la plupart des sites internet mesurent leur audience en utilisant des solutions spécialisées.</p>
+                    <div class="contentCookies">
+                        ${createFormCheckForCookie('Audience&statistique')}
+                    </div>
+                    <div class="d-flex justify-content-around mt-3">
+                        <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="returnFirstPage">Retour</a>
+                        <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="acceptAllAudience">J'accepte tout</a>
+                        <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="loadExperience">Suivant</a>
+                    </div>
+                    <p class="copyright ftsz-7 text-right text-dark mt-3">Copyright &copy; 2020 Ricou</p>
+                </section>
                 `
             )
         }
-        /* 
-        TODO lors d'un clique sur checkbox on met à jour le tableau cookie list
-        Si clique sur  accept all met à jour tous les élément de la categorie tableau cookie list et bascule sur la p
-        age suivante
-        Si clique sur suivant affiche simplement la page suivante
-        puis sur la dernière page btn terminer créé le cookie
-        lorsqu'une autre page est ouverte la mise a jour du cookie affichera les scripts automatiquement 
-        */
 
         // Injecte les éléménts html dans la balise parent
         document.getElementById('cookie-root').innerHTML = cookiesAudience();
@@ -270,18 +267,20 @@
         let cookiesExperiences = () => {
             return (
                 `
-                <h4 class="txt-color--orange ftsz-8">Expérience et relation</h4>
-                <h4 class="font-weight-bold txt-color--raspberry ftsz-9">Diététiques et complétement inoffensifs</h4>
-                <p class="ftsz-7 text-justify">Pour détecter des problèmes de conception sur notre site, dialoguer avec vous et construire notre relation client, nous utilisons 3 solutions éprouvées et respectueuses de vos données.</p>
-                <div class="contentCookies">
-                    ${createFormCheckForCookie('Expérience&relation')}
-                </div>
-                <div class="d-flex justify-content-around mt-3">
-                    <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="returnAudiences">Retour</a>
-                    <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="acceptAllExperience">J'accepte tout</a>
-                    <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="loadAnnonces">Suivant</a>
-                </div>
-                <p class="copyright ftsz-7 text-right text-dark mt-3">Copyright &copy; 2020 Ricou</p>
+                <section>
+                    <h4 class="txt-color--orange ftsz-8">Expérience et relation</h4>
+                    <h4 class="font-weight-bold txt-color--raspberry ftsz-9">Diététiques et complétement inoffensifs</h4>
+                    <p class="ftsz-7 text-justify">Pour détecter des problèmes de conception sur notre site, dialoguer avec vous et construire notre relation client, nous utilisons 3 solutions éprouvées et respectueuses de vos données.</p>
+                    <div class="contentCookies">
+                        ${createFormCheckForCookie('Expérience&relation')}
+                    </div>
+                    <div class="d-flex justify-content-around mt-3">
+                        <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="returnAudiences">Retour</a>
+                        <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="acceptAllExperience">J'accepte tout</a>
+                        <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="loadAnnonces">Suivant</a>
+                    </div>
+                    <p class="copyright ftsz-7 text-right text-dark mt-3">Copyright &copy; 2020 Ricou</p>
+                </section>
                 `
             )
         }
@@ -327,19 +326,21 @@
         let cookiesAnnonces = () => {
             return (
                 `
-            <h4 class="txt-color--orange ftsz-8">Restons connectés</h4>
-            <h4 class="font-weight-bold txt-color--raspberry ftsz-9">Annonces personnalisées</h4>
-            <p class="ftsz-7 text-justify">Quand vous quittez notre site, il est possible de prolonger l’expérience. Mais parce qu’il est hors de question de polluer votre navigation, ces cookies s’assurent à ce qu’on vous envoie uniquement des messages non-intrusifs et adaptés à votre profil.</p>
-            <div class="contentCookies">
-                ${createFormCheckForCookie('Annonces&personnalisées')}
-            </div>
-            <div class="d-flex justify-content-around mt-3">
-                <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="returnExperiences">Retour</a>
-                <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="acceptAllAnnonces">J'accepte tout</a>
-                <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="createCookie">Terminer</a>
-            </div>
-            <p class="copyright ftsz-7 text-right text-dark mt-3">Copyright &copy; 2020 Ricou</p>
-        `
+                <section>
+                    <h4 class="txt-color--orange ftsz-8">Restons connectés</h4>
+                    <h4 class="font-weight-bold txt-color--raspberry ftsz-9">Annonces personnalisées</h4>
+                    <p class="ftsz-7 text-justify">Quand vous quittez notre site, il est possible de prolonger l’expérience. Mais parce qu’il est hors de question de polluer votre navigation, ces cookies s’assurent à ce qu’on vous envoie uniquement des messages non-intrusifs et adaptés à votre profil.</p>
+                    <div class="contentCookies">
+                        ${createFormCheckForCookie('Annonces&personnalisées')}
+                    </div>
+                    <div class="d-flex justify-content-around mt-3">
+                        <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="returnExperiences">Retour</a>
+                        <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="acceptAllAnnonces">J'accepte tout</a>
+                        <a href="#" class="btn btn-outline-light ftsz-7 font-weight-bold" id="createCookie">Terminer</a>
+                    </div>
+                    <p class="copyright ftsz-7 text-right text-dark mt-3">Copyright &copy; 2020 Ricou</p>
+                </section>
+                `
             )
         }
 
@@ -374,7 +375,7 @@
         });
 
         document.getElementById('createCookie').addEventListener('click', () => {
-            document.getElementById('cookie-root').style.animation = "fadeOutTopRight 2s";
+            document.getElementById('cookie-root').style.animation = "fadeOutTopRight 1s";
             setTimeout(function () {
                 // TODO Ajoute tout les cookies
                 let writeContentCookie = "Authorized";
@@ -385,14 +386,14 @@
                 });
                 createCookie('cookie-notice-dismissed',writeContentCookie, 31);
                         document.getElementById('cookie-root').style.display = 'none';
-                        location.reload();
-            }, 2000);
+                        // location.reload();
+            }, 1000);
         });
     }
 
 
    // au chargement de la page
-   if (document.readyState='complete'){
+
        // Recherche et ouvre le cookie si il existe
         const readFileCookieContent = readCookie('cookie-notice-dismissed');
         // Si le cookie existe
@@ -430,6 +431,6 @@
         // Charge la première page
         loadFirstPage();
         console.log(CookiesList);
-    }
+
     
 </script>

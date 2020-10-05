@@ -10,10 +10,10 @@
         overflow: hidden;
 
         h1{
-            @include auto-prefixer__property(animation, (bounceInDown 1s), webkit moz o);
+            @include auto-prefixer__property(animation, (bounceInDown 2s), webkit moz o);
         }
         h2 {
-            @include auto-prefixer__property(animation, (fadeInLeft .8s), webkit moz o);
+            @include auto-prefixer__property(animation, (fadeInLeft 1.2s), webkit moz o);
         }
     }
 

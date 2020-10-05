@@ -1,32 +1,33 @@
 ---
 layout: default
 title: L'interface web
+description: Découvrez la technologie web déployée sur le Rasberry pi pour établir la communication avec le robot et le détail du code source de l'application web 
+permalink: /telecommande/telecommande-web.html
 ---
 
-<section class="container-fluid interfaceWeb">
-    <section class="row">
+<header class="container-fluid interfaceWeb">
+    <div class="row">
         <div class="col-12 interfaceWeb__header py-5">
-            <aside class="text-center">
+            <div class="text-center">
                 <h1 class=" txtShadow--black text-white py-4 text-uppercase">Télécommande web</h1>
                 <h2 class=" txtShadow--black text-white py-5 text-center">
                     Le serveur node JS fait office de relais de communication</h2>
-            </aside>
+            </div>
         </div>
-    </section>
-</section>
-<div class="container interfaceWeb">
-    <div class="row mt-4 mb-5 d-flex justify-content-center align-items-center interfaceWeb__video">
     </div>
-    <div class="row">
+</header>
+
+<main class="container interfaceWeb">
+    <section class="row mt-4 mb-5 d-flex justify-content-center align-items-center interfaceWeb__video"></section>
+    <section class="row">
         <div class="col-12 GistHub">
             <script src="https://gist.github.com/ricou12/6a96b0ef4d799f74e1e5d260115763e8.js"></script>
         </div>
-    </div>
-</div>
+    </section>
+</main>
 
 <script>
-
-const blocText = () => {
+    const blocText = () => {
         return `
             <p>Le serveur node JS déployé sur le microcontrôleur raspberry permet d'établir la communication entre
                 l'utilisateur et le microcontrôleur arduino qui executera l'action demandée.</p>
@@ -47,9 +48,9 @@ const blocText = () => {
     }
 
     const base_container_video_2 = () => {
-        return`
+        return `
         <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
-            <img src="assets/img/telecom.png" alt="Telecommande-web" class="interfaceWeb__image">
+            <img src="{{ 'assets/img/telecom.png' | relative_url }}" alt="Telecommande-web" class="interfaceWeb__image">
             <button class="interfaceWeb__video__play-button">Voir la vidéo</button>
         </div>
         <div class="col-12 col-md-8 mt-4 mt-md-0 blocText">
@@ -61,7 +62,7 @@ const blocText = () => {
     const playVideo = () => {
         return `<div class="col-12 d-flex justify-content-center align-items-start">
             <video class="videoWeb interfaceWeb__video--height" controls autoplay>
-                <source src="assets/video/telecom.mp4" type="video/mp4">
+                <source src="{{ 'assets/video/telecom.mp4' | relative_url }}" type="video/mp4">
                     <p>Votre navigateur ne prend pas en charge les vidéos HTML5. Voici 
                         <a href="assets/video/telecom.mp4">Un lien pour télécharger la vidéo</a>.
                     </p>
@@ -69,7 +70,7 @@ const blocText = () => {
             </div> 
             <div class="col-12 mt-4">
                 ${blocText()}
-            </div>`; 
+            </div>`;
     }
 
     const container_video_2 = document.querySelector('.interfaceWeb__video');
@@ -77,14 +78,13 @@ const blocText = () => {
 
     const rechargeVideo_2 = () => {
         document.querySelector(".interfaceWeb__video__play-button").addEventListener('click', () => {
-            container_video_2.innerHTML = playVideo(); 
-            document.querySelector('.videoWeb').addEventListener('ended',() => {
+            container_video_2.innerHTML = playVideo();
+            document.querySelector('.videoWeb').addEventListener('ended', () => {
                 container_video_2.innerHTML = base_container_video_2();
                 rechargeVideo_2();
             });
-        });  
+        });
     }
-    
-    rechargeVideo_2();
 
+    rechargeVideo_2();
 </script>

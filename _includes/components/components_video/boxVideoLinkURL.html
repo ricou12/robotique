@@ -1,9 +1,9 @@
 <div class="boxVideoLinkURL">
-    <video class="{{ include.class }}" {{ include.play_option }} poster="{{ include.path_image }}">
-        <source src="{{ include.path_video }}" type="video/mp4">
+    <video class="{{ include.class }}" {{ include.play_option }} poster="{{ include.path_image | relative_url }}">
+        <source src="{{ include.path_video | relative_url }}" type="video/mp4">
         <p>Votre navigateur ne prend pas en charge les vidéos HTML5.Mais vous pouvez
             toujours
-            <a href="{{ include.path_video }}">la télécharger</a> !
+            <a href="{{ include.path_video | relative_url }}">la télécharger</a> !
         </p>
     </video>
     <div class="boxVideoLinkURL__link">

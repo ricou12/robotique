@@ -1,33 +1,36 @@
 ---
 layout: default
 title: Pièces de la télécommande
+description: Découvrez la liste des pièces nécessaire a la réalisation de la télécommande.
+permalink: /telecommande/liste-des-composants.html
 ---
 
 <!-- TELECOMMANDE -->
-<section class="container-fluid">
-    <section class="row">
+<header class="container-fluid">
+    <div class="row">
         <div class="col-12 py-5 telecom-composant__header">
             <div class="telecom-composant__header__box-title">
-                <aside class="text-center">
-                    <h1 class="txtShadow--black txt-color--yellow py-4 text-uppercase">Conception de la télécommande</h1>
+                <div class="text-center">
+                    <h1 class="txtShadow--black txt-color--yellow py-4 text-uppercase">Conception de la télécommande
+                    </h1>
                     <h2 class="text-white txtShadow--black py-5">Liste des composants</h2>
-                </aside>
+                </div>
             </div>
         </div>
-    </section>
-</section>
+    </div>
+</header>
 
 
-<section class="container mt-2 rounded">
-    <section class="row text-white">
-        <div class="col-12 composant">
+<main class="container mt-2 rounded">
+    <article class="row text-white">
+        <section class="col-12 composant">
             <!-- CARTE -->
             {% include components/cardRc.html 
                 cardRc__title = "Plaque de plexiglass"
                 cardRc__linkOut = true
                 cardRc__link = "https://decoration.ooreka.fr/fiche/voir/664797/couper-du-plexiglas"
                 cardRc__text ="Comment couper le pexigless"
-                cardRc__img = "assets/img/composants/pexi.png" 
+                cardRc__img = "/assets/img/composants/pexi.png" 
             %}
 
             <!-- CARTE -->
@@ -36,59 +39,59 @@ title: Pièces de la télécommande
                 cardRc__linkOut = true
                 cardRc__link = "https://www.arduino.cc/"
                 cardRc__text = "Découvrir le site officiel"
-                cardRc__img = "assets/img/composants/arduino.png" 
+                cardRc__img = "/assets/img/composants/arduino.png" 
             %}
 
             <!-- CARTE -->
             {% include components/cardRc.html 
                 cardRc__title = "Joystick de jeu"
-                cardRc__img = "assets/img/composants/joystick.png"
+                cardRc__img = "/assets/img/composants/joystick.png"
             %}
 
             <!-- CARTE -->
             {% include components/cardRc.html 
                 cardRc__title = "Cables pour plaque de prototypage"
-                cardRc__img = "assets/img/composants/cable.png"
+                cardRc__img = "/assets/img/composants/cable.png"
             %}
 
             <!-- CARTE -->
             {% include components/cardRc.html 
                 cardRc__title = "Résistances"
-                cardRc__img = "assets/img/composants/resistances.png"
+                cardRc__img = "/assets/img/composants/resistances.png"
             %}
 
             <!-- CARTE -->
             {% include components/cardRc.html 
                 cardRc__title = "Bouton poussoir"
-                cardRc__img = "assets/img/composants/bouton-poussoir.png"
+                cardRc__img = "/assets/img/composants/bouton-poussoir.png"
             %}
 
             <!-- CARTE -->
             {% include components/cardRc.html 
                 cardRc__title =  "Led"
-                cardRc__link =  "led.html"
-                cardRc__img = "assets/img/composants/led.png"
+                cardRc__link =  "/telecommande/diode-electroluminescente.html"
+                cardRc__img = "/assets/img/composants/led.png"
             %}
 
             <!-- CARTE -->
             {% include components/cardRc.html 
                 cardRc__title =  "Emetteur Récepteur sans Fil 2.4G 100m NRF24L01+PA+LNA avec antenne KY67"
-                cardRc__link = "telecom-configRadio.html"
+                cardRc__link = "/telecommande/emetteur-recepteur-radio.html"
                 cardRc__text ="Installation et configuration de l'émetteur Récepteur NRF24L01"
-                cardRc__img = "assets/img/composants/emetteur-recepteur.png"
+                cardRc__img = "/assets/img/composants/emetteur-recepteur.png"
             %}
 
             <!-- CARTE -->
             {% include components/cardRc.html 
                 cardRc__title =  "Circuit imprimé 4x6cm"
-                cardRc__img = "assets/img/composants/plaquesasouder.png"
+                cardRc__img = "/assets/img/composants/plaquesasouder.png"
             %}
 
             <!-- CARTE -->
             {% include components/cardRc.html 
                 cardRc__title =  "Pin strip Reglette à broches"
-                cardRc__img = "assets/img/composants/broches.png"
+                cardRc__img = "/assets/img/composants/broches.png"
             %}
-
-    </section>
-</section>
+        </section>
+    </article>
+</main>

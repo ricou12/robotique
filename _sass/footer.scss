@@ -14,7 +14,8 @@
         font-size: 0.8em;
     }
 
-    ul,h6 {
+    ul,
+    h6 {
         padding-left: 0;
 
         li {
@@ -29,16 +30,16 @@
             &:link {
                 color: white;
             }
-    
+
             &:visited {
                 color: white;
             }
-    
+
             &:hover {
                 color: rgb(178, 180, 169);
                 text-shadow: 1px 1px 2px #080808;
             }
-    
+
         }
     }
 
@@ -52,13 +53,16 @@
 
     }
 
-    &__copyright{
+    &__copyright {
         width: 100%;
         text-align: right;
-        color:rgb(141, 155, 188);
-    
+
+        a {
+            color: rgb(141, 155, 188);
+        }
+
         &:hover {
-            color:white;
+            color: white;
         }
     }
 
