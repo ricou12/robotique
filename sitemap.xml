@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://ricou12.github.io/Robotique/</loc>
+  <lastmod>2020-10-06T13:11:32+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://ricou12.github.io/Robotique/telecommande/solution-materiel-et-logiciel.html</loc>
+  <lastmod>2020-10-06T13:11:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ricou12.github.io/Robotique/telecommande/telecommande-web.html</loc>
+  <lastmod>2020-10-06T13:11:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ricou12.github.io/Robotique/telecommande/liste-des-composants.html</loc>
+  <lastmod>2020-10-06T13:11:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ricou12.github.io/Robotique/telecommande/emetteur-recepteur-radio.html</loc>
+  <lastmod>2020-10-06T13:11:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ricou12.github.io/Robotique/telecommande/diode-electroluminescente.html</loc>
+  <lastmod>2020-10-06T13:11:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ricou12.github.io/Robotique/telecommande/code-source-arduino.html</loc>
+  <lastmod>2020-10-06T13:11:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ricou12.github.io/Robotique/robot/liste-des-composants.html</loc>
+  <lastmod>2020-10-06T13:11:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ricou12.github.io/Robotique/robot/creer-un-hotspot-WiFi.html</loc>
+  <lastmod>2020-10-06T13:11:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ricou12.github.io/Robotique/robot/installer-et-configurer-une-camera.html</loc>
+  <lastmod>2020-10-06T13:11:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ricou12.github.io/Robotique/robot/code-source-arduino.html</loc>
+  <lastmod>2020-10-06T13:11:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ricou12.github.io/Robotique/mentions-legales.html</loc>
+  <lastmod>2020-10-06T13:11:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+
+</urlset>
