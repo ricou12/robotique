@@ -15,7 +15,6 @@ $animate-delay: 1s;
 $animate-repeat: 1;
 
 @mixin animate__animated() {
-    @include auto-prefixer__property(animation-duration, 1s, webkit o moz);
     @include auto-prefixer__property(animation-duration, $animate-duration, webkit o moz);
     @include auto-prefixer__property(animation-fill-mode, both, webkit o moz);
 
