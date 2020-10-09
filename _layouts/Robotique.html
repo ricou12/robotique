@@ -41,7 +41,7 @@ layout: default
                 <div>
                     <h3 class="txtShadow--white txt-color--raspberry"><a
                             href="{{'/telecommande/liste-des-composants.html' | relative_url }}" class="txt-color--raspberry">La télecommande</a></h3>
-                    <p>Un <a href="{{'/telecommande/emetteur-recepteur-radio.html' | relative_url }}"><span class="font-weight-bold">
+                    <p class="animate__animated animate__bounce animate__delay-2s animate__repeat-2">Un <a href="{{'/telecommande/emetteur-recepteur-radio.html' | relative_url }}"><span class="font-weight-bold">
                                 émetteur
                                 récepteur </span></a>connecté au microcontroleur arduino permet d'envoyer les positions
                         des
@@ -354,9 +354,9 @@ layout: default
     const play_video = () => {
         return `
         <video class="robotique__video--height videoWeb-1" controls autoplay>
-            <source src="{{ 'assets/video/video.mp4' | relative_url }}" type="video/mp4">
+            <source src="{{ '/assets/video/video.mp4' | relative_url }}" type="video/mp4">
                 <p>Votre navigateur ne prend pas en charge les vidéos HTML5. Voici 
-                    <a href="{{ 'assets/video/video.mp4' | relative_url }}">un lien pour télécharger la vidéo</a>.
+                    <a href="{{ '/assets/video/video.mp4' | relative_url }}">un lien pour télécharger la vidéo</a>.
                 </p>
         </video>`;
     }

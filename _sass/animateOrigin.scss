@@ -44,63 +44,51 @@ $animate-repeat: 1;
     }
 
     &__repeat-1 {
-        @include auto-prefixer__property(animation-iteration-count, 1, webkit o moz);
         @include auto-prefixer__property(animation-iteration-count, $animate-repeat, webkit o moz);
     }
 
     &__repeat-2 {
-        @include auto-prefixer__property(animation-iteration-count, calc(1 * 2), webkit o moz);
-        @include auto-prefixer__property(animation-iteration-count, calc($animate-repeat * 2), webkit o moz);
+        @include auto-prefixer__property(animation-iteration-count, $animate-repeat * 2, webkit o moz);
     }
 
     &__repeat-3 {
-        @include auto-prefixer__property(animation-iteration-count, calc(1 * 3), webkit o moz);
-        @include auto-prefixer__property(animation-iteration-count, calc($animate-repeat * 3), webkit o moz);
+        @include auto-prefixer__property(animation-iteration-count,$animate-repeat * 3, webkit o moz);
     }
 
     &__delay-1s {
-        @include auto-prefixer__property(animation-delay, 1s, webkit o moz);
         @include auto-prefixer__property(animation-delay, $animate-delay, webkit o moz);
     }
 
     &__delay-2s {
-        @include auto-prefixer__property(animation-delay, calc(1s * 2), webkit o moz);
-        @include auto-prefixer__property(animation-delay, calc($animate-delay * 2), webkit o moz);
+        @include auto-prefixer__property(animation-delay, $animate-delay * 2, webkit o moz);
     }
 
     &__delay-3s {
-        @include auto-prefixer__property(animation-delay, calc(1s * 3), webkit o moz);
-        @include auto-prefixer__property(animation-delay, calc($animate-delay * 3), webkit o moz);
+        @include auto-prefixer__property(animation-delay, $animate-delay * 3, webkit o moz);
     }
 
     &__delay-4s {
-        @include auto-prefixer__property(animation-delay, calc(1s * 4), webkit o moz);
-        @include auto-prefixer__property(animation-delay, calc($animate-delay * 4), webkit o moz);
+        @include auto-prefixer__property(animation-delay, $animate-delay * 4, webkit o moz);
     }
 
     &__delay-5s {
-        @include auto-prefixer__property(animation-delay, calc(1s * 5), webkit o moz);
-        @include auto-prefixer__property(animation-delay, calc($animate-delay * 5), webkit o moz);
+        @include auto-prefixer__property(animation-delay, $animate-delay * 5, webkit o moz);
     }
 
     &__faster {
-        @include auto-prefixer__property(animation-duration, calc(1s / 2), webkit o moz);
-        @include auto-prefixer__property(animation-duration, calc($animate-duration / 2), webkit o moz);
+        @include auto-prefixer__property(animation-duration, $animate-duration / 2, webkit o moz);
     }
 
     &__fast {
-        @include auto-prefixer__property(animation-duration, calc(1s * 0.8), webkit o moz);
-        @include auto-prefixer__property(animation-duration, calc($animate-duration * 0.8), webkit o moz);
+        @include auto-prefixer__property(animation-duration, $animate-duration * 0.8, webkit o moz);
     }
 
     &__slow {
-        @include auto-prefixer__property(animation-duration, calc(1s * 2), webkit o moz);
-        @include auto-prefixer__property(animation-duration, calc($animate-duration * 2), webkit o moz);
+        @include auto-prefixer__property(animation-duration, $animate-duration * 2, webkit o moz);
     }
 
     &__slower {
-        @include auto-prefixer__property(animation-duration, calc(1s * 3), webkit o moz);
-        @include auto-prefixer__property(animation-duration, calc($animate-duration * 3), webkit o moz);
+        @include auto-prefixer__property(animation-duration, $animate-duration * 3, webkit o moz);
     }
 
     /* Attention seekers  */
@@ -461,8 +449,8 @@ $animate-repeat: 1;
 
     &__heartBeat {
         @include auto-prefixer__property(animation-name, heartBeat, webkit o moz);
-        @include auto-prefixer__property(animation-duration, calc(1s * 1.3), webkit o moz);
-        @include auto-prefixer__property(animation-duration, calc($animate-duration * 1.3), webkit o moz);
+        @include auto-prefixer__property(animation-duration, 1s * 1.3, webkit o moz);
+        @include auto-prefixer__property(animation-duration, $animate-duration * 1.3, webkit o moz);
         @include auto-prefixer__property(animation-timing-function, ease-in-out, webkit o moz);
     }
 
@@ -677,8 +665,8 @@ $animate-repeat: 1;
     }
 
     &__bounceIn {
-        @include auto-prefixer__property(animation-duration, calc(1s * 0.75), webkit o moz);
-        @include auto-prefixer__property(animation-duration, calc($animate-duration * 0.75), webkit o moz);
+        @include auto-prefixer__property(animation-duration, 1s * 0.75, webkit o moz);
+        @include auto-prefixer__property(animation-duration, $animate-duration * 0.75, webkit o moz);
         @include auto-prefixer__property(animation-name, bounceIn, webkit o moz);
     }
 
@@ -849,8 +837,8 @@ $animate-repeat: 1;
     }
 
     &__bounceOut {
-        @include auto-prefixer__property(animation-duration, calc(1s * 0.75), webkit o moz);
-        @include auto-prefixer__property(animation-duration, calc(var($animate-duration) * 0.75), webkit o moz);
+        @include auto-prefixer__property(animation-duration, 1s * 0.75, webkit o moz);
+        @include auto-prefixer__property(animation-duration, $animate-duration * 0.75, webkit o moz);
         @include auto-prefixer__property(animation-name, bounceOut, webkit o moz);
     }
 
@@ -1446,8 +1434,8 @@ $animate-repeat: 1;
     }
 
     &__flipOutX {
-        @include auto-prefixer__property(animation-duration, calc(1s * 0.75), webkit o moz);
-        @include auto-prefixer__property(animation-duration, calc(var($animate-duration) * 0.75), webkit o moz);
+        @include auto-prefixer__property(animation-duration, 1s * 0.75, webkit o moz);
+        @include auto-prefixer__property(animation-duration, $animate-duration * 0.75, webkit o moz);
         @include auto-prefixer__property(animation-name, flipOutX, webkit o moz);
         backface-visibility: visible !important;
     }
@@ -1469,8 +1457,8 @@ $animate-repeat: 1;
     }
 
     &__flipOutY {
-        @include auto-prefixer__property(animation-duration, calc(1s * 0.75), webkit o moz);
-        @include auto-prefixer__property(animation-duration, calc(var($animate-duration) * 0.75), webkit o moz);
+        @include auto-prefixer__property(animation-duration, 1s * 0.75, webkit o moz);
+        @include auto-prefixer__property(animation-duration, $animate-duration * 0.75, webkit o moz);
         backface-visibility: visible !important;
         @include auto-prefixer__property(animation-name, flipOutY, webkit o moz);
     }
@@ -1751,8 +1739,8 @@ $animate-repeat: 1;
     }
 
     &__hinge {
-        @include auto-prefixer__property(animation-duration, calc(1s * 2), webkit o moz);
-        @include auto-prefixer__property(animation-duration, calc(var($animate-duration) * 2), webkit o moz);
+        @include auto-prefixer__property(animation-duration, 1s * 2, webkit o moz);
+        @include auto-prefixer__property(animation-duration, $animate-duration * 2, webkit o moz);
         @include auto-prefixer__property(animation-name, hinge, webkit o moz);
         @include auto-prefixer__property(transform-origin, top left, webkit o ms);
     }

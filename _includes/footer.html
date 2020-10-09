@@ -45,7 +45,7 @@
                 <li><a href="{{'/robot/liste-des-composants.html' | relative_url }}">Les composants</a></li>
                 <li><a href="{{'/robot/creer-un-hotspot-WiFi.html' | relative_url }}">Créer un hotspot Wi-Fi</a></li>
                 <li><a href="{{'/robot/installer-et-configurer-une-camera.html' | relative_url }}">Installer une caméra</a></li>
-                <li><a href="{{'robot/code-source-arduino.html' | relative_url }}">Le code source</a></li>
+                <li><a href="{{'/robot/code-source-arduino.html' | relative_url }}">Le code source</a></li>
                 <li><a href="{{'/mentions-legales.html' | relative_url }}">Mentions légales</a></li>
                 <li><a href="#" id="boxCookies">Modifier mes choix cookies</a></li>
             </ul>
@@ -66,8 +66,8 @@
                 </aside>
                 <aside class="col-6 col-sm-4 col-md-12 col-xl-6 d-flex flex-column align-items-center">
                     {% include components/components_video/boxVideoLinkURL.html 
-                        path_image = "./assets/img/Screenshot_Meteo.png"
-                        path_video = "./assets/video/meteo.mp4"
+                        path_image = "/assets/img/Screenshot_Meteo.png"
+                        path_video = "/assets/video/meteo.mp4"
                         play_option= "autoplay loop muted" 
                         url_link = "https://ricou12.github.io/meteo-webService/"
                         commentaire = "Application météo Javascript uitlisant une API."
@@ -75,8 +75,8 @@
                 </aside>
                 <aside class="col-6 col-sm-4 col-md-12 col-xl-6 d-flex flex-column align-items-center">
                     {% include components/components_video/boxVideoLinkURL.html 
-                        path_image = "./assets/img/Screenshot_Meteo.png"
-                        path_video = "./assets/video/pictureBox.mp4"
+                        path_image = "/assets/img/Screenshot_Meteo.png"
+                        path_video = "/assets/video/pictureBox.mp4"
                         play_option= "autoplay loop muted" 
                         url_link = "https://ricou12.github.io/PictureBox-BOOTSTRAP-JS/"
                         commentaire = "Premier pas avec HTML, CSS, Javascript."

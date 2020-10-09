@@ -50,7 +50,7 @@ permalink: /telecommande/telecommande-web.html
     const base_container_video_2 = () => {
         return `
         <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
-            <img src="{{ 'assets/img/telecom.png' | relative_url }}" alt="Telecommande-web" class="interfaceWeb__image">
+            <img src="{{ '/assets/img/telecom.png' | relative_url }}" alt="Telecommande-web" class="interfaceWeb__image">
             <button class="interfaceWeb__video__play-button">Voir la vidéo</button>
         </div>
         <div class="col-12 col-md-8 mt-4 mt-md-0 blocText">
@@ -62,9 +62,9 @@ permalink: /telecommande/telecommande-web.html
     const playVideo = () => {
         return `<div class="col-12 d-flex justify-content-center align-items-start">
             <video class="videoWeb interfaceWeb__video--height" controls autoplay>
-                <source src="{{ 'assets/video/telecom.mp4' | relative_url }}" type="video/mp4">
+                <source src="{{ '/assets/video/telecom.mp4' | relative_url }}" type="video/mp4">
                     <p>Votre navigateur ne prend pas en charge les vidéos HTML5. Voici 
-                        <a href="assets/video/telecom.mp4">Un lien pour télécharger la vidéo</a>.
+                        <a href="/assets/video/telecom.mp4">Un lien pour télécharger la vidéo</a>.
                     </p>
             </video>
             </div> 
