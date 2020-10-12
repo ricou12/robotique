@@ -5,144 +5,182 @@ description: Découvrez la liste des pièces nécessaire pour réaliser le robot
 permalink:  /robot/liste-des-composants.html
 ---
 
-<!-- VEHICULE -->
-<header class="container-fluid">
-    <div class="row compoVehicule">
-        <div class="col-12 py-5 composants-vehicule__header">
-            <div class="text-center">
-                <h1 class="txtShadow--black txt-color--turquoise py-4 text-uppercase">Conception du robot</h1>
-                <h2 class="text-white txtShadow--black py-5">Liste des composants</h2>
+<article>
+    <div class="container-fluid">
+        <div class="row compoVehicule">
+            <div class="col-12 py-5 composants-vehicule__header">
+                <div class="text-center">
+                    <h1 class="txtShadow--black txt-color--turquoise py-4 text-uppercase">Conception du robot</h1>
+                    <h2 class="text-white txtShadow--black py-5">Liste des composants</h2>
+                </div>
             </div>
         </div>
     </div>
-</header>
 
+    <div class="container mt-2 rounded">
+        <div class="row text-white">
+            <div class="col-12 composant">
+                <!-- CARTE -->
+                <article>
+                    {% include components/cardRc.html 
+                        cardRc__title = "Plaque de plexiglass"
+                        cardRc__img = "/assets/img/composants/pexi.png"
+                    %}
+                </article>
 
-<main class="container mt-2 rounded">
-    <article class="row text-white">
-        <section class="col-12 composant">
-            <!-- CARTE -->
-            {% include components/cardRc.html 
-                    cardRc__title = "Plaque de plexiglass"
-                    cardRc__img = "/assets/img/composants/pexi.png"
-                %}
+                <!-- CARTE -->
+                <article>
+                    {% include components/cardRc.html 
+                        cardRc__title = "Arduino Mega"
+                        cardRc__img = "/assets/img/composants/arduino-mega.png"
+                    %}
+                </article>
 
-            <!-- CARTE -->
-            {% include components/cardRc.html 
-                    cardRc__title = "Arduino Mega"
-                    cardRc__img = "/assets/img/composants/arduino-mega.png"
-                %}
+                <!-- CARTE -->
+                <article>
+                    {% include components/cardRc.html 
+                        cardRc__title = "Raspberry"
+                        cardRc__img = "/assets/img/composants/raspberry.png"
+                    %}
+                </article>
 
-            <!-- CARTE -->
-            {% include components/cardRc.html 
-                    cardRc__title = "Raspberry"
-                    cardRc__img = "/assets/img/composants/raspberry.png"
-                %}
+                <!-- CARTE -->
+                <article>
+                    {% include components/cardRc.html 
+                        cardRc__title = "2X Module IBT-2"
+                        cardRc__img = "/assets/img/composants/ibt2.png"
+                    %}
+                </article>
 
-            <!-- CARTE -->
-            {% include components/cardRc.html 
-                    cardRc__title = "2X Module IBT-2"
-                    cardRc__img = "/assets/img/composants/ibt2.png"
-                %}
+                <!-- CARTE -->
+                <article>
+                    {% include components/cardRc.html 
+                        cardRc__title = "Emetteur Récepteur sans Fil 2.4G 1100m NRF24L01+PA+LNA avec antenne KY67"
+                        cardRc__link = "/telecommande/emetteur-recepteur-radio.html"
+                        cardRc__img = "/assets/img/composants/emetteur-recepteur.png"
+                    %}
+                </article>
 
-            <!-- CARTE -->
-            {% include components/cardRc.html 
-                    cardRc__title = "Emetteur Récepteur sans Fil 2.4G 1100m NRF24L01+PA+LNA avec antenne KY67"
-                    cardRc__link = "/telecommande/emetteur-recepteur-radio.html"
-                    cardRc__img = "/assets/img/composants/emetteur-recepteur.png"
-                %}
+                <!-- CARTE -->
+                <article>
+                    {% include components/cardRc.html 
+                        cardRc__title = "Caméra infrarouge de vision nocturne"
+                        cardRc__img = "/assets/img/composants/camera.png"
+                    %}
+                </article>
 
-            <!-- CARTE -->
-            {% include components/cardRc.html 
-                    cardRc__title = "Caméra infrarouge de vision nocturne"
-                    cardRc__img = "/assets/img/composants/camera.png"
-                %}
+                <!-- CARTE -->
+                <article>
+                    {% include components/cardRc.html 
+                        cardRc__title = "Nappe pour raccordement caméra"
+                        cardRc__img = "/assets/img/composants/nappe.png"
+                    %}
+                </article>
 
-            <!-- CARTE -->
-            {% include components/cardRc.html 
-                    cardRc__title = "Nappe pour raccordement caméra"
-                    cardRc__img = "/assets/img/composants/nappe.png"
-                %}
+                <!-- CARTE -->
+                <article>
+                    {% include components/cardRc.html 
+                        cardRc__title = "Servomoteurs"
+                        cardRc__img = "/assets/img/composants/servomoteur.png"
+                    %}
+                </article>
 
-            <!-- CARTE -->
-            {% include components/cardRc.html 
-                    cardRc__title = "Servomoteurs"
-                    cardRc__img = "/assets/img/composants/servomoteur.png"
-                %}
+                <!-- CARTE -->
+                <article>
+                    {% include components/cardRc.html 
+                        cardRc__title = "MCP23017- utilise 2 broches I2C, pour ajouter 16 entrées/sorties à votre Arduino." 
+                        cardRc__img = "/assets/img/composants/MCP23017-chip.png"
+                    %}
+                </article>
 
-            <!-- CARTE -->
-            {% include components/cardRc.html 
-                    cardRc__title = "MCP23017- utilise 2 broches I2C, pour ajouter 16 entrées/sorties à votre Arduino." 
-                    cardRc__img = "/assets/img/composants/MCP23017-chip.png"
-                %}
+                <!-- CARTE -->
+                <article>
+                    {% include components/cardRc.html 
+                        cardRc__title = "Ecran LCD"
+                        cardRc__img = "/assets/img/composants/afficheur-lcd.png"
+                    %}
+                </article>
 
-            <!-- CARTE -->
-            {% include components/cardRc.html 
-                    cardRc__title = "Ecran LCD"
-                    cardRc__img = "/assets/img/composants/afficheur-lcd.png"
-                %}
+                <!-- CARTE -->
+                <article>
+                    {% include components/cardRc.html 
+                        cardRc__title = "Motoréducteur - 6V"
+                        cardRc__img = "/assets/img/composants/motoreducteur.png"
+                    %}
+                </article>
 
-            <!-- CARTE -->
-            {% include components/cardRc.html 
-                    cardRc__title = "Motoréducteur - 6V"
-                    cardRc__img = "/assets/img/composants/motoreducteur.png"
-                %}
+                <!-- CARTE -->
+                <article>
+                    {% include components/cardRc.html 
+                        cardRc__title ="Boitier piles 4 x 1,5V AA" 
+                        cardRc__img = "/assets/img/composants/boitier-piles.png"
+                    %}
+                </article>
 
-            <!-- CARTE -->
-            {% include components/cardRc.html 
-                    cardRc__title ="Boitier piles 4 x 1,5V AA" 
-                    cardRc__img = "/assets/img/composants/boitier-piles.png"
-                %}
+                <!-- CARTE -->
+                <article>
+                    {% include components/cardRc.html 
+                        cardRc__title = "Plaque de prototypage (Breadboard)"
+                        cardRc__img = "/assets/img/composants/breadboard.png"
+                    %}
+                </article>
 
-            <!-- CARTE -->
-            {% include components/cardRc.html 
-                    cardRc__title = "Plaque de prototypage (Breadboard)"
-                    cardRc__img = "/assets/img/composants/breadboard.png"
-                %}
+                <!-- CARTE -->
+                <article>
+                    {% include components/cardRc.html 
+                        cardRc__title = "Circuit imprimé 4x6cm"
+                        cardRc__img = "/assets/img/composants/plaquesasouder.png"
+                    %}
+                </article>
 
-            <!-- CARTE -->
-            {% include components/cardRc.html 
-                    cardRc__title = "Circuit imprimé 4x6cm"
-                    cardRc__img = "/assets/img/composants/plaquesasouder.png"
-                %}
+                <!-- CARTE -->
+                <article>
+                    {% include components/cardRc.html 
+                        cardRc__title =  "Cables pour plaque de prototypage"
+                        cardRc__img = "/assets/img/composants/cable.png"
+                    %}
+                </article>
 
-            <!-- CARTE -->
-            {% include components/cardRc.html 
-                    cardRc__title =  "Cables pour plaque de prototypage"
-                    cardRc__img = "/assets/img/composants/cable.png"
-                %}
+                <!-- CARTE -->
+                <article>
+                    {% include components/cardRc.html 
+                        cardRc__title = "Potentiomètres"
+                        cardRc__img = "/assets/img/composants/potentiometre.png"
+                    %}
+                </article>
 
-            <!-- CARTE -->
-            {% include components/cardRc.html 
-                    cardRc__title = "Potentiomètres"
-                    cardRc__img = "/assets/img/composants/potentiometre.png"
-                %}
+                <!-- CARTE -->
+                <article>
+                    {% include components/cardRc.html 
+                        cardRc__title = "Boutons pour potentiomètres"
+                        cardRc__img = "/assets/img/composants/Boutons-potentiometre.png"
+                    %}
+                </article>
 
-            <!-- CARTE -->
-            {% include components/cardRc.html 
-                    cardRc__title = "Boutons pour potentiomètres"
-                    cardRc__img = "/assets/img/composants/Boutons-potentiometre.png"
-                %}
+                <!-- CARTE -->
+                <article>
+                    {% include components/cardRc.html 
+                        cardRc__title = "Résistances"
+                        cardRc__img = "/assets/img/composants/resistances.png"
+                    %}
+                </article>
 
-            <!-- CARTE -->
-            {% include components/cardRc.html 
-                    cardRc__title = "Résistances"
-                    cardRc__img = "/assets/img/composants/resistances.png"
-                %}
+                <!-- CARTE -->
+                <article>
+                    {% include components/cardRc.html 
+                        cardRc__title = "Led"
+                        cardRc__img = "/assets/img/composants/led.png"
+                    %}
+                </article>
 
-            <!-- CARTE -->
-            {% include components/cardRc.html 
-                    cardRc__title = "Led"
-                    cardRc__img = "/assets/img/composants/led.png"
-                %}
-
-            <!-- CARTE -->
-            {% include components/cardRc.html 
-                    cardRc__title = "Pin strip Reglette a broches"
-                    cardRc__img = "/assets/img/composants/broches.png"
-                %}
-
-        </section>
-    </article>
-
-</main>
+                <!-- CARTE -->
+                <article>
+                    {% include components/cardRc.html 
+                        cardRc__title = "Pin strip Reglette a broches"
+                        cardRc__img = "/assets/img/composants/broches.png"
+                    %}
+                </article>
+            </div>
+        </div>
+    </div>
+</article>

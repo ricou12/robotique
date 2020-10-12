@@ -4,10 +4,10 @@
     /*
         EXEMPLE DE STRUCTURE 
          {
-            cookie:"Google Analytics",
+            cookie:"Google Analytics", // nom du cookies tel qu'il apparait dans 
             categorie: 'Audience&statistique',
             description: "Permet d'analyser les statistiques de consultation de notre site",
-            checked: false,
+            checked: false, // initialiser par defaut sur false
             script_src:"https://www.googletagmanager.com/gtag/js?id=UA-179257014-1",
             script_config: `
                 window.dataLayer = window.dataLayer || [];
@@ -169,7 +169,7 @@
         // Ecoute les évenements
         // Si l'utilisateur donne son consentement pour l'utilisation des l'ensemble des cookies
         document.getElementById('cookie-notice-accept').addEventListener("click", () => {
-            document.getElementById('cookie-root').style.animation = "fadeOutTopRight 1s";
+            document.getElementById('cookie-root').style.animation = "fadeOutDown 1s";
             setTimeout(function () {
                 // TODO Ajoute tout les cookies
                 let writeContentCookie = "Authorized";
@@ -184,7 +184,7 @@
 
         // Si l'utilisateur refuse l'utilisation de l'ensemble des cookies
         document.getElementById('cookie-notice-reject').addEventListener("click", () => {
-            document.getElementById('cookie-root').style.animation = "fadeOutTopRight 1s";
+            document.getElementById('cookie-root').style.animation = "fadeOutDown 1s";
             setTimeout(function () {
                 createCookie('cookie-notice-dismissed', "rejected", 31);
                 document.getElementById('cookie-root').style.display = 'none';
@@ -368,7 +368,7 @@
         });
 
         document.getElementById('createCookie').addEventListener('click', () => {
-            document.getElementById('cookie-root').style.animation = "fadeOutTopRight 1s";
+            document.getElementById('cookie-root').style.animation = "fadeOutDown 1s";
             setTimeout(function () {
                 // TODO Ajoute tout les cookies
                 let writeContentCookie = "Authorized";
@@ -384,44 +384,51 @@
         });
     }
 
+    // Si l'utilisateur souhaite modifier ses choix 
+    document.getElementById('showBoxCookies').addEventListener('click', () => {
+        document.getElementById('cookie-root').style.animation = "fadeInLeft 1s"; 
+        document.getElementById('cookie-root').style.display = 'flex';
+        document.getElementById('cookie-root').style.flexDirection = 'column';
+        loadFirstPage(); 
+    });
 
-   // au chargement de la page
+    // au chargement de la page
+    // Recherche et ouvre le cookie si il existe
+    const readFileCookieContent = readCookie('cookie-notice-dismissed');
+    // Si le cookie existe
+    if (readFileCookieContent) {
+        // Divise la chaîne de caractères à partir d'un séparateur pour fournir un tableau de sous-chaînes
+        const splitFileCookieContent = readFileCookieContent.split(',');
+        // Renvois le choix de l'utilisateur (accepte ou rejete l'utilisation de cookies)
+        const userChoice = splitFileCookieContent[0];
+        // Renvoi la liste des cookies autorisé
+        const userListCookie = splitFileCookieContent.slice(1);
+        // Si le cookie contient des données (indique le nombre d'éléments présents dans le tableau.)
+        if(splitFileCookieContent.length > 0) {
+            switch (userChoice){
+                case 'Authorized':
+                    checkedArrayCookies(userListCookie);
+                    injectScriptsHead();
+                    break;
 
-       // Recherche et ouvre le cookie si il existe
-        const readFileCookieContent = readCookie('cookie-notice-dismissed');
-        // Si le cookie existe
-        if (readFileCookieContent) {
-            // Divise la chaîne de caractères à partir d'un séparateur pour fournir un tableau de sous-chaînes
-            const splitFileCookieContent = readFileCookieContent.split(',');
-            // Renvois le choix de l'utilisateur (accepte ou rejete l'utilisation de cookies)
-            const userChoice = splitFileCookieContent[0];
-            // Renvoi la liste des cookies autorisé
-            const userListCookie = splitFileCookieContent.slice(1);
-            // Si le cookie contient des données (indique le nombre d'éléments présents dans le tableau.)
-            if(splitFileCookieContent.length > 0) {
-                switch (userChoice){
-                    case 'Authorized':
-                        checkedArrayCookies(userListCookie);
-                        injectScriptsHead();
-                        break;
+                case 'Rejected':
+                    // Ne fait rien laisse la modalCookies masqué.
+                    break;
 
-                    case 'Rejected':
-                        // Ne fait rien laisse la modalCookies masqué.
-                        break;
-
-                    default:
-                }
-            } else {
-                // le cookie est vide on le supprime.
-                eraseCookie('cookie-notice-dismissed');
+                default:
             }
         } else {
-            // Le cookies n'exite pas ou la valeur ne correspond pas alors on affiche le modalCookies
-            document.getElementById('cookie-root').style.display = 'flex';
-            document.getElementById('cookie-root').style.flexDirection = 'column';   
-        } 
+            // le cookie est vide on le supprime.
+            eraseCookie('cookie-notice-dismissed');
+        }
+    } else {
+        // Le cookies n'exite pas ou la valeur ne correspond pas alors on affiche le modalCookies
+        document.getElementById('cookie-root').style.display = 'flex';
+        document.getElementById('cookie-root').style.flexDirection = 'column';   
+    } 
 
-        // Charge la première page
-        loadFirstPage();
+    // Charge la première page
+    document.getElementById('cookie-root').style.animation = "fadeInLeft 1s"; 
+    loadFirstPage();
 
 </script>

@@ -5,8 +5,14 @@
         {%- include head.html -%}
     </head>
     <body>
-        {%- include navbar.html -%}
-        {{ content }}
+        <header>
+            {%- include navbar.html -%}
+        </header>
+
+        <main>
+            {{ content }}
+        </main>
+        
         {%- include footer.html -%}
 
         <!-- Inclus le modalCookies cacher par defaut, ajoute ou non le script de google analytics en fct du choix utilisateur -->

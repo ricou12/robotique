@@ -5,19 +5,19 @@ description: Découvrez la diodes électroluminescente, comment calculer la rés
 permalink: /telecommande/diode-electroluminescente.html
 ---
 
-<header class="container-fluid led">
-    <div class="row">
-        <div class="col-12  py-5 led__header">
-            <div class="text-center titre-header">
-                <h1 class="txtShadow--black txt-color--yellow py-4 text-uppercase">Diode électroluminescente</h1>
-                <h2 class="text-white txtShadow--black py-4">Alimentation d'une LED</h2>
+<article class="led">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12  py-5 led__header">
+                <div class="text-center titre-header">
+                    <h1 class="txtShadow--black txt-color--yellow py-4 text-uppercase">Diode électroluminescente</h1>
+                    <h2 class="text-white txtShadow--black py-4">Alimentation d'une LED</h2>
+                </div>
             </div>
         </div>
     </div>
-</header>
 
-<main class="container p-4 led">
-    <article>
+    <div class="container p-4">
         <section>
             <div class="row">
                 <div class="col-12">
@@ -82,12 +82,9 @@ permalink: /telecommande/diode-electroluminescente.html
         <section class="row mt-4">
             <div class="col-12">
                 <h3 class="txtShadow--white txt-color--raspberry">Calcul de la résistance</h3>
-            </div>
-            <div class="col-12">
                 <p>
                     Pour calculer de la résistance à appliquer sur un circuit : <span class="font-weight-bold">U = R X
                         I</span>
-
                     <ul>
                         <li>U : Tension en volts.</li>
                         <li>R : Résistance en ohms.</li>
@@ -95,6 +92,11 @@ permalink: /telecommande/diode-electroluminescente.html
                     </ul>
                 </p>
                 <p>Ce qui donne pour le calcul de la résistance : R = U / I</p>
+            </div>
+        </section>
+        
+        <section class="row mt-4">
+            <div class="col-12">
                 <h3 class="txtShadow--white txt-color--raspberry  mt-4">Mise en pratique</h3>
                 <img src="{{ '/assets/img/led/test-circuit.png' | relative_url }}" alt="Circuit">
                 <ul>
@@ -111,8 +113,9 @@ permalink: /telecommande/diode-electroluminescente.html
                 </p>
                 <p>R = (Ualim - Uled) / Iled</p>
                 <p>(5 - 2,2) / 0,02 = 140 ohms </p>
-                <img src="{{ '/assets/img/led/valeur-resistances.png' | relative_url }}" alt="Valeurs standards de résistances">
+                <img src="{{ '/assets/img/led/valeur-resistances.png' | relative_url }}"
+                    alt="Valeurs standards de résistances">
             </div>
         </section>
-    </article>
-</main>
+    </div>
+</article>
