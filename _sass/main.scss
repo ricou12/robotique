@@ -23,6 +23,7 @@ Creer un fichier .nojekyll à la racine du projet pour les github pages
 @import "components/boxVideoLinkURL";
 @import "components/modalRc";
 @import "components/cardRc";
+@import "components/cookiesManager";
 @import "play_button";
 @import "gisthub";
 @import 'default.scss';
@@ -42,4 +43,3 @@ Creer un fichier .nojekyll à la racine du projet pour les github pages
 @import "led";
 @import "charteForum";
 @import "mentions-legales";
-@import "components/modalCookies";
