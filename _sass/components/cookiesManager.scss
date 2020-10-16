@@ -10,7 +10,7 @@
         left: 15px;
         background-color: rgba(0, 0, 0, 0.9);
         z-index: 1050;
-        width: 350px;
+        width: 400px;
         border-radius: 5px;
         padding: 20px 20px 0 20px;
         overflow: hidden;
@@ -29,36 +29,6 @@
             padding: 5px;
             overflow: scroll;
             max-height: 150px;
-        }
-
-        // Taille des polices de caracteres
-        .ftsz-10 {
-            font-size: 1em;
-        }
-        
-        .ftsz-9 {
-            font-size: .9em;
-        }
-        
-        .ftsz-8 {
-            font-size: .8em;
-        }
-        
-        .ftsz-7 {
-            font-size: .7em;
-        }
-        
-        .ftsz-5 {
-            font-size: .5em;
-        }
-    
-        // Couleur des textes
-        .txt-color--raspberry {
-            color: rgb(197, 29, 74);
-        }
-
-        .txt-color--orange {
-            color: rgb(251, 117, 36);
         }
 
         @media screen and (max-width:575px) {
