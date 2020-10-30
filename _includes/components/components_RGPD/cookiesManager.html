@@ -1269,10 +1269,14 @@
         });
     }
 
-    // Injection des scripts dans l'en tete de la page
+    /* Injection des scripts dans l'en tete de la page */
     const addCookiesUrl = (url) => {
         var scriptCookiesUrl = document.createElement("script"); // create a script DOM node
         scriptCookiesUrl.src = url; //set its src to the provided URL
+        /*
+        Les scripts dynamiques se comportent comme «asynchrones» par défaut.
+        scriptCookiesUrl.async = true;
+        */
         document.head.appendChild(scriptCookiesUrl);
     }
 
